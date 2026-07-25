@@ -7,6 +7,7 @@
 cassidy-skills 是一个个人技能/工具仓库，包含：
 - **design-generator** - 前端界面生成 skill，支持品牌风格 + 自定义设计
 - **super-novelist** - 小说创作 skill，支持中英双语，全题材，长中短篇
+- **plain-prd** - 大众视角 PRD 生成 skill（去行话、可落地）
 - **docs/** - 设计规范和参考文档
 - **skills/** - 可分发的 .skill 安装包
 
@@ -29,11 +30,15 @@ cassidy-skills/
 │   │   ├── design-generator.skill  # 可分发安装包
 │   │   ├── SKILL.md                # skill 核心定义
 │   │   └── references/             # 品牌设计系统参考（66+）
-│   └── super-novelist/
-│       ├── super-novelist.skill    # 可分发安装包
+│   ├── super-novelist/
+│   │   ├── super-novelist.skill    # 可分发安装包
+│   │   ├── SKILL.md                # skill 核心定义
+│   │   ├── scripts/                # 字数检查等脚本
+│   │   └── references/             # 写作指南和流程文档
+│   └── plain-prd/
+│       ├── plain-prd.skill         # 可分发安装包
 │       ├── SKILL.md                # skill 核心定义
-│       ├── scripts/                # 字数检查等脚本
-│       └── references/             # 写作指南和流程文档
+│       └── references/             # 反行话词典 / PRD 模板 / 示例
 ```
 
 ## 开发说明
