@@ -1,4 +1,4 @@
-# cassidy-skills
+# sylvan-skills
 
 Personal skills and tools for Claude Code.
 
