@@ -8,6 +8,7 @@ cassidy-skills 是一个个人技能/工具仓库，包含：
 - **design-generator** - 前端界面生成 skill，支持品牌风格 + 自定义设计
 - **super-novelist** - 小说创作 skill，支持中英双语，全题材，长中短篇
 - **plain-prd** - 大众视角 PRD 生成 skill（去行话、可落地）
+- **danqing-figma-forge** - Figma 设计源文件创作 skill（非设计师端到端流程，内置 5 套默认风格方向库 + 中国色 DTCG token 基线）
 - **docs/** - 设计规范和参考文档
 - **skills/** - 可分发的 .skill 安装包
 
@@ -35,10 +36,13 @@ cassidy-skills/
 │   │   ├── SKILL.md                # skill 核心定义
 │   │   ├── scripts/                # 字数检查等脚本
 │   │   └── references/             # 写作指南和流程文档
-│   └── plain-prd/
+│   ├── plain-prd/
 │       ├── plain-prd.skill         # 可分发安装包
 │       ├── SKILL.md                # skill 核心定义
 │       └── references/             # 反行话词典 / PRD 模板 / 示例
+│   └── danqing-figma-forge/
+│       ├── SKILL.md                # skill 核心定义（端到端 Figma 创作流程）
+│       └── references/             # 设计哲学 / 中国色 token / 默认风格方向库 / Figma MCP 指南
 ```
 
 ## 开发说明
