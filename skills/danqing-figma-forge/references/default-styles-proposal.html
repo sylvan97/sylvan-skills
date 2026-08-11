@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>默认视觉风格方案 · 4 套提案</title>
+<style>
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;color:#1d1d1f;background:#fafafa;-webkit-font-smoothing:antialiased;}
+
+  /* 顶部说明 */
+  .masthead{max-width:1120px;margin:0 auto;padding:56px 32px 8px;}
+  .masthead h1{font-size:30px;font-weight:800;letter-spacing:.01em;margin:0 0 10px;}
+  .masthead p{font-size:15px;line-height:1.7;color:#555;max-width:760px;margin:0;}
+  .tagrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px;}
+  .tag{font-size:12px;padding:5px 12px;border-radius:999px;background:#eee;color:#444;}
+
+  /* 每个方案：整条色带承载该风格的"默认底" */
+  .scheme{padding:54px 32px;margin-top:40px;border-top:1px solid #ececec;}
+  .wrap{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:0.95fr 1.05fr;gap:44px;align-items:start;}
+  @media(max-width:860px){.wrap{grid-template-columns:1fr;gap:28px;}}
+
+  .copy h2{font-size:23px;font-weight:800;margin:0 0 4px;letter-spacing:.01em;}
+  .copy .en{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.6;display:block;margin-bottom:14px;}
+  .copy .lead{font-size:14.5px;line-height:1.75;margin:0 0 18px;}
+  .copy h3{font-size:13px;font-weight:700;margin:20px 0 8px;letter-spacing:.02em;}
+  .copy ul{margin:0;padding-left:18px;}
+  .copy li{font-size:13.5px;line-height:1.7;margin-bottom:6px;}
+  .copy .why{margin-top:18px;padding:12px 14px;border-radius:10px;font-size:12.5px;line-height:1.65;}
+
+  /* 视觉样张通用 */
+  .stage{border-radius:16px;padding:22px;overflow:hidden;}
+  .pal{display:flex;gap:8px;margin-bottom:18px;}
+  .sw{flex:1;height:62px;border-radius:9px;position:relative;border:1px solid rgba(0,0,0,.08);}
+  .sw span{position:absolute;left:0;right:0;bottom:6px;text-align:center;font:10px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.02em;}
+  .spec{margin-bottom:18px;}
+  .spec .display{font-size:44px;line-height:1.05;font-weight:800;margin-bottom:8px;}
+  .spec .body{font-size:13px;line-height:1.6;opacity:.85;margin-bottom:10px;}
+  .spec .meta{font:10.5px ui-monospace,monospace;letter-spacing:.14em;text-transform:uppercase;opacity:.7;}
+  .ui{display:flex;gap:10px;align-items:center;margin-bottom:18px;flex-wrap:wrap;}
+  .ui .btn{font-size:13px;font-weight:700;padding:10px 18px;border-radius:8px;border:none;cursor:pointer;}
+  .ui .inp{flex:1;min-width:150px;font-size:13px;padding:10px 12px;border-radius:8px;font-family:ui-monospace,monospace;}
+  .minicard{border-radius:12px;padding:14px 16px;font-size:13px;line-height:1.6;}
+  .minicard b{display:block;font-size:14px;margin-bottom:4px;}
+
+  /* ===== 方案 1 · 报章活字 Editorial Ink（浅色）===== */
+  .ink{background:#F7F4EC;color:#1A1714;}
+  .ink .copy .why{background:#efe9dc;color:#5a5246;}
+  .ink .stage{background:#FBF9F3;border:1px solid #E2DAC9;}
+  .ink .spec .display{font-family:"Songti SC","Noto Serif SC",serif;}
+  .ink .ui .btn{background:#E2402A;color:#fff;}
+  .ink .ui .inp{background:#fff;color:#1A1714;border:1px solid #C9C0B0;}
+  .ink .minicard{background:#fff;border:1px solid #D9D2C5;border-top:3px solid #E2402A;}
+
+  /* ===== 方案 2 · 暗金极简 Obsidian Luxe（深色）===== */
+  .obs{background:#0E0E10;color:#EDEAE3;}
+  .obs .copy .why{background:#16161A;color:#B9B4A8;}
+  .obs .stage{background:#16161A;border:1px solid #2A2A30;}
+  .obs .spec .display{color:#C9A86A;letter-spacing:.02em;}
+  .obs .ui .btn{background:#C9A86A;color:#0E0E10;letter-spacing:.04em;}
+  .obs .ui .inp{background:#0E0E10;color:#EDEAE3;border:1px solid #2A2A30;}
+  .obs .minicard{background:#16161A;border:1px solid #2A2A30;border-top:2px solid #C9A86A;}
+
+  /* ===== 方案 3 · 瑞士网格 Swiss Grid（浅色）===== */
+  .swiss{background:#FFFFFF;color:#0A0A0A;}
+  .swiss .copy .why{background:#F2F2F2;color:#555;}
+  .swiss .stage{background:#FFFFFF;border:1px solid #0A0A0A;background-image:linear-gradient(#ECECEC 1px,transparent 1px),linear-gradient(90deg,#ECECEC 1px,transparent 1px);background-size:24px 24px;}
+  .swiss .spec .display{font-weight:800;letter-spacing:-.02em;color:#0A0A0A;}
+  .swiss .spec .meta{color:#1A2BDD;}
+  .swiss .ui .btn{background:#1A2BDD;color:#fff;letter-spacing:.02em;}
+  .swiss .ui .inp{background:#fff;color:#0A0A0A;border:1px solid #0A0A0A;font-family:ui-monospace,monospace;}
+  .swiss .minicard{background:#fff;border:1px solid #0A0A0A;border-left:6px solid #1A2BDD;}
+
+  /* ===== 方案 4 · 果酱撞色 Jam Pop（浅色奶油）===== */
+  .jam{background:#FFFDF6;color:#14110D;}
+  .jam .copy .why{background:#FFF4D6;color:#6b5a2e;}
+  .jam .stage{background:#FFFDF6;border:2px solid #14110D;}
+  .jam .spec .display{color:#3A6FF7;}
+  .jam .ui .btn{background:#3A6FF7;color:#fff;border:2px solid #14110D;box-shadow:4px 4px 0 #14110D;border-radius:12px;}
+  .jam .ui .inp{background:#fff;color:#14110D;border:2px solid #14110D;border-radius:12px;font-family:ui-monospace,monospace;}
+  .jam .minicard{background:#fff;border:2px solid #14110D;border-left:8px solid #FFB020;border-radius:12px;}
+
+  .footer{max-width:1120px;margin:0 auto;padding:40px 32px 80px;color:#777;font-size:13px;line-height:1.7;}
+  .footer b{color:#333;}
+</style>
+</head>
+<body>
+
+  <div class="masthead">
+    <h1>默认视觉风格方案 · 4 套提案</h1>
+    <p>目标：重新设计一套「默认风格」，既要有鲜明记忆点、敢于突破保守安全，又要保留默认风格应有的普适性与开箱即用。以下 4 套方向各异，均可在亮/暗主流场景直接套用，不依赖任何外部素材。</p>
+    <div class="tagrow">
+      <span class="tag"># 突破保守</span>
+      <span class="tag"># 有记忆点</span>
+      <span class="tag"># 普适可用</span>
+      <span class="tag"># 开箱即用</span>
+      <span class="tag"># AA 可读性</span>
+    </div>
+  </div>
+
+  <!-- 方案 1 -->
+  <section class="scheme ink">
+    <div class="wrap">
+      <div class="copy">
+        <span class="en">Scheme 01</span>
+        <h2>报章活字 · Editorial Ink</h2>
+        <p class="lead">把"默认"做成一本讲究的印刷品。暖白纸底 + 近黑墨色，只用一道信号红承担所有强调；标题用衬线建立权威，元数据用等宽字体标注，像报纸的栏目分隔线一样用细规线切分区域。</p>
+        <h3>核心视觉特征</h3>
+        <ul>
+          <li>暖纸底 <code>#F7F4EC</code> 替代纯白，长时间阅读更耐看</li>
+          <li>衬线大标题（宋体/Noto Serif）+ 等宽标注，形成"印刷"语感</li>
+          <li>红色仅作信号色：栏目分隔线、关键按钮、强调数字</li>
+          <li>发丝级规线（hairline rule）切分区块，克制不喧哗</li>
+        </ul>
+        <div class="why"><b>为何能当默认：</b>暖纸+墨色是内容类产品最稳妥的底；信号红用量极少，不会审美疲劳；系统字体即可呈现，零素材依赖，CMS / 文档 / 后台都能直接套。</div>
+      </div>
+      <div class="stage">
+        <div class="pal">
+          <div class="sw" style="background:#F7F4EC"><span>#F7F4EC</span></div>
+          <div class="sw" style="background:#1A1714"><span style="color:#fff">#1A1714</span></div>
+          <div class="sw" style="background:#E2402A"><span style="color:#fff">#E2402A</span></div>
+          <div class="sw" style="background:#8A8175"><span style="color:#fff">#8A8175</span></div>
+          <div class="sw" style="background:#D9D2C5"><span>#D9D2C5</span></div>
+        </div>
+        <div class="spec">
+          <div class="display">字　体</div>
+          <div class="body">正文示例：清晰、克制、可读——默认风格也可以有脾气。</div>
+          <div class="meta">Section · 01 · Editorial</div>
+        </div>
+        <div class="ui">
+          <button class="btn">主操作</button>
+          <input class="inp" value="search@editorial.ink" />
+        </div>
+        <div class="minicard"><b>今日要闻</b>一条细规线，把信息讲得清清楚楚。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 方案 2 -->
+  <section class="scheme obs">
+    <div class="wrap">
+      <div class="copy">
+        <span class="en">Scheme 02</span>
+        <h2>暗金极简 · Obsidian Luxe</h2>
+        <p class="lead">把"默认暗色"做成一块被打磨过的黑曜石。近黑底 + 香槟金发丝线，金色只用于关键描边、主按钮与焦点环；大量留白与极细分割线，营造克制的奢华感。</p>
+        <h3>核心视觉特征</h3>
+        <ul>
+          <li>近黑底 <code>#0E0E10</code> + 香槟金 <code>#C9A86A</code> 单一金属色</li>
+          <li>1px 金色发丝线切分区块，替代粗边框</li>
+          <li>焦点环 / 主按钮用金，其余皆墨阶灰</li>
+          <li>大量负空间，靠留白与材质感立住高级调性</li>
+        </ul>
+        <div class="why"><b>为何能当默认：</b>中性暗底 + 单一金属强调，任何品类都不违和；金色用量极少，久看不腻；高对比正文满足 AA，适合高端品牌、金融、媒体夜间场景。</div>
+      </div>
+      <div class="stage">
+        <div class="pal">
+          <div class="sw" style="background:#0E0E10"><span>#0E0E10</span></div>
+          <div class="sw" style="background:#16161A"><span>#16161A</span></div>
+          <div class="sw" style="background:#C9A86A"><span style="color:#0E0E10">#C9A86A</span></div>
+          <div class="sw" style="background:#2A2A30"><span>#2A2A30</span></div>
+          <div class="sw" style="background:#EDEAE3"><span style="color:#0E0E10">#EDEAE3</span></div>
+        </div>
+        <div class="spec">
+          <div class="display">LUxE</div>
+          <div class="body">正文示例：暗，但被金线打磨出质感。</div>
+          <div class="meta">Obsidian · Gold hairline</div>
+        </div>
+        <div class="ui">
+          <button class="btn">主操作</button>
+          <input class="inp" value="account@luxe.dark" />
+        </div>
+        <div class="minicard"><b>金线卡</b>一道金边，足矣。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 方案 3 -->
+  <section class="scheme swiss">
+    <div class="wrap">
+      <div class="copy">
+        <span class="en">Scheme 03</span>
+        <h2>瑞士网格 · Swiss Grid</h2>
+        <p class="lead">把界面交给国际主义排版。纯白底 + 近黑字 + 一道克莱因蓝，严格模数网格与超大无衬线标题，靠结构与字号建立秩序，不靠装饰。</p>
+        <h3>核心视觉特征</h3>
+        <ul>
+          <li>纯白 <code>#FFFFFF</code> + 近黑 <code>#0A0A0A</code> + 克莱因蓝 <code>#1A2BDD</code></li>
+          <li>24px 模数网格贯穿，区块用规线对齐</li>
+          <li>超大紧排无衬线标题，字号即层级</li>
+          <li>蓝色只作强调与链接，其余纯黑白</li>
+        </ul>
+        <div class="why"><b>为何能当默认：</b>黑白蓝是最稳的"设计系统"底色，网格让任何布局都立得住；无衬线系统字体即呈现，零素材；后台、SaaS、文档、官网皆可套，专业且不无聊。</div>
+      </div>
+      <div class="stage">
+        <div class="pal">
+          <div class="sw" style="background:#FFFFFF"><span style="color:#0A0A0A">#FFFFFF</span></div>
+          <div class="sw" style="background:#0A0A0A"><span style="color:#fff">#0A0A0A</span></div>
+          <div class="sw" style="background:#1A2BDD"><span style="color:#fff">#1A2BDD</span></div>
+          <div class="sw" style="background:#ECECEC"><span style="color:#0A0A0A">#ECECEC</span></div>
+          <div class="sw" style="background:#555555"><span style="color:#fff">#555555</span></div>
+        </div>
+        <div class="spec">
+          <div class="display">GRID</div>
+          <div class="body">正文示例：结构即风格，字号即层级。</div>
+          <div class="meta">Swiss · International Type</div>
+        </div>
+        <div class="ui">
+          <button class="btn">主操作</button>
+          <input class="inp" value="grid / default.theme" />
+        </div>
+        <div class="minicard"><b>网格卡</b>蓝边锚定，一切对齐。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 方案 4 -->
+  <section class="scheme jam">
+    <div class="wrap">
+      <div class="copy">
+        <span class="en">Scheme 04</span>
+        <h2>果酱撞色 · Jam Pop</h2>
+        <p class="lead">把"默认"做得像一张手感贴纸。奶油底上三色果酱块（草莓红 / 蓝莓蓝 / 芒果黄）大胆并列，所有可点元素带实色硬阴影（无模糊偏移），粗圆角、粗黑描边，友好但有态度。</p>
+        <h3>核心视觉特征</h3>
+        <ul>
+          <li>奶油底 <code>#FFFDF6</code> 托住三色果酱块，不脏不花</li>
+          <li>实色硬阴影（solid offset shadow）：像贴纸，有手感</li>
+          <li>粗黑描边 + 粗圆角，撞色只用在块与按钮</li>
+          <li>草莓/蓝莓/芒果三色各自主导一类元素，秩序清晰</li>
+        </ul>
+        <div class="why"><b>为何能当默认：</b>硬阴影是纯 CSS 盒阴影（无模糊），渲染便宜；三色分工明确（红=警示/强调、蓝=主操作、黄=信息），不靠颜色单独传意；消费 / 教育 / 工具类产品都能驾驭，且儿童与成人都亲和。</div>
+      </div>
+      <div class="stage">
+        <div class="pal">
+          <div class="sw" style="background:#FFFDF6"><span>#FFFDF6</span></div>
+          <div class="sw" style="background:#FF4D5E"><span style="color:#fff">#FF4D5E</span></div>
+          <div class="sw" style="background:#3A6FF7"><span style="color:#fff">#3A6FF7</span></div>
+          <div class="sw" style="background:#FFB020"><span style="color:#14110D">#FFB020</span></div>
+          <div class="sw" style="background:#14110D"><span style="color:#fff">#14110D</span></div>
+        </div>
+        <div class="spec">
+          <div class="display">POP!</div>
+          <div class="body">正文示例：友好，但有态度，不幼稚。</div>
+          <div class="meta">Sticker · 04 · Hard shadow</div>
+        </div>
+        <div class="ui">
+          <button class="btn">开始</button>
+          <input class="inp" value="hello@jam.pop" />
+        </div>
+        <div class="minicard"><b>贴纸卡</b>芒果色块 + 粗黑边，一秒识别。</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer">
+    <b>交付说明：</b>以上 4 套均为"提案级"默认风格，已在各自色带内渲染了配色、字体样张、按钮/输入框与卡片，可直接感受语言差异。共性约束：正文对比度满足 WCAG AA；状态不以颜色单独传达（辅以文字/图标）；动效尊重 <code>prefers-reduced-motion</code>。下一步可任选一套深化为正式 Token 集 + 组件库（含亮/暗双主题与跨端 delta）。
+  </div>
+
+</body>
+</html>

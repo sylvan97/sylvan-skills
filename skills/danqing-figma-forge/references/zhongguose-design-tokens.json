@@ -1,0 +1,3367 @@
+{
+  "$description": "中国色 (zhongguose.com) 三层 Design Token 系统：原始层 / 语义层 / 组件层，含 Light + Dark 双主题",
+  "$metadata": {
+    "tokenSetOrder": [
+      "global",
+      "dark"
+    ]
+  },
+  "$themes": [
+    {
+      "id": "light",
+      "name": "Light",
+      "selected": true,
+      "group": "Default",
+      "tokenSetOrder": [
+        "global"
+      ]
+    },
+    {
+      "id": "dark",
+      "name": "Dark",
+      "selected": false,
+      "group": "Default",
+      "tokenSetOrder": [
+        "global",
+        "dark"
+      ]
+    }
+  ],
+  "global": {
+    "color": {
+      "rubai": {
+        "$value": "#f9f4dc",
+        "$type": "color",
+        "$description": "乳白"
+      },
+      "xingrenhuang": {
+        "$value": "#f7e8aa",
+        "$type": "color",
+        "$description": "杏仁黄"
+      },
+      "molihuang": {
+        "$value": "#f8df72",
+        "$type": "color",
+        "$description": "茉莉黄"
+      },
+      "maiganhuang": {
+        "$value": "#f8df70",
+        "$type": "color",
+        "$description": "麦秆黄"
+      },
+      "youcaihuahuang": {
+        "$value": "#fbda41",
+        "$type": "color",
+        "$description": "油菜花黄"
+      },
+      "foshouhuang": {
+        "$value": "#fed71a",
+        "$type": "color",
+        "$description": "佛手黄"
+      },
+      "miehuang": {
+        "$value": "#f7de98",
+        "$type": "color",
+        "$description": "篾黄"
+      },
+      "kuishanhuang": {
+        "$value": "#f8d86a",
+        "$type": "color",
+        "$description": "葵扇黄"
+      },
+      "ningmenghuang": {
+        "$value": "#fcd337",
+        "$type": "color",
+        "$description": "柠檬黄"
+      },
+      "jinguahuang": {
+        "$value": "#fcd217",
+        "$type": "color",
+        "$description": "金瓜黄"
+      },
+      "tenghuang": {
+        "$value": "#ffd111",
+        "$type": "color",
+        "$description": "藤黄"
+      },
+      "laohuang": {
+        "$value": "#f6dead",
+        "$type": "color",
+        "$description": "酪黄"
+      },
+      "xiangshuimeiguihuang": {
+        "$value": "#f7da94",
+        "$type": "color",
+        "$description": "香水玫瑰黄"
+      },
+      "danmihuang": {
+        "$value": "#f9d367",
+        "$type": "color",
+        "$description": "淡密黄"
+      },
+      "dadouhuang": {
+        "$value": "#fbcd31",
+        "$type": "color",
+        "$description": "大豆黄"
+      },
+      "suxinhuang": {
+        "$value": "#fccb16",
+        "$type": "color",
+        "$description": "素馨黄"
+      },
+      "xiangrikuihuang": {
+        "$value": "#fecc11",
+        "$type": "color",
+        "$description": "向日葵黄"
+      },
+      "yalihuang": {
+        "$value": "#fbc82f",
+        "$type": "color",
+        "$description": "雅梨黄"
+      },
+      "huanglianhuang": {
+        "$value": "#fcc515",
+        "$type": "color",
+        "$description": "黄连黄"
+      },
+      "jinzhanhuang": {
+        "$value": "#fcc307",
+        "$type": "color",
+        "$description": "金盏黄"
+      },
+      "dankehuang": {
+        "$value": "#f8c387",
+        "$type": "color",
+        "$description": "蛋壳黄"
+      },
+      "rouse": {
+        "$value": "#f7c173",
+        "$type": "color",
+        "$description": "肉色"
+      },
+      "ezhanghuang": {
+        "$value": "#fbb929",
+        "$type": "color",
+        "$description": "鹅掌黄"
+      },
+      "jidanhuang": {
+        "$value": "#fbb612",
+        "$type": "color",
+        "$description": "鸡蛋黄"
+      },
+      "youhuang": {
+        "$value": "#fcb70a",
+        "$type": "color",
+        "$description": "鼬黄"
+      },
+      "liuehuang": {
+        "$value": "#f9a633",
+        "$type": "color",
+        "$description": "榴萼黄"
+      },
+      "danjucheng": {
+        "$value": "#fba414",
+        "$type": "color",
+        "$description": "淡橘橙"
+      },
+      "pipahuang": {
+        "$value": "#fca106",
+        "$type": "color",
+        "$description": "枇杷黄"
+      },
+      "chengpihuang": {
+        "$value": "#fca104",
+        "$type": "color",
+        "$description": "橙皮黄"
+      },
+      "beiguahuang": {
+        "$value": "#fc8c23",
+        "$type": "color",
+        "$description": "北瓜黄"
+      },
+      "xinghuang": {
+        "$value": "#f28e16",
+        "$type": "color",
+        "$description": "杏黄"
+      },
+      "xionghuang": {
+        "$value": "#ff9900",
+        "$type": "color",
+        "$description": "雄黄"
+      },
+      "wanshoujuhuang": {
+        "$value": "#fb8b05",
+        "$type": "color",
+        "$description": "万寿菊黄"
+      },
+      "juleibai": {
+        "$value": "#e9ddb6",
+        "$type": "color",
+        "$description": "菊蕾白"
+      },
+      "qiukuihuang": {
+        "$value": "#eed045",
+        "$type": "color",
+        "$description": "秋葵黄"
+      },
+      "liuhuahuang": {
+        "$value": "#f2ce2b",
+        "$type": "color",
+        "$description": "硫华黄"
+      },
+      "youhuang-2": {
+        "$value": "#f1ca17",
+        "$type": "color",
+        "$description": "柚黄"
+      },
+      "mangguohuang": {
+        "$value": "#ddc871",
+        "$type": "color",
+        "$description": "芒果黄"
+      },
+      "haohuang": {
+        "$value": "#dfc243",
+        "$type": "color",
+        "$description": "蒿黄"
+      },
+      "jianghuang": {
+        "$value": "#e2c027",
+        "$type": "color",
+        "$description": "姜黄"
+      },
+      "xiangjiaohuang": {
+        "$value": "#e4bf11",
+        "$type": "color",
+        "$description": "香蕉黄"
+      },
+      "caohuang": {
+        "$value": "#d2b42c",
+        "$type": "color",
+        "$description": "草黄"
+      },
+      "xinhelv": {
+        "$value": "#d2b116",
+        "$type": "color",
+        "$description": "新禾绿"
+      },
+      "yuehui": {
+        "$value": "#b7ae8f",
+        "$type": "color",
+        "$description": "月灰"
+      },
+      "danhuilv": {
+        "$value": "#ad9e5f",
+        "$type": "color",
+        "$description": "淡灰绿"
+      },
+      "caohuilv": {
+        "$value": "#8e804b",
+        "$type": "color",
+        "$description": "草灰绿"
+      },
+      "tailv": {
+        "$value": "#887322",
+        "$type": "color",
+        "$description": "苔绿"
+      },
+      "biluochunlv": {
+        "$value": "#867018",
+        "$type": "color",
+        "$description": "碧螺春绿"
+      },
+      "yanyuhui": {
+        "$value": "#685e48",
+        "$type": "color",
+        "$description": "燕羽灰"
+      },
+      "xiekehui": {
+        "$value": "#695e45",
+        "$type": "color",
+        "$description": "蟹壳灰"
+      },
+      "tanshuilv": {
+        "$value": "#645822",
+        "$type": "color",
+        "$description": "潭水绿"
+      },
+      "ganlanlv": {
+        "$value": "#5e5314",
+        "$type": "color",
+        "$description": "橄榄绿"
+      },
+      "bangroubai": {
+        "$value": "#f9f1db",
+        "$type": "color",
+        "$description": "蚌肉白"
+      },
+      "douzhihuang": {
+        "$value": "#f8e8c1",
+        "$type": "color",
+        "$description": "豆汁黄"
+      },
+      "danjianhuang": {
+        "$value": "#f9d770",
+        "$type": "color",
+        "$description": "淡茧黄"
+      },
+      "ruyahuang": {
+        "$value": "#ffc90c",
+        "$type": "color",
+        "$description": "乳鸭黄"
+      },
+      "liroubai": {
+        "$value": "#f2e6ce",
+        "$type": "color",
+        "$description": "荔肉白"
+      },
+      "xiangyahuang": {
+        "$value": "#f0d695",
+        "$type": "color",
+        "$description": "象牙黄"
+      },
+      "chaomihuang": {
+        "$value": "#f4ce69",
+        "$type": "color",
+        "$description": "炒米黄"
+      },
+      "yingwuguanhuang": {
+        "$value": "#f6c430",
+        "$type": "color",
+        "$description": "鹦鹉冠黄"
+      },
+      "muguahuang": {
+        "$value": "#f9c116",
+        "$type": "color",
+        "$description": "木瓜黄"
+      },
+      "qianlaohuang": {
+        "$value": "#f9bd10",
+        "$type": "color",
+        "$description": "浅烙黄"
+      },
+      "lianzibai": {
+        "$value": "#e5d3aa",
+        "$type": "color",
+        "$description": "莲子白"
+      },
+      "guhuang": {
+        "$value": "#e8b004",
+        "$type": "color",
+        "$description": "谷黄"
+      },
+      "zhizihuang": {
+        "$value": "#ebb10d",
+        "$type": "color",
+        "$description": "栀子黄"
+      },
+      "jiehuang": {
+        "$value": "#d9a40e",
+        "$type": "color",
+        "$description": "芥黄"
+      },
+      "yinshuhui": {
+        "$value": "#b5aa90",
+        "$type": "color",
+        "$description": "银鼠灰"
+      },
+      "chenhui": {
+        "$value": "#b6a476",
+        "$type": "color",
+        "$description": "尘灰"
+      },
+      "kulv": {
+        "$value": "#b78d12",
+        "$type": "color",
+        "$description": "枯绿"
+      },
+      "jiaoqing": {
+        "$value": "#87723e",
+        "$type": "color",
+        "$description": "鲛青"
+      },
+      "zongyelv": {
+        "$value": "#876818",
+        "$type": "color",
+        "$description": "粽叶绿"
+      },
+      "huilv": {
+        "$value": "#8a6913",
+        "$type": "color",
+        "$description": "灰绿"
+      },
+      "hehui": {
+        "$value": "#4a4035",
+        "$type": "color",
+        "$description": "鹤灰"
+      },
+      "dansongyan": {
+        "$value": "#4d4030",
+        "$type": "color",
+        "$description": "淡松烟"
+      },
+      "anhaishuilv": {
+        "$value": "#584717",
+        "$type": "color",
+        "$description": "暗海水绿"
+      },
+      "zonglvlv": {
+        "$value": "#5b4913",
+        "$type": "color",
+        "$description": "棕榈绿"
+      },
+      "mise": {
+        "$value": "#f9e9cd",
+        "$type": "color",
+        "$description": "米色"
+      },
+      "danrouse": {
+        "$value": "#f8e0b0",
+        "$type": "color",
+        "$description": "淡肉色"
+      },
+      "maiyatanghuang": {
+        "$value": "#f9d27d",
+        "$type": "color",
+        "$description": "麦芽糖黄"
+      },
+      "hupohuang": {
+        "$value": "#feba07",
+        "$type": "color",
+        "$description": "琥珀黄"
+      },
+      "gancaohuang": {
+        "$value": "#f3bf4c",
+        "$type": "color",
+        "$description": "甘草黄"
+      },
+      "chushuxinghuang": {
+        "$value": "#f8bc31",
+        "$type": "color",
+        "$description": "初熟杏黄"
+      },
+      "qiantuose": {
+        "$value": "#e2c17c",
+        "$type": "color",
+        "$description": "浅驼色"
+      },
+      "shashihuang": {
+        "$value": "#e5b751",
+        "$type": "color",
+        "$description": "沙石黄"
+      },
+      "hupihuang": {
+        "$value": "#eaad1a",
+        "$type": "color",
+        "$description": "虎皮黄"
+      },
+      "tuhuang": {
+        "$value": "#d6a01d",
+        "$type": "color",
+        "$description": "土黄"
+      },
+      "bailingniaohui": {
+        "$value": "#b4a992",
+        "$type": "color",
+        "$description": "百灵鸟灰"
+      },
+      "shanjihuang": {
+        "$value": "#b78b26",
+        "$type": "color",
+        "$description": "山鸡黄"
+      },
+      "guibeihuang": {
+        "$value": "#826b48",
+        "$type": "color",
+        "$description": "龟背黄"
+      },
+      "canghuang": {
+        "$value": "#806332",
+        "$type": "color",
+        "$description": "苍黄"
+      },
+      "laiyanglihuang": {
+        "$value": "#815f25",
+        "$type": "color",
+        "$description": "莱阳梨黄"
+      },
+      "yililv": {
+        "$value": "#835e1d",
+        "$type": "color",
+        "$description": "蜴蜊绿"
+      },
+      "songshuhui": {
+        "$value": "#4f4032",
+        "$type": "color",
+        "$description": "松鼠灰"
+      },
+      "ganlanhui": {
+        "$value": "#503e2a",
+        "$type": "color",
+        "$description": "橄榄灰"
+      },
+      "xiekelv": {
+        "$value": "#513c20",
+        "$type": "color",
+        "$description": "蟹壳绿"
+      },
+      "gutonglv": {
+        "$value": "#533c1b",
+        "$type": "color",
+        "$description": "古铜绿"
+      },
+      "jiaochalv": {
+        "$value": "#553b18",
+        "$type": "color",
+        "$description": "焦茶绿"
+      },
+      "fenbai": {
+        "$value": "#fbf2e3",
+        "$type": "color",
+        "$description": "粉白"
+      },
+      "luoyingdanfen": {
+        "$value": "#f9e8d0",
+        "$type": "color",
+        "$description": "落英淡粉"
+      },
+      "guarangfen": {
+        "$value": "#f9cb8b",
+        "$type": "color",
+        "$description": "瓜瓤粉"
+      },
+      "mihuang": {
+        "$value": "#fbb957",
+        "$type": "color",
+        "$description": "蜜黄"
+      },
+      "jinyehuang": {
+        "$value": "#ffa60f",
+        "$type": "color",
+        "$description": "金叶黄"
+      },
+      "jinyinghuang": {
+        "$value": "#f4a83a",
+        "$type": "color",
+        "$description": "金莺黄"
+      },
+      "lujiaozong": {
+        "$value": "#e3bd8d",
+        "$type": "color",
+        "$description": "鹿角棕"
+      },
+      "diaoyezong": {
+        "$value": "#e7a23f",
+        "$type": "color",
+        "$description": "凋叶棕"
+      },
+      "daimaohuang": {
+        "$value": "#daa45a",
+        "$type": "color",
+        "$description": "玳瑁黄"
+      },
+      "ruanmuhuang": {
+        "$value": "#de9e44",
+        "$type": "color",
+        "$description": "软木黄"
+      },
+      "fengfanhuang": {
+        "$value": "#dc9123",
+        "$type": "color",
+        "$description": "风帆黄"
+      },
+      "guipidanzong": {
+        "$value": "#c09351",
+        "$type": "color",
+        "$description": "桂皮淡棕"
+      },
+      "houmaohui": {
+        "$value": "#97846c",
+        "$type": "color",
+        "$description": "猴毛灰"
+      },
+      "shanjihe": {
+        "$value": "#986524",
+        "$type": "color",
+        "$description": "山鸡褐"
+      },
+      "tuose": {
+        "$value": "#66462a",
+        "$type": "color",
+        "$description": "驼色"
+      },
+      "chahe": {
+        "$value": "#5d3d21",
+        "$type": "color",
+        "$description": "茶褐"
+      },
+      "gutonghe": {
+        "$value": "#5c3719",
+        "$type": "color",
+        "$description": "古铜褐"
+      },
+      "hehuabai": {
+        "$value": "#fbecde",
+        "$type": "color",
+        "$description": "荷花白"
+      },
+      "meiguifen": {
+        "$value": "#f8b37f",
+        "$type": "color",
+        "$description": "玫瑰粉"
+      },
+      "jucheng": {
+        "$value": "#f97d1c",
+        "$type": "color",
+        "$description": "橘橙"
+      },
+      "meirenjiaocheng": {
+        "$value": "#fa7e23",
+        "$type": "color",
+        "$description": "美人焦橙"
+      },
+      "runhong": {
+        "$value": "#f7cdbc",
+        "$type": "color",
+        "$description": "润红"
+      },
+      "dantaohong": {
+        "$value": "#f6cec1",
+        "$type": "color",
+        "$description": "淡桃红"
+      },
+      "hailuocheng": {
+        "$value": "#f0945d",
+        "$type": "color",
+        "$description": "海螺橙"
+      },
+      "taohong": {
+        "$value": "#f0ada0",
+        "$type": "color",
+        "$description": "桃红"
+      },
+      "jiahong": {
+        "$value": "#eeaa9c",
+        "$type": "color",
+        "$description": "颊红"
+      },
+      "danyingsuhong": {
+        "$value": "#eea08c",
+        "$type": "color",
+        "$description": "淡罂粟红"
+      },
+      "chenxihong": {
+        "$value": "#ea8958",
+        "$type": "color",
+        "$description": "晨曦红"
+      },
+      "xiekehong": {
+        "$value": "#f27635",
+        "$type": "color",
+        "$description": "蟹壳红"
+      },
+      "jinlianhuacheng": {
+        "$value": "#f86b1d",
+        "$type": "color",
+        "$description": "金莲花橙"
+      },
+      "caomeihong": {
+        "$value": "#ef6f48",
+        "$type": "color",
+        "$description": "草莓红"
+      },
+      "longjingyuhong": {
+        "$value": "#ef632b",
+        "$type": "color",
+        "$description": "龙睛鱼红"
+      },
+      "qingtinghong": {
+        "$value": "#f1441d",
+        "$type": "color",
+        "$description": "蜻蜓红"
+      },
+      "dahong": {
+        "$value": "#f04b22",
+        "$type": "color",
+        "$description": "大红"
+      },
+      "shihong": {
+        "$value": "#f2481b",
+        "$type": "color",
+        "$description": "柿红"
+      },
+      "liuhuahong": {
+        "$value": "#f34718",
+        "$type": "color",
+        "$description": "榴花红"
+      },
+      "yinzhu": {
+        "$value": "#f43e06",
+        "$type": "color",
+        "$description": "银朱"
+      },
+      "zhuhong": {
+        "$value": "#ed5126",
+        "$type": "color",
+        "$description": "朱红"
+      },
+      "guiyuhong": {
+        "$value": "#f09c5a",
+        "$type": "color",
+        "$description": "鲑鱼红"
+      },
+      "jinhuang": {
+        "$value": "#f26b1f",
+        "$type": "color",
+        "$description": "金黄"
+      },
+      "lupihe": {
+        "$value": "#d99156",
+        "$type": "color",
+        "$description": "鹿皮褐"
+      },
+      "zuiguarou": {
+        "$value": "#db8540",
+        "$type": "color",
+        "$description": "醉瓜肉"
+      },
+      "jizong": {
+        "$value": "#de7622",
+        "$type": "color",
+        "$description": "麂棕"
+      },
+      "danyinhui": {
+        "$value": "#c1b2a3",
+        "$type": "color",
+        "$description": "淡银灰"
+      },
+      "danzhe": {
+        "$value": "#be7e4a",
+        "$type": "color",
+        "$description": "淡赭"
+      },
+      "binglangzong": {
+        "$value": "#c1651a",
+        "$type": "color",
+        "$description": "槟榔综"
+      },
+      "yinhui": {
+        "$value": "#918072",
+        "$type": "color",
+        "$description": "银灰"
+      },
+      "haiouhui": {
+        "$value": "#9a8878",
+        "$type": "color",
+        "$description": "海鸥灰"
+      },
+      "dankafei": {
+        "$value": "#945833",
+        "$type": "color",
+        "$description": "淡咖啡"
+      },
+      "yanshizong": {
+        "$value": "#964d22",
+        "$type": "color",
+        "$description": "岩石棕"
+      },
+      "mangguozong": {
+        "$value": "#954416",
+        "$type": "color",
+        "$description": "芒果棕"
+      },
+      "shibanhui": {
+        "$value": "#624941",
+        "$type": "color",
+        "$description": "石板灰"
+      },
+      "zhumuhui": {
+        "$value": "#64483d",
+        "$type": "color",
+        "$description": "珠母灰"
+      },
+      "dingxiangzong": {
+        "$value": "#71361d",
+        "$type": "color",
+        "$description": "丁香棕"
+      },
+      "kafei": {
+        "$value": "#753117",
+        "$type": "color",
+        "$description": "咖啡"
+      },
+      "sunpizong": {
+        "$value": "#732e12",
+        "$type": "color",
+        "$description": "筍皮棕"
+      },
+      "yanhanhong": {
+        "$value": "#fc6315",
+        "$type": "color",
+        "$description": "燕颔红"
+      },
+      "yufenhong": {
+        "$value": "#e8b49a",
+        "$type": "color",
+        "$description": "玉粉红"
+      },
+      "jintuo": {
+        "$value": "#e46828",
+        "$type": "color",
+        "$description": "金驼"
+      },
+      "tiezong": {
+        "$value": "#d85916",
+        "$type": "color",
+        "$description": "铁棕"
+      },
+      "zhuwanghui": {
+        "$value": "#b7a091",
+        "$type": "color",
+        "$description": "蛛网灰"
+      },
+      "dankekezong": {
+        "$value": "#b7511d",
+        "$type": "color",
+        "$description": "淡可可棕"
+      },
+      "zhonghonghui": {
+        "$value": "#8b614d",
+        "$type": "color",
+        "$description": "中红灰"
+      },
+      "dantuhuang": {
+        "$value": "#8c4b31",
+        "$type": "color",
+        "$description": "淡土黄"
+      },
+      "dandousha": {
+        "$value": "#873d24",
+        "$type": "color",
+        "$description": "淡豆沙"
+      },
+      "yekezong": {
+        "$value": "#883a1e",
+        "$type": "color",
+        "$description": "椰壳棕"
+      },
+      "dantiehui": {
+        "$value": "#5b423a",
+        "$type": "color",
+        "$description": "淡铁灰"
+      },
+      "zhonghuituo": {
+        "$value": "#603d30",
+        "$type": "color",
+        "$description": "中灰驼"
+      },
+      "danlizong": {
+        "$value": "#673424",
+        "$type": "color",
+        "$description": "淡栗棕"
+      },
+      "kekezong": {
+        "$value": "#652b1c",
+        "$type": "color",
+        "$description": "可可棕"
+      },
+      "zhayezong": {
+        "$value": "#692a1b",
+        "$type": "color",
+        "$description": "柞叶棕"
+      },
+      "yeqiangweihong": {
+        "$value": "#fb9968",
+        "$type": "color",
+        "$description": "野蔷薇红"
+      },
+      "boluohong": {
+        "$value": "#fc7930",
+        "$type": "color",
+        "$description": "菠萝红"
+      },
+      "ouhe": {
+        "$value": "#edc3ae",
+        "$type": "color",
+        "$description": "藕荷"
+      },
+      "taocihong": {
+        "$value": "#e16723",
+        "$type": "color",
+        "$description": "陶瓷红"
+      },
+      "xiaohui": {
+        "$value": "#d4c4b7",
+        "$type": "color",
+        "$description": "晓灰"
+      },
+      "yujinhong": {
+        "$value": "#cf7543",
+        "$type": "color",
+        "$description": "余烬红"
+      },
+      "huozhuanhong": {
+        "$value": "#cd6227",
+        "$type": "color",
+        "$description": "火砖红"
+      },
+      "huonizong": {
+        "$value": "#aa6a4c",
+        "$type": "color",
+        "$description": "火泥棕"
+      },
+      "ganhong": {
+        "$value": "#a6522c",
+        "$type": "color",
+        "$description": "绀红"
+      },
+      "xiangshuzong": {
+        "$value": "#773d31",
+        "$type": "color",
+        "$description": "橡树棕"
+      },
+      "haibaohui": {
+        "$value": "#483332",
+        "$type": "color",
+        "$description": "海报灰"
+      },
+      "meiguihui": {
+        "$value": "#4b2e2b",
+        "$type": "color",
+        "$description": "玫瑰灰"
+      },
+      "huoshanzong": {
+        "$value": "#482522",
+        "$type": "color",
+        "$description": "火山棕"
+      },
+      "dousha": {
+        "$value": "#481e1c",
+        "$type": "color",
+        "$description": "豆沙"
+      },
+      "danmifen": {
+        "$value": "#fbeee2",
+        "$type": "color",
+        "$description": "淡米粉"
+      },
+      "chutaofenhong": {
+        "$value": "#f6dcce",
+        "$type": "color",
+        "$description": "初桃粉红"
+      },
+      "jieqiaodanfenhong": {
+        "$value": "#f7cfba",
+        "$type": "color",
+        "$description": "介壳淡粉红"
+      },
+      "dancanghuahong": {
+        "$value": "#f6ad8f",
+        "$type": "color",
+        "$description": "淡藏花红"
+      },
+      "guaranghong": {
+        "$value": "#f68c60",
+        "$type": "color",
+        "$description": "瓜瓤红"
+      },
+      "furonghong": {
+        "$value": "#f9723d",
+        "$type": "color",
+        "$description": "芙蓉红"
+      },
+      "meijianghong": {
+        "$value": "#fa5d19",
+        "$type": "color",
+        "$description": "莓酱红"
+      },
+      "faluohong": {
+        "$value": "#ee8055",
+        "$type": "color",
+        "$description": "法螺红"
+      },
+      "luoxiahong": {
+        "$value": "#cf4813",
+        "$type": "color",
+        "$description": "落霞红"
+      },
+      "danmeiguihui": {
+        "$value": "#b89485",
+        "$type": "color",
+        "$description": "淡玫瑰灰"
+      },
+      "xiemaohong": {
+        "$value": "#b14b28",
+        "$type": "color",
+        "$description": "蟹蝥红"
+      },
+      "huoyanzong": {
+        "$value": "#863020",
+        "$type": "color",
+        "$description": "火岩棕"
+      },
+      "zheshi": {
+        "$value": "#862617",
+        "$type": "color",
+        "$description": "赭石"
+      },
+      "antuozong": {
+        "$value": "#592620",
+        "$type": "color",
+        "$description": "暗驼棕"
+      },
+      "jiangzong": {
+        "$value": "#5a1f1b",
+        "$type": "color",
+        "$description": "酱棕"
+      },
+      "lizong": {
+        "$value": "#5c1e19",
+        "$type": "color",
+        "$description": "栗棕"
+      },
+      "yangshuixianhong": {
+        "$value": "#f4c7ba",
+        "$type": "color",
+        "$description": "洋水仙红"
+      },
+      "guqiaohong": {
+        "$value": "#f17666",
+        "$type": "color",
+        "$description": "谷鞘红"
+      },
+      "pingguohong": {
+        "$value": "#f15642",
+        "$type": "color",
+        "$description": "苹果红"
+      },
+      "tieshuihong": {
+        "$value": "#f5391c",
+        "$type": "color",
+        "$description": "铁水红"
+      },
+      "guihong": {
+        "$value": "#f25a47",
+        "$type": "color",
+        "$description": "桂红"
+      },
+      "jiguanghong": {
+        "$value": "#f33b1f",
+        "$type": "color",
+        "$description": "极光红"
+      },
+      "fenhong": {
+        "$value": "#f2b9b2",
+        "$type": "color",
+        "$description": "粉红"
+      },
+      "shehong": {
+        "$value": "#f19790",
+        "$type": "color",
+        "$description": "舌红"
+      },
+      "quhong": {
+        "$value": "#f05a46",
+        "$type": "color",
+        "$description": "曲红"
+      },
+      "honggonghong": {
+        "$value": "#f23e23",
+        "$type": "color",
+        "$description": "红汞红"
+      },
+      "danfei": {
+        "$value": "#f2cac9",
+        "$type": "color",
+        "$description": "淡绯"
+      },
+      "wuhuaguohong": {
+        "$value": "#efafad",
+        "$type": "color",
+        "$description": "无花果红"
+      },
+      "liuzihong": {
+        "$value": "#f1908c",
+        "$type": "color",
+        "$description": "榴子红"
+      },
+      "yanzhihong": {
+        "$value": "#f03f24",
+        "$type": "color",
+        "$description": "胭脂红"
+      },
+      "hehuanhong": {
+        "$value": "#f0a1a8",
+        "$type": "color",
+        "$description": "合欢红"
+      },
+      "chunmeihong": {
+        "$value": "#f1939c",
+        "$type": "color",
+        "$description": "春梅红"
+      },
+      "xiangyehong": {
+        "$value": "#f07c82",
+        "$type": "color",
+        "$description": "香叶红"
+      },
+      "shanhuhong": {
+        "$value": "#f04a3a",
+        "$type": "color",
+        "$description": "珊瑚红"
+      },
+      "luobohong": {
+        "$value": "#f13c22",
+        "$type": "color",
+        "$description": "萝卜红"
+      },
+      "danqianhong": {
+        "$value": "#e77c8e",
+        "$type": "color",
+        "$description": "淡茜红"
+      },
+      "yanhong": {
+        "$value": "#ed5a65",
+        "$type": "color",
+        "$description": "艳红"
+      },
+      "danshuhong": {
+        "$value": "#ed4845",
+        "$type": "color",
+        "$description": "淡菽红"
+      },
+      "yusaihong": {
+        "$value": "#ed3b2f",
+        "$type": "color",
+        "$description": "鱼鳃红"
+      },
+      "yingtaohong": {
+        "$value": "#ed3321",
+        "$type": "color",
+        "$description": "樱桃红"
+      },
+      "danruixianghong": {
+        "$value": "#ee4866",
+        "$type": "color",
+        "$description": "淡蕊香红"
+      },
+      "shizhuhong": {
+        "$value": "#ee4863",
+        "$type": "color",
+        "$description": "石竹红"
+      },
+      "caomolihong": {
+        "$value": "#ef475d",
+        "$type": "color",
+        "$description": "草茉莉红"
+      },
+      "chahuahong": {
+        "$value": "#ee3f4d",
+        "$type": "color",
+        "$description": "茶花红"
+      },
+      "goushuhong": {
+        "$value": "#ed3333",
+        "$type": "color",
+        "$description": "枸枢红"
+      },
+      "qiuhaitanghong": {
+        "$value": "#ec2b24",
+        "$type": "color",
+        "$description": "秋海棠红"
+      },
+      "lichunhong": {
+        "$value": "#eb261a",
+        "$type": "color",
+        "$description": "丽春红"
+      },
+      "xiyanghong": {
+        "$value": "#de2a18",
+        "$type": "color",
+        "$description": "夕阳红"
+      },
+      "hedinghong": {
+        "$value": "#d42517",
+        "$type": "color",
+        "$description": "鹤顶红"
+      },
+      "exueshihong": {
+        "$value": "#ab372f",
+        "$type": "color",
+        "$description": "鹅血石红"
+      },
+      "fupenzihong": {
+        "$value": "#ac1f18",
+        "$type": "color",
+        "$description": "覆盆子红"
+      },
+      "diaozi": {
+        "$value": "#5d3131",
+        "$type": "color",
+        "$description": "貂紫"
+      },
+      "anyuzi": {
+        "$value": "#5c2223",
+        "$type": "color",
+        "$description": "暗玉紫"
+      },
+      "lizi": {
+        "$value": "#5a191b",
+        "$type": "color",
+        "$description": "栗紫"
+      },
+      "putaojiangzi": {
+        "$value": "#5a1216",
+        "$type": "color",
+        "$description": "葡萄酱紫"
+      },
+      "mudanfenhong": {
+        "$value": "#eea2a4",
+        "$type": "color",
+        "$description": "牡丹粉红"
+      },
+      "shanchahong": {
+        "$value": "#ed556a",
+        "$type": "color",
+        "$description": "山茶红"
+      },
+      "haitanghong": {
+        "$value": "#f03752",
+        "$type": "color",
+        "$description": "海棠红"
+      },
+      "yuhong": {
+        "$value": "#c04851",
+        "$type": "color",
+        "$description": "玉红"
+      },
+      "gaolianghong": {
+        "$value": "#c02c38",
+        "$type": "color",
+        "$description": "高粱红"
+      },
+      "manjianghong": {
+        "$value": "#a7535a",
+        "$type": "color",
+        "$description": "满江红"
+      },
+      "zaohong": {
+        "$value": "#7c1823",
+        "$type": "color",
+        "$description": "枣红"
+      },
+      "putaozi": {
+        "$value": "#4c1f24",
+        "$type": "color",
+        "$description": "葡萄紫"
+      },
+      "jiangzi": {
+        "$value": "#4d1018",
+        "$type": "color",
+        "$description": "酱紫"
+      },
+      "danshuhong-2": {
+        "$value": "#ee2746",
+        "$type": "color",
+        "$description": "淡曙红"
+      },
+      "tangchangpuhong": {
+        "$value": "#de1c31",
+        "$type": "color",
+        "$description": "唐菖蒲红"
+      },
+      "eguanhong": {
+        "$value": "#d11a2d",
+        "$type": "color",
+        "$description": "鹅冠红"
+      },
+      "meihong": {
+        "$value": "#c45a65",
+        "$type": "color",
+        "$description": "莓红"
+      },
+      "fengyehong": {
+        "$value": "#c21f30",
+        "$type": "color",
+        "$description": "枫叶红"
+      },
+      "xiancaihong": {
+        "$value": "#a61b29",
+        "$type": "color",
+        "$description": "苋菜红"
+      },
+      "yanhong-2": {
+        "$value": "#894e54",
+        "$type": "color",
+        "$description": "烟红"
+      },
+      "anziyuanhong": {
+        "$value": "#82202b",
+        "$type": "color",
+        "$description": "暗紫苑红"
+      },
+      "yanhong-3": {
+        "$value": "#82111f",
+        "$type": "color",
+        "$description": "殷红"
+      },
+      "zhuganzi": {
+        "$value": "#541e24",
+        "$type": "color",
+        "$description": "猪肝紫"
+      },
+      "jinyuzi": {
+        "$value": "#500a16",
+        "$type": "color",
+        "$description": "金鱼紫"
+      },
+      "caozhuhong": {
+        "$value": "#f8ebe6",
+        "$type": "color",
+        "$description": "草珠红"
+      },
+      "danjianghong": {
+        "$value": "#ec7696",
+        "$type": "color",
+        "$description": "淡绛红"
+      },
+      "pinhong": {
+        "$value": "#ef3473",
+        "$type": "color",
+        "$description": "品红"
+      },
+      "fengxianhuahong": {
+        "$value": "#ea7293",
+        "$type": "color",
+        "$description": "凤仙花红"
+      },
+      "fentuanhuahong": {
+        "$value": "#ec9bad",
+        "$type": "color",
+        "$description": "粉团花红"
+      },
+      "jiazhutaohong": {
+        "$value": "#eb507e",
+        "$type": "color",
+        "$description": "夹竹桃红"
+      },
+      "wenpohong": {
+        "$value": "#ed2f6a",
+        "$type": "color",
+        "$description": "榲桲红"
+      },
+      "jianghong": {
+        "$value": "#eeb8c3",
+        "$type": "color",
+        "$description": "姜红"
+      },
+      "lianbanhong": {
+        "$value": "#ea517f",
+        "$type": "color",
+        "$description": "莲瓣红"
+      },
+      "shuihong": {
+        "$value": "#f1c4cd",
+        "$type": "color",
+        "$description": "水红"
+      },
+      "baochunhong": {
+        "$value": "#ec8aa4",
+        "$type": "color",
+        "$description": "报春红"
+      },
+      "yuejihong": {
+        "$value": "#ce5777",
+        "$type": "color",
+        "$description": "月季红"
+      },
+      "jiangdouhong": {
+        "$value": "#ed9db2",
+        "$type": "color",
+        "$description": "豇豆红"
+      },
+      "xiaguanghong": {
+        "$value": "#ef82a0",
+        "$type": "color",
+        "$description": "霞光红"
+      },
+      "songyemudanhong": {
+        "$value": "#eb3c70",
+        "$type": "color",
+        "$description": "松叶牡丹红"
+      },
+      "xidanhong": {
+        "$value": "#ec2c64",
+        "$type": "color",
+        "$description": "喜蛋红"
+      },
+      "shubihong": {
+        "$value": "#e3b4b8",
+        "$type": "color",
+        "$description": "鼠鼻红"
+      },
+      "jianjingyuhong": {
+        "$value": "#cc163a",
+        "$type": "color",
+        "$description": "尖晶玉红"
+      },
+      "shanlidouhong": {
+        "$value": "#c27c88",
+        "$type": "color",
+        "$description": "山黎豆红"
+      },
+      "jinkuihong": {
+        "$value": "#bf3553",
+        "$type": "color",
+        "$description": "锦葵红"
+      },
+      "shubeihui": {
+        "$value": "#73575c",
+        "$type": "color",
+        "$description": "鼠背灰"
+      },
+      "ganzhezi": {
+        "$value": "#621624",
+        "$type": "color",
+        "$description": "甘蔗紫"
+      },
+      "shizhuzi": {
+        "$value": "#63071c",
+        "$type": "color",
+        "$description": "石竹紫"
+      },
+      "cangyinghui": {
+        "$value": "#36282b",
+        "$type": "color",
+        "$description": "苍蝇灰"
+      },
+      "luanshizi": {
+        "$value": "#30161c",
+        "$type": "color",
+        "$description": "卵石紫"
+      },
+      "lizi-2": {
+        "$value": "#2b1216",
+        "$type": "color",
+        "$description": "李紫"
+      },
+      "qiepizi": {
+        "$value": "#2d0c13",
+        "$type": "color",
+        "$description": "茄皮紫"
+      },
+      "diaozhonghuahong": {
+        "$value": "#ce5e8a",
+        "$type": "color",
+        "$description": "吊钟花红"
+      },
+      "tuyanhong": {
+        "$value": "#ec4e8a",
+        "$type": "color",
+        "$description": "兔眼红"
+      },
+      "zijinghong": {
+        "$value": "#ee2c79",
+        "$type": "color",
+        "$description": "紫荆红"
+      },
+      "caitouzi": {
+        "$value": "#951c48",
+        "$type": "color",
+        "$description": "菜头紫"
+      },
+      "yaoguanzi": {
+        "$value": "#621d34",
+        "$type": "color",
+        "$description": "鹞冠紫"
+      },
+      "putaojiuhong": {
+        "$value": "#62102e",
+        "$type": "color",
+        "$description": "葡萄酒红"
+      },
+      "moshizi": {
+        "$value": "#382129",
+        "$type": "color",
+        "$description": "磨石紫"
+      },
+      "tanzi": {
+        "$value": "#381924",
+        "$type": "color",
+        "$description": "檀紫"
+      },
+      "huoezi": {
+        "$value": "#33141e",
+        "$type": "color",
+        "$description": "火鹅紫"
+      },
+      "mozi": {
+        "$value": "#310f1b",
+        "$type": "color",
+        "$description": "墨紫"
+      },
+      "jinghong": {
+        "$value": "#eea6b7",
+        "$type": "color",
+        "$description": "晶红"
+      },
+      "biandouhuahong": {
+        "$value": "#ef498b",
+        "$type": "color",
+        "$description": "扁豆花红"
+      },
+      "baijihong": {
+        "$value": "#de7897",
+        "$type": "color",
+        "$description": "白芨红"
+      },
+      "nenlinghong": {
+        "$value": "#de3f7c",
+        "$type": "color",
+        "$description": "嫩菱红"
+      },
+      "bogenhong": {
+        "$value": "#d13c74",
+        "$type": "color",
+        "$description": "菠根红"
+      },
+      "cujiangcaohong": {
+        "$value": "#c5708b",
+        "$type": "color",
+        "$description": "酢酱草红"
+      },
+      "yangcongzi": {
+        "$value": "#a8456b",
+        "$type": "color",
+        "$description": "洋葱紫"
+      },
+      "haixiangzi": {
+        "$value": "#4b1e2f",
+        "$type": "color",
+        "$description": "海象紫"
+      },
+      "ganzi": {
+        "$value": "#461629",
+        "$type": "color",
+        "$description": "绀紫"
+      },
+      "gutongzi": {
+        "$value": "#440e25",
+        "$type": "color",
+        "$description": "古铜紫"
+      },
+      "shiruihong": {
+        "$value": "#f0c9cf",
+        "$type": "color",
+        "$description": "石蕊红"
+      },
+      "shaoyaogenghong": {
+        "$value": "#eba0b3",
+        "$type": "color",
+        "$description": "芍药耕红"
+      },
+      "canghuahong": {
+        "$value": "#ec2d7a",
+        "$type": "color",
+        "$description": "藏花红"
+      },
+      "chuhehong": {
+        "$value": "#e16c96",
+        "$type": "color",
+        "$description": "初荷红"
+      },
+      "mabiancaozi": {
+        "$value": "#ede3e7",
+        "$type": "color",
+        "$description": "马鞭草紫"
+      },
+      "dingxiangdanzi": {
+        "$value": "#e9d7df",
+        "$type": "color",
+        "$description": "丁香淡紫"
+      },
+      "danzihong": {
+        "$value": "#d2568c",
+        "$type": "color",
+        "$description": "丹紫红"
+      },
+      "meiguihong": {
+        "$value": "#d2357d",
+        "$type": "color",
+        "$description": "玫瑰红"
+      },
+      "danqianniuzi": {
+        "$value": "#d1c2d3",
+        "$type": "color",
+        "$description": "淡牵牛紫"
+      },
+      "fengxinzi": {
+        "$value": "#c8adc4",
+        "$type": "color",
+        "$description": "凤信紫"
+      },
+      "luolanzi": {
+        "$value": "#c08eaf",
+        "$type": "color",
+        "$description": "萝兰紫"
+      },
+      "meiguizi": {
+        "$value": "#ba2f7b",
+        "$type": "color",
+        "$description": "玫瑰紫"
+      },
+      "tengluozi": {
+        "$value": "#8076a3",
+        "$type": "color",
+        "$description": "藤萝紫"
+      },
+      "jinzi": {
+        "$value": "#806d9e",
+        "$type": "color",
+        "$description": "槿紫"
+      },
+      "xunzi": {
+        "$value": "#815c94",
+        "$type": "color",
+        "$description": "蕈紫"
+      },
+      "jiegengzi": {
+        "$value": "#813c85",
+        "$type": "color",
+        "$description": "桔梗紫"
+      },
+      "weizi": {
+        "$value": "#7e1671",
+        "$type": "color",
+        "$description": "魏紫"
+      },
+      "zhilanzi": {
+        "$value": "#e9ccd3",
+        "$type": "color",
+        "$description": "芝兰紫"
+      },
+      "lingmenghong": {
+        "$value": "#d276a3",
+        "$type": "color",
+        "$description": "菱锰红"
+      },
+      "longxuhong": {
+        "$value": "#cc5595",
+        "$type": "color",
+        "$description": "龙须红"
+      },
+      "jifenhong": {
+        "$value": "#e6d2d5",
+        "$type": "color",
+        "$description": "蓟粉红"
+      },
+      "dianqishihong": {
+        "$value": "#c35691",
+        "$type": "color",
+        "$description": "电气石红"
+      },
+      "yingcaozi": {
+        "$value": "#c06f98",
+        "$type": "color",
+        "$description": "樱草紫"
+      },
+      "lusuihui": {
+        "$value": "#bdaead",
+        "$type": "color",
+        "$description": "芦穗灰"
+      },
+      "yinhonghui": {
+        "$value": "#b598a1",
+        "$type": "color",
+        "$description": "隐红灰"
+      },
+      "xiancaizi": {
+        "$value": "#9b1e64",
+        "$type": "color",
+        "$description": "苋菜紫"
+      },
+      "luhui": {
+        "$value": "#856d72",
+        "$type": "color",
+        "$description": "芦灰"
+      },
+      "muyunhui": {
+        "$value": "#4f383e",
+        "$type": "color",
+        "$description": "暮云灰"
+      },
+      "banjiuhui": {
+        "$value": "#482936",
+        "$type": "color",
+        "$description": "斑鸠灰"
+      },
+      "dantengluozi": {
+        "$value": "#f2e7e5",
+        "$type": "color",
+        "$description": "淡藤萝紫"
+      },
+      "danqingzi": {
+        "$value": "#e0c8d1",
+        "$type": "color",
+        "$description": "淡青紫"
+      },
+      "qinghakezi": {
+        "$value": "#bc84a8",
+        "$type": "color",
+        "$description": "青蛤壳紫"
+      },
+      "doukouzi": {
+        "$value": "#ad6598",
+        "$type": "color",
+        "$description": "豆蔻紫"
+      },
+      "biandouzi": {
+        "$value": "#a35c8f",
+        "$type": "color",
+        "$description": "扁豆紫"
+      },
+      "jiehuazi": {
+        "$value": "#983680",
+        "$type": "color",
+        "$description": "芥花紫"
+      },
+      "qinglian": {
+        "$value": "#8b2671",
+        "$type": "color",
+        "$description": "青莲"
+      },
+      "zizi": {
+        "$value": "#894276",
+        "$type": "color",
+        "$description": "芓紫"
+      },
+      "gejinzi": {
+        "$value": "#7e2065",
+        "$type": "color",
+        "$description": "葛巾紫"
+      },
+      "qianniuzi": {
+        "$value": "#681752",
+        "$type": "color",
+        "$description": "牵牛紫"
+      },
+      "zihui": {
+        "$value": "#5d3f51",
+        "$type": "color",
+        "$description": "紫灰"
+      },
+      "longjingyuzi": {
+        "$value": "#4e2a40",
+        "$type": "color",
+        "$description": "龙睛鱼紫"
+      },
+      "biqizi": {
+        "$value": "#411c35",
+        "$type": "color",
+        "$description": "荸荠紫"
+      },
+      "gudinghui": {
+        "$value": "#36292f",
+        "$type": "color",
+        "$description": "古鼎灰"
+      },
+      "wumeizi": {
+        "$value": "#1e131d",
+        "$type": "color",
+        "$description": "乌梅紫"
+      },
+      "shenqianniuzi": {
+        "$value": "#1c0d1a",
+        "$type": "color",
+        "$description": "深牵牛紫"
+      },
+      "yinbai": {
+        "$value": "#f1f0ed",
+        "$type": "color",
+        "$description": "银白"
+      },
+      "qianshibai": {
+        "$value": "#e2e1e4",
+        "$type": "color",
+        "$description": "芡食白"
+      },
+      "yuanshanzi": {
+        "$value": "#ccccd6",
+        "$type": "color",
+        "$description": "远山紫"
+      },
+      "danlanzi": {
+        "$value": "#a7a8bd",
+        "$type": "color",
+        "$description": "淡蓝紫"
+      },
+      "shangengzi": {
+        "$value": "#61649f",
+        "$type": "color",
+        "$description": "山梗紫"
+      },
+      "luodianzi": {
+        "$value": "#74759b",
+        "$type": "color",
+        "$description": "螺甸紫"
+      },
+      "manaohui": {
+        "$value": "#cfccc9",
+        "$type": "color",
+        "$description": "玛瑙灰"
+      },
+      "yejuzi": {
+        "$value": "#525288",
+        "$type": "color",
+        "$description": "野菊紫"
+      },
+      "mantianxingzi": {
+        "$value": "#2e317c",
+        "$type": "color",
+        "$description": "满天星紫"
+      },
+      "xinhui": {
+        "$value": "#7a7374",
+        "$type": "color",
+        "$description": "锌灰"
+      },
+      "yeputaozi": {
+        "$value": "#302f4b",
+        "$type": "color",
+        "$description": "野葡萄紫"
+      },
+      "jianfengzi": {
+        "$value": "#3e3841",
+        "$type": "color",
+        "$description": "剑锋紫"
+      },
+      "longkuizi": {
+        "$value": "#322f3b",
+        "$type": "color",
+        "$description": "龙葵紫"
+      },
+      "anlongdanzi": {
+        "$value": "#22202e",
+        "$type": "color",
+        "$description": "暗龙胆紫"
+      },
+      "jingshizi": {
+        "$value": "#1f2040",
+        "$type": "color",
+        "$description": "晶石紫"
+      },
+      "anlanzi": {
+        "$value": "#131124",
+        "$type": "color",
+        "$description": "暗蓝紫"
+      },
+      "jingtailan": {
+        "$value": "#2775b6",
+        "$type": "color",
+        "$description": "景泰蓝"
+      },
+      "niluolan": {
+        "$value": "#2474b5",
+        "$type": "color",
+        "$description": "尼罗蓝"
+      },
+      "yuantianlan": {
+        "$value": "#d0dfe6",
+        "$type": "color",
+        "$description": "远天蓝"
+      },
+      "xinglan": {
+        "$value": "#93b5cf",
+        "$type": "color",
+        "$description": "星蓝"
+      },
+      "yushandoulan": {
+        "$value": "#619ac3",
+        "$type": "color",
+        "$description": "羽扇豆蓝"
+      },
+      "huaqing": {
+        "$value": "#2376b7",
+        "$type": "color",
+        "$description": "花青"
+      },
+      "jinglan": {
+        "$value": "#5698c3",
+        "$type": "color",
+        "$description": "睛蓝"
+      },
+      "honglan": {
+        "$value": "#2177b8",
+        "$type": "color",
+        "$description": "虹蓝"
+      },
+      "hushuilan": {
+        "$value": "#b0d5df",
+        "$type": "color",
+        "$description": "湖水蓝"
+      },
+      "qiubolan": {
+        "$value": "#8abcd1",
+        "$type": "color",
+        "$description": "秋波蓝"
+      },
+      "jianshilan": {
+        "$value": "#66a9c9",
+        "$type": "color",
+        "$description": "涧石蓝"
+      },
+      "chaolan": {
+        "$value": "#2983bb",
+        "$type": "color",
+        "$description": "潮蓝"
+      },
+      "qunqing": {
+        "$value": "#1772b4",
+        "$type": "color",
+        "$description": "群青"
+      },
+      "jiqing": {
+        "$value": "#63bbd0",
+        "$type": "color",
+        "$description": "霁青"
+      },
+      "biqing": {
+        "$value": "#5cb3cc",
+        "$type": "color",
+        "$description": "碧青"
+      },
+      "baoshilan": {
+        "$value": "#2486b9",
+        "$type": "color",
+        "$description": "宝石蓝"
+      },
+      "tianlan": {
+        "$value": "#1677b3",
+        "$type": "color",
+        "$description": "天蓝"
+      },
+      "bolinlan": {
+        "$value": "#126bae",
+        "$type": "color",
+        "$description": "柏林蓝"
+      },
+      "haiqing": {
+        "$value": "#22a2c3",
+        "$type": "color",
+        "$description": "海青"
+      },
+      "gulan": {
+        "$value": "#1a94bc",
+        "$type": "color",
+        "$description": "钴蓝"
+      },
+      "yuanweilan": {
+        "$value": "#158bb8",
+        "$type": "color",
+        "$description": "鸢尾蓝"
+      },
+      "qianniuhualan": {
+        "$value": "#1177b0",
+        "$type": "color",
+        "$description": "牵牛花蓝"
+      },
+      "feiyancaolan": {
+        "$value": "#0f59a4",
+        "$type": "color",
+        "$description": "飞燕草蓝"
+      },
+      "pinlan": {
+        "$value": "#2b73af",
+        "$type": "color",
+        "$description": "品蓝"
+      },
+      "yinyubai": {
+        "$value": "#cdd1d3",
+        "$type": "color",
+        "$description": "银鱼白"
+      },
+      "ananlan": {
+        "$value": "#3170a7",
+        "$type": "color",
+        "$description": "安安蓝"
+      },
+      "yuweihui": {
+        "$value": "#5e616d",
+        "$type": "color",
+        "$description": "鱼尾灰"
+      },
+      "jingyuhui": {
+        "$value": "#475164",
+        "$type": "color",
+        "$description": "鲸鱼灰"
+      },
+      "haishenhui": {
+        "$value": "#fffefa",
+        "$type": "color",
+        "$description": "海参灰"
+      },
+      "shayuhui": {
+        "$value": "#35333c",
+        "$type": "color",
+        "$description": "沙鱼灰"
+      },
+      "ganglan": {
+        "$value": "#0f1423",
+        "$type": "color",
+        "$description": "钢蓝"
+      },
+      "yunshuilan": {
+        "$value": "#baccd9",
+        "$type": "color",
+        "$description": "云水蓝"
+      },
+      "qingshanlan": {
+        "$value": "#8fb2c9",
+        "$type": "color",
+        "$description": "晴山蓝"
+      },
+      "dianqing": {
+        "$value": "#1661ab",
+        "$type": "color",
+        "$description": "靛青"
+      },
+      "dalishihui": {
+        "$value": "#c4cbcf",
+        "$type": "color",
+        "$description": "大理石灰"
+      },
+      "haitaolan": {
+        "$value": "#15559a",
+        "$type": "color",
+        "$description": "海涛蓝"
+      },
+      "diechilan": {
+        "$value": "#4e7ca1",
+        "$type": "color",
+        "$description": "蝶翅蓝"
+      },
+      "haijunlan": {
+        "$value": "#346c9c",
+        "$type": "color",
+        "$description": "海军蓝"
+      },
+      "shuiniuhui": {
+        "$value": "#2f2f35",
+        "$type": "color",
+        "$description": "水牛灰"
+      },
+      "niujiaohui": {
+        "$value": "#2d2e36",
+        "$type": "color",
+        "$description": "牛角灰"
+      },
+      "yanhanlan": {
+        "$value": "#131824",
+        "$type": "color",
+        "$description": "燕颔蓝"
+      },
+      "yunfengbai": {
+        "$value": "#d8e3e7",
+        "$type": "color",
+        "$description": "云峰白"
+      },
+      "jingtianlan": {
+        "$value": "#c3d7df",
+        "$type": "color",
+        "$description": "井天蓝"
+      },
+      "yunshanlan": {
+        "$value": "#2f90b9",
+        "$type": "color",
+        "$description": "云山蓝"
+      },
+      "youlan": {
+        "$value": "#1781b5",
+        "$type": "color",
+        "$description": "釉蓝"
+      },
+      "oulan": {
+        "$value": "#c7d2d4",
+        "$type": "color",
+        "$description": "鸥蓝"
+      },
+      "tangcilan": {
+        "$value": "#11659a",
+        "$type": "color",
+        "$description": "搪磁蓝"
+      },
+      "yueyingbai": {
+        "$value": "#c0c4c3",
+        "$type": "color",
+        "$description": "月影白"
+      },
+      "xinghui": {
+        "$value": "#b2bbbe",
+        "$type": "color",
+        "$description": "星灰"
+      },
+      "danlanhui": {
+        "$value": "#5e7987",
+        "$type": "color",
+        "$description": "淡蓝灰"
+      },
+      "yanlan": {
+        "$value": "#144a74",
+        "$type": "color",
+        "$description": "鷃蓝"
+      },
+      "nenhui": {
+        "$value": "#74787a",
+        "$type": "color",
+        "$description": "嫩灰"
+      },
+      "zhanjianhui": {
+        "$value": "#495c69",
+        "$type": "color",
+        "$description": "战舰灰"
+      },
+      "waguanhui": {
+        "$value": "#47484c",
+        "$type": "color",
+        "$description": "瓦罐灰"
+      },
+      "qinghui": {
+        "$value": "#2b333e",
+        "$type": "color",
+        "$description": "青灰"
+      },
+      "gelan": {
+        "$value": "#1c2938",
+        "$type": "color",
+        "$description": "鸽蓝"
+      },
+      "gangqing": {
+        "$value": "#142334",
+        "$type": "color",
+        "$description": "钢青"
+      },
+      "anlan": {
+        "$value": "#101f30",
+        "$type": "color",
+        "$description": "暗蓝"
+      },
+      "yuebai": {
+        "$value": "#eef7f2",
+        "$type": "color",
+        "$description": "月白"
+      },
+      "haitianlan": {
+        "$value": "#c6e6e8",
+        "$type": "color",
+        "$description": "海天蓝"
+      },
+      "qingshuilan": {
+        "$value": "#93d5dc",
+        "$type": "color",
+        "$description": "清水蓝"
+      },
+      "pubulan": {
+        "$value": "#51c4d3",
+        "$type": "color",
+        "$description": "瀑布蓝"
+      },
+      "weilan": {
+        "$value": "#29b7cb",
+        "$type": "color",
+        "$description": "蔚蓝"
+      },
+      "kongquelan": {
+        "$value": "#0eb0c9",
+        "$type": "color",
+        "$description": "孔雀蓝"
+      },
+      "dianzilan": {
+        "$value": "#10aec2",
+        "$type": "color",
+        "$description": "甸子蓝"
+      },
+      "shilv": {
+        "$value": "#57c3c2",
+        "$type": "color",
+        "$description": "石绿"
+      },
+      "zhuhuanglv": {
+        "$value": "#b9dec9",
+        "$type": "color",
+        "$description": "竹篁绿"
+      },
+      "fenlv": {
+        "$value": "#83cbac",
+        "$type": "color",
+        "$description": "粉绿"
+      },
+      "meidielv": {
+        "$value": "#12aa9c",
+        "$type": "color",
+        "$description": "美蝶绿"
+      },
+      "maolv": {
+        "$value": "#66c18c",
+        "$type": "color",
+        "$description": "毛绿"
+      },
+      "koushaolv": {
+        "$value": "#5dbe8a",
+        "$type": "color",
+        "$description": "蔻梢绿"
+      },
+      "maimiaolv": {
+        "$value": "#55bb8a",
+        "$type": "color",
+        "$description": "麦苗绿"
+      },
+      "walv": {
+        "$value": "#45b787",
+        "$type": "color",
+        "$description": "蛙绿"
+      },
+      "tonglv": {
+        "$value": "#2bae85",
+        "$type": "color",
+        "$description": "铜绿"
+      },
+      "zhulv": {
+        "$value": "#1ba784",
+        "$type": "color",
+        "$description": "竹绿"
+      },
+      "lanlv": {
+        "$value": "#12a182",
+        "$type": "color",
+        "$description": "蓝绿"
+      },
+      "qionghui": {
+        "$value": "#c4d7d6",
+        "$type": "color",
+        "$description": "穹灰"
+      },
+      "cuilan": {
+        "$value": "#1e9eb3",
+        "$type": "color",
+        "$description": "翠蓝"
+      },
+      "danfanlan": {
+        "$value": "#0f95b0",
+        "$type": "color",
+        "$description": "胆矾蓝"
+      },
+      "jianniaolan": {
+        "$value": "#1491a8",
+        "$type": "color",
+        "$description": "樫鸟蓝"
+      },
+      "shanlan": {
+        "$value": "#7cabb1",
+        "$type": "color",
+        "$description": "闪蓝"
+      },
+      "bingshanlan": {
+        "$value": "#a4aca7",
+        "$type": "color",
+        "$description": "冰山蓝"
+      },
+      "xiakeqing": {
+        "$value": "#869d9d",
+        "$type": "color",
+        "$description": "虾壳青"
+      },
+      "wanbolan": {
+        "$value": "#648e93",
+        "$type": "color",
+        "$description": "晚波蓝"
+      },
+      "qingtinglan": {
+        "$value": "#3b818c",
+        "$type": "color",
+        "$description": "蜻蜓蓝"
+      },
+      "yuqinlan": {
+        "$value": "#126e82",
+        "$type": "color",
+        "$description": "玉鈫蓝"
+      },
+      "ehui": {
+        "$value": "#737c7b",
+        "$type": "color",
+        "$description": "垩灰"
+      },
+      "xiayunhui": {
+        "$value": "#617172",
+        "$type": "color",
+        "$description": "夏云灰"
+      },
+      "canglan": {
+        "$value": "#134857",
+        "$type": "color",
+        "$description": "苍蓝"
+      },
+      "huanghunhui": {
+        "$value": "#474b4c",
+        "$type": "color",
+        "$description": "黄昏灰"
+      },
+      "huilan": {
+        "$value": "#21373d",
+        "$type": "color",
+        "$description": "灰蓝"
+      },
+      "shenhuilan": {
+        "$value": "#132c33",
+        "$type": "color",
+        "$description": "深灰蓝"
+      },
+      "yuzanlv": {
+        "$value": "#a4cab6",
+        "$type": "color",
+        "$description": "玉簪绿"
+      },
+      "qingfanlv": {
+        "$value": "#2c9678",
+        "$type": "color",
+        "$description": "青矾绿"
+      },
+      "caoyuanyuanlv": {
+        "$value": "#9abeaf",
+        "$type": "color",
+        "$description": "草原远绿"
+      },
+      "wuzhilv": {
+        "$value": "#69a794",
+        "$type": "color",
+        "$description": "梧枝绿"
+      },
+      "langhualv": {
+        "$value": "#92b3a5",
+        "$type": "color",
+        "$description": "浪花绿"
+      },
+      "haiwanglv": {
+        "$value": "#248067",
+        "$type": "color",
+        "$description": "海王绿"
+      },
+      "yadinglv": {
+        "$value": "#428675",
+        "$type": "color",
+        "$description": "亚丁绿"
+      },
+      "niehui": {
+        "$value": "#9fa39a",
+        "$type": "color",
+        "$description": "镍灰"
+      },
+      "minghui": {
+        "$value": "#8a988e",
+        "$type": "color",
+        "$description": "明灰"
+      },
+      "danlvhui": {
+        "$value": "#70887d",
+        "$type": "color",
+        "$description": "淡绿灰"
+      },
+      "feiquanlv": {
+        "$value": "#497568",
+        "$type": "color",
+        "$description": "飞泉绿"
+      },
+      "langyanhui": {
+        "$value": "#5d655f",
+        "$type": "color",
+        "$description": "狼烟灰"
+      },
+      "lvhui": {
+        "$value": "#314a43",
+        "$type": "color",
+        "$description": "绿灰"
+      },
+      "canglv": {
+        "$value": "#223e36",
+        "$type": "color",
+        "$description": "苍绿"
+      },
+      "shenhailv": {
+        "$value": "#1a3b32",
+        "$type": "color",
+        "$description": "深海绿"
+      },
+      "changshihui": {
+        "$value": "#363433",
+        "$type": "color",
+        "$description": "长石灰"
+      },
+      "ganlanlv-2": {
+        "$value": "#1f2623",
+        "$type": "color",
+        "$description": "苷蓝绿"
+      },
+      "mangconglv": {
+        "$value": "#141e1b",
+        "$type": "color",
+        "$description": "莽丛绿"
+      },
+      "dancuilv": {
+        "$value": "#c6dfc8",
+        "$type": "color",
+        "$description": "淡翠绿"
+      },
+      "minglv": {
+        "$value": "#9eccab",
+        "$type": "color",
+        "$description": "明绿"
+      },
+      "tianyuanlv": {
+        "$value": "#68b88e",
+        "$type": "color",
+        "$description": "田园绿"
+      },
+      "cuilv": {
+        "$value": "#20a162",
+        "$type": "color",
+        "$description": "翠绿"
+      },
+      "danlv": {
+        "$value": "#61ac85",
+        "$type": "color",
+        "$description": "淡绿"
+      },
+      "conglv": {
+        "$value": "#40a070",
+        "$type": "color",
+        "$description": "葱绿"
+      },
+      "kongquelv": {
+        "$value": "#229453",
+        "$type": "color",
+        "$description": "孔雀绿"
+      },
+      "ailv": {
+        "$value": "#cad3c3",
+        "$type": "color",
+        "$description": "艾绿"
+      },
+      "chanlv": {
+        "$value": "#3c9566",
+        "$type": "color",
+        "$description": "蟾绿"
+      },
+      "gongdianlv": {
+        "$value": "#20894d",
+        "$type": "color",
+        "$description": "宫殿绿"
+      },
+      "songshuanglv": {
+        "$value": "#83a78d",
+        "$type": "color",
+        "$description": "松霜绿"
+      },
+      "danbaishilv": {
+        "$value": "#579572",
+        "$type": "color",
+        "$description": "蛋白石绿"
+      },
+      "bohelv": {
+        "$value": "#207f4c",
+        "$type": "color",
+        "$description": "薄荷绿"
+      },
+      "wasonglv": {
+        "$value": "#6e8b74",
+        "$type": "color",
+        "$description": "瓦松绿"
+      },
+      "heyelv": {
+        "$value": "#1a6840",
+        "$type": "color",
+        "$description": "荷叶绿"
+      },
+      "tianluolv": {
+        "$value": "#5e665b",
+        "$type": "color",
+        "$description": "田螺绿"
+      },
+      "baiqucailv": {
+        "$value": "#485b4d",
+        "$type": "color",
+        "$description": "白屈菜绿"
+      },
+      "hetunhui": {
+        "$value": "#393733",
+        "$type": "color",
+        "$description": "河豚灰"
+      },
+      "enyoulv": {
+        "$value": "#373834",
+        "$type": "color",
+        "$description": "蒽油绿"
+      },
+      "hujishenglv": {
+        "$value": "#2b312c",
+        "$type": "color",
+        "$description": "槲寄生绿"
+      },
+      "yunshanlv": {
+        "$value": "#15231b",
+        "$type": "color",
+        "$description": "云杉绿"
+      },
+      "nenjulv": {
+        "$value": "#f0f5e5",
+        "$type": "color",
+        "$description": "嫩菊绿"
+      },
+      "aibeilv": {
+        "$value": "#dfecd5",
+        "$type": "color",
+        "$description": "艾背绿"
+      },
+      "jialingshuilv": {
+        "$value": "#add5a2",
+        "$type": "color",
+        "$description": "嘉陵水绿"
+      },
+      "yusuilv": {
+        "$value": "#41b349",
+        "$type": "color",
+        "$description": "玉髓绿"
+      },
+      "xianlv": {
+        "$value": "#43b244",
+        "$type": "color",
+        "$description": "鲜绿"
+      },
+      "baoshilv": {
+        "$value": "#41ae3c",
+        "$type": "color",
+        "$description": "宝石绿"
+      },
+      "haimolyu": {
+        "$value": "#e2e7bf",
+        "$type": "color",
+        "$description": "海沫绿"
+      },
+      "yaohuang": {
+        "$value": "#d0deaa",
+        "$type": "color",
+        "$description": "姚黄"
+      },
+      "ganlanshilv": {
+        "$value": "#b2cf87",
+        "$type": "color",
+        "$description": "橄榄石绿"
+      },
+      "shuilv": {
+        "$value": "#8cc269",
+        "$type": "color",
+        "$description": "水绿"
+      },
+      "luweilv": {
+        "$value": "#b7d07a",
+        "$type": "color",
+        "$description": "芦苇绿"
+      },
+      "huaihuahuanglv": {
+        "$value": "#d2d97a",
+        "$type": "color",
+        "$description": "槐花黄绿"
+      },
+      "pingguolv": {
+        "$value": "#bacf65",
+        "$type": "color",
+        "$description": "苹果绿"
+      },
+      "yalv": {
+        "$value": "#96c24e",
+        "$type": "color",
+        "$description": "芽绿"
+      },
+      "diehuang": {
+        "$value": "#e2d849",
+        "$type": "color",
+        "$description": "蝶黄"
+      },
+      "ganlanhuanglv": {
+        "$value": "#bec936",
+        "$type": "color",
+        "$description": "橄榄黄绿"
+      },
+      "yingwulv": {
+        "$value": "#5bae23",
+        "$type": "color",
+        "$description": "鹦鹉绿"
+      },
+      "youlv": {
+        "$value": "#253d24",
+        "$type": "color",
+        "$description": "油绿"
+      },
+      "xiangyabai": {
+        "$value": "#fffef8",
+        "$type": "color",
+        "$description": "象牙白"
+      },
+      "hanbaiyu": {
+        "$value": "#f8f4ed",
+        "$type": "color",
+        "$description": "汉白玉"
+      },
+      "xuebai": {
+        "$value": "#fffef9",
+        "$type": "color",
+        "$description": "雪白"
+      },
+      "yudubai": {
+        "$value": "#f7f4ed",
+        "$type": "color",
+        "$description": "鱼肚白"
+      },
+      "zhenzhuhui": {
+        "$value": "#e4dfd7",
+        "$type": "color",
+        "$description": "珍珠灰"
+      },
+      "qianhui": {
+        "$value": "#dad4cb",
+        "$type": "color",
+        "$description": "浅灰"
+      },
+      "qianhui-2": {
+        "$value": "#bbb5ac",
+        "$type": "color",
+        "$description": "铅灰"
+      },
+      "zhonghui": {
+        "$value": "#a49c93",
+        "$type": "color",
+        "$description": "中灰"
+      },
+      "wahui": {
+        "$value": "#867e76",
+        "$type": "color",
+        "$description": "瓦灰"
+      },
+      "yehui": {
+        "$value": "#847c74",
+        "$type": "color",
+        "$description": "夜灰"
+      },
+      "yanhui": {
+        "$value": "#80766e",
+        "$type": "color",
+        "$description": "雁灰"
+      },
+      "shenhui": {
+        "$value": "#81776e",
+        "$type": "color",
+        "$description": "深灰"
+      }
+    },
+    "semantic": {
+      "color": {
+        "primary": {
+          "$value": "{color.qunqing}",
+          "$type": "color",
+          "$description": "群青 → color-qunqing"
+        },
+        "primary-hover": {
+          "$value": "{color.dianqing}",
+          "$type": "color",
+          "$description": "靛青 → color-dianqing"
+        },
+        "primary-active": {
+          "$value": "{color.jingtailan}",
+          "$type": "color",
+          "$description": "景泰蓝 → color-jingtailan"
+        },
+        "primary-subtle": {
+          "$value": "{color.yuebai}",
+          "$type": "color",
+          "$description": "月白 → color-yuebai"
+        },
+        "on-primary": {
+          "$value": "{color.xuebai}",
+          "$type": "color",
+          "$description": "雪白 → color-xuebai"
+        },
+        "accent": {
+          "$value": "{color.yinzhu}",
+          "$type": "color",
+          "$description": "银朱 → color-yinzhu"
+        },
+        "accent-hover": {
+          "$value": "{color.zhuhong}",
+          "$type": "color",
+          "$description": "朱红 → color-zhuhong"
+        },
+        "accent-active": {
+          "$value": "{color.dahong}",
+          "$type": "color",
+          "$description": "大红 → color-dahong"
+        },
+        "accent-subtle": {
+          "$value": "{color.danyingsuhong}",
+          "$type": "color",
+          "$description": "淡罂粟红 → color-danyingsuhong"
+        },
+        "on-accent": {
+          "$value": "{color.xuebai}",
+          "$type": "color",
+          "$description": "雪白 → color-xuebai"
+        },
+        "bg-default": {
+          "$value": "{color.xuebai}",
+          "$type": "color",
+          "$description": "雪白 → color-xuebai"
+        },
+        "bg-subtle": {
+          "$value": "{color.xiangyabai}",
+          "$type": "color",
+          "$description": "象牙白 → color-xiangyabai"
+        },
+        "bg-elevated": {
+          "$value": "{color.yinbai}",
+          "$type": "color",
+          "$description": "银白 → color-yinbai"
+        },
+        "bg-inverse": {
+          "$value": "{color.gangqing}",
+          "$type": "color",
+          "$description": "钢青 → color-gangqing"
+        },
+        "text-primary": {
+          "$value": "{color.qinghui}",
+          "$type": "color",
+          "$description": "青灰 → color-qinghui"
+        },
+        "text-secondary": {
+          "$value": "{color.shenhui}",
+          "$type": "color",
+          "$description": "深灰 → color-shenhui"
+        },
+        "text-tertiary": {
+          "$value": "{color.yinhui}",
+          "$type": "color",
+          "$description": "银灰 → color-yinhui"
+        },
+        "text-inverse": {
+          "$value": "{color.xuebai}",
+          "$type": "color",
+          "$description": "雪白 → color-xuebai"
+        },
+        "text-disabled": {
+          "$value": "{color.yuehui}",
+          "$type": "color",
+          "$description": "月灰 → color-yuehui"
+        },
+        "border-subtle": {
+          "$value": "{color.zhenzhuhui}",
+          "$type": "color",
+          "$description": "珍珠灰 → color-zhenzhuhui"
+        },
+        "border-default": {
+          "$value": "{color.qianhui}",
+          "$type": "color",
+          "$description": "浅灰 → color-qianhui"
+        },
+        "border-strong": {
+          "$value": "{color.shenhui}",
+          "$type": "color",
+          "$description": "深灰 → color-shenhui"
+        },
+        "status-success": {
+          "$value": "{color.zhulv}",
+          "$type": "color",
+          "$description": "竹绿 → color-zhulv"
+        },
+        "status-success-hover": {
+          "$value": "{color.cuilv}",
+          "$type": "color",
+          "$description": "翠绿 → color-cuilv"
+        },
+        "status-success-subtle": {
+          "$value": "{color.conglv}",
+          "$type": "color",
+          "$description": "葱绿 → color-conglv"
+        },
+        "status-warning": {
+          "$value": "{color.hupohuang}",
+          "$type": "color",
+          "$description": "琥珀黄 → color-hupohuang"
+        },
+        "status-warning-hover": {
+          "$value": "{color.jianghuang}",
+          "$type": "color",
+          "$description": "姜黄 → color-jianghuang"
+        },
+        "status-warning-subtle": {
+          "$value": "{color.danmihuang}",
+          "$type": "color",
+          "$description": "淡密黄 → color-danmihuang"
+        },
+        "status-error": {
+          "$value": "{color.zhuhong}",
+          "$type": "color",
+          "$description": "朱红 → color-zhuhong"
+        },
+        "status-error-hover": {
+          "$value": "{color.dahong}",
+          "$type": "color",
+          "$description": "大红 → color-dahong"
+        },
+        "status-error-subtle": {
+          "$value": "{color.danyingsuhong}",
+          "$type": "color",
+          "$description": "淡罂粟红 → color-danyingsuhong"
+        },
+        "status-info": {
+          "$value": "{color.qunqing}",
+          "$type": "color",
+          "$description": "群青 → color-qunqing"
+        },
+        "status-info-hover": {
+          "$value": "{color.dianqing}",
+          "$type": "color",
+          "$description": "靛青 → color-dianqing"
+        },
+        "status-info-subtle": {
+          "$value": "{color.yuebai}",
+          "$type": "color",
+          "$description": "月白 → color-yuebai"
+        }
+      }
+    },
+    "component": {
+      "button": {
+        "bg": {
+          "primary": {
+            "$value": "{semantic.color.primary}",
+            "$type": "color",
+            "$description": "→ color-primary",
+            "hover": {
+              "$value": "{semantic.color.primary-hover}",
+              "$type": "color",
+              "$description": "→ color-primary-hover"
+            },
+            "active": {
+              "$value": "{semantic.color.primary-active}",
+              "$type": "color",
+              "$description": "→ color-primary-active"
+            }
+          },
+          "accent": {
+            "$value": "{semantic.color.accent}",
+            "$type": "color",
+            "$description": "→ color-accent",
+            "hover": {
+              "$value": "{semantic.color.accent-hover}",
+              "$type": "color",
+              "$description": "→ color-accent-hover"
+            }
+          },
+          "secondary": {
+            "$value": "{semantic.color.bg-elevated}",
+            "$type": "color",
+            "$description": "→ color-bg-elevated"
+          },
+          "ghost": {
+            "$value": "{semantic.color.bg-default}",
+            "$type": "color",
+            "$description": "→ color-bg-default"
+          },
+          "disabled": {
+            "$value": "{semantic.color.bg-subtle}",
+            "$type": "color",
+            "$description": "→ color-bg-subtle"
+          }
+        },
+        "text": {
+          "primary": {
+            "$value": "{semantic.color.on-primary}",
+            "$type": "color",
+            "$description": "→ color-on-primary"
+          },
+          "accent": {
+            "$value": "{semantic.color.on-accent}",
+            "$type": "color",
+            "$description": "→ color-on-accent"
+          },
+          "secondary": {
+            "$value": "{semantic.color.text-primary}",
+            "$type": "color",
+            "$description": "→ color-text-primary"
+          },
+          "ghost": {
+            "$value": "{semantic.color.primary}",
+            "$type": "color",
+            "$description": "→ color-primary"
+          },
+          "disabled": {
+            "$value": "{semantic.color.text-disabled}",
+            "$type": "color",
+            "$description": "→ color-text-disabled"
+          }
+        },
+        "border": {
+          "secondary": {
+            "$value": "{semantic.color.border-default}",
+            "$type": "color",
+            "$description": "→ color-border-default"
+          },
+          "ghost": {
+            "$value": "{semantic.color.border-default}",
+            "$type": "color",
+            "$description": "→ color-border-default"
+          },
+          "disabled": {
+            "$value": "{semantic.color.border-subtle}",
+            "$type": "color",
+            "$description": "→ color-border-subtle"
+          }
+        }
+      },
+      "card": {
+        "bg": {
+          "$value": "{semantic.color.bg-elevated}",
+          "$type": "color",
+          "$description": "→ color-bg-elevated",
+          "hover": {
+            "$value": "{semantic.color.bg-default}",
+            "$type": "color",
+            "$description": "→ color-bg-default"
+          }
+        },
+        "border": {
+          "color": {
+            "$value": "{semantic.color.border-subtle}",
+            "$type": "color",
+            "$description": "→ color-border-subtle"
+          },
+          "hover": {
+            "$value": "{semantic.color.border-default}",
+            "$type": "color",
+            "$description": "→ color-border-default"
+          }
+        },
+        "shadow": {
+          "color": {
+            "$value": "{semantic.color.border-strong}",
+            "$type": "color",
+            "$description": "→ color-border-strong"
+          }
+        }
+      },
+      "input": {
+        "bg": {
+          "$value": "{semantic.color.bg-default}",
+          "$type": "color",
+          "$description": "→ color-bg-default",
+          "disabled": {
+            "$value": "{semantic.color.bg-subtle}",
+            "$type": "color",
+            "$description": "→ color-bg-subtle"
+          }
+        },
+        "border": {
+          "$value": "{semantic.color.border-default}",
+          "$type": "color",
+          "$description": "→ color-border-default",
+          "hover": {
+            "$value": "{semantic.color.border-strong}",
+            "$type": "color",
+            "$description": "→ color-border-strong"
+          },
+          "focus": {
+            "$value": "{semantic.color.primary}",
+            "$type": "color",
+            "$description": "→ color-primary"
+          },
+          "error": {
+            "$value": "{semantic.color.status-error}",
+            "$type": "color",
+            "$description": "→ color-status-error"
+          }
+        },
+        "text": {
+          "$value": "{semantic.color.text-primary}",
+          "$type": "color",
+          "$description": "→ color-text-primary",
+          "placeholder": {
+            "$value": "{semantic.color.text-tertiary}",
+            "$type": "color",
+            "$description": "→ color-text-tertiary"
+          },
+          "disabled": {
+            "$value": "{semantic.color.text-disabled}",
+            "$type": "color",
+            "$description": "→ color-text-disabled"
+          }
+        },
+        "icon": {
+          "$value": "{semantic.color.text-secondary}",
+          "$type": "color",
+          "$description": "→ color-text-secondary",
+          "focus": {
+            "$value": "{semantic.color.primary}",
+            "$type": "color",
+            "$description": "→ color-primary"
+          }
+        }
+      },
+      "nav": {
+        "bg": {
+          "$value": "{semantic.color.bg-subtle}",
+          "$type": "color",
+          "$description": "→ color-bg-subtle",
+          "active": {
+            "$value": "{semantic.color.primary-subtle}",
+            "$type": "color",
+            "$description": "→ color-primary-subtle"
+          }
+        },
+        "text": {
+          "$value": "{semantic.color.text-secondary}",
+          "$type": "color",
+          "$description": "→ color-text-secondary",
+          "active": {
+            "$value": "{semantic.color.primary}",
+            "$type": "color",
+            "$description": "→ color-primary"
+          }
+        },
+        "border": {
+          "$value": "{semantic.color.border-subtle}",
+          "$type": "color",
+          "$description": "→ color-border-subtle"
+        },
+        "item": {
+          "hover": {
+            "bg": {
+              "$value": "{semantic.color.bg-elevated}",
+              "$type": "color",
+              "$description": "→ color-bg-elevated"
+            }
+          }
+        }
+      },
+      "tag": {
+        "bg": {
+          "success": {
+            "$value": "{semantic.color.status-success-subtle}",
+            "$type": "color",
+            "$description": "→ color-status-success-subtle"
+          },
+          "warning": {
+            "$value": "{semantic.color.status-warning-subtle}",
+            "$type": "color",
+            "$description": "→ color-status-warning-subtle"
+          },
+          "error": {
+            "$value": "{semantic.color.status-error-subtle}",
+            "$type": "color",
+            "$description": "→ color-status-error-subtle"
+          },
+          "info": {
+            "$value": "{semantic.color.status-info-subtle}",
+            "$type": "color",
+            "$description": "→ color-status-info-subtle"
+          },
+          "neutral": {
+            "$value": "{semantic.color.bg-elevated}",
+            "$type": "color",
+            "$description": "→ color-bg-elevated"
+          }
+        },
+        "text": {
+          "success": {
+            "$value": "{semantic.color.status-success}",
+            "$type": "color",
+            "$description": "→ color-status-success"
+          },
+          "warning": {
+            "$value": "{semantic.color.status-warning}",
+            "$type": "color",
+            "$description": "→ color-status-warning"
+          },
+          "error": {
+            "$value": "{semantic.color.status-error}",
+            "$type": "color",
+            "$description": "→ color-status-error"
+          },
+          "info": {
+            "$value": "{semantic.color.status-info}",
+            "$type": "color",
+            "$description": "→ color-status-info"
+          },
+          "neutral": {
+            "$value": "{semantic.color.text-secondary}",
+            "$type": "color",
+            "$description": "→ color-text-secondary"
+          }
+        }
+      },
+      "link": {
+        "text": {
+          "$value": "{semantic.color.primary}",
+          "$type": "color",
+          "$description": "→ color-primary",
+          "hover": {
+            "$value": "{semantic.color.primary-hover}",
+            "$type": "color",
+            "$description": "→ color-primary-hover"
+          },
+          "visited": {
+            "$value": "{semantic.color.accent}",
+            "$type": "color",
+            "$description": "→ color-accent"
+          }
+        }
+      },
+      "tooltip": {
+        "bg": {
+          "$value": "{semantic.color.bg-inverse}",
+          "$type": "color",
+          "$description": "→ color-bg-inverse"
+        },
+        "text": {
+          "$value": "{semantic.color.text-inverse}",
+          "$type": "color",
+          "$description": "→ color-text-inverse"
+        },
+        "border": {
+          "$value": "{semantic.color.border-strong}",
+          "$type": "color",
+          "$description": "→ color-border-strong"
+        }
+      },
+      "avatar": {
+        "bg": {
+          "$value": "{semantic.color.accent-subtle}",
+          "$type": "color",
+          "$description": "→ color-accent-subtle"
+        },
+        "text": {
+          "$value": "{semantic.color.accent}",
+          "$type": "color",
+          "$description": "→ color-accent"
+        }
+      }
+    }
+  },
+  "dark": {
+    "semantic": {
+      "color": {
+        "primary": {
+          "$value": "{color.qunqing}",
+          "$type": "color",
+          "$description": "群青 (Dark) → qunqing"
+        },
+        "primary-hover": {
+          "$value": "{color.dianqing}",
+          "$type": "color",
+          "$description": "靛青 (Dark) → dianqing"
+        },
+        "primary-active": {
+          "$value": "{color.jingtailan}",
+          "$type": "color",
+          "$description": "景泰蓝 (Dark) → jingtailan"
+        },
+        "primary-subtle": {
+          "$value": "{color.canglan}",
+          "$type": "color",
+          "$description": "苍蓝 (Dark) → canglan"
+        },
+        "on-primary": {
+          "$value": "{color.xuebai}",
+          "$type": "color",
+          "$description": "雪白 (Dark) → xuebai"
+        },
+        "accent": {
+          "$value": "{color.yinzhu}",
+          "$type": "color",
+          "$description": "银朱 (Dark) → yinzhu"
+        },
+        "accent-hover": {
+          "$value": "{color.zhuhong}",
+          "$type": "color",
+          "$description": "朱红 (Dark) → zhuhong"
+        },
+        "accent-active": {
+          "$value": "{color.dahong}",
+          "$type": "color",
+          "$description": "大红 (Dark) → dahong"
+        },
+        "accent-subtle": {
+          "$value": "{color.ouhe}",
+          "$type": "color",
+          "$description": "藕荷 (Dark) → ouhe"
+        },
+        "on-accent": {
+          "$value": "{color.xuebai}",
+          "$type": "color",
+          "$description": "雪白 (Dark) → xuebai"
+        },
+        "bg-default": {
+          "$value": "{color.wumeizi}",
+          "$type": "color",
+          "$description": "乌梅紫 (Dark) → wumeizi"
+        },
+        "bg-subtle": {
+          "$value": "{color.qinghui}",
+          "$type": "color",
+          "$description": "青灰 (Dark) → qinghui"
+        },
+        "bg-elevated": {
+          "$value": "{color.cangyinghui}",
+          "$type": "color",
+          "$description": "苍蝇灰 (Dark) → cangyinghui"
+        },
+        "bg-inverse": {
+          "$value": "{color.xuebai}",
+          "$type": "color",
+          "$description": "雪白 (Dark) → xuebai"
+        },
+        "text-primary": {
+          "$value": "{color.xuebai}",
+          "$type": "color",
+          "$description": "雪白 (Dark) → xuebai"
+        },
+        "text-secondary": {
+          "$value": "{color.yuebai}",
+          "$type": "color",
+          "$description": "月白 (Dark) → yuebai"
+        },
+        "text-tertiary": {
+          "$value": "{color.qianhui}",
+          "$type": "color",
+          "$description": "浅灰 (Dark) → qianhui"
+        },
+        "text-inverse": {
+          "$value": "{color.wumeizi}",
+          "$type": "color",
+          "$description": "乌梅紫 (Dark) → wumeizi"
+        },
+        "text-disabled": {
+          "$value": "{color.shenhui}",
+          "$type": "color",
+          "$description": "深灰 (Dark) → shenhui"
+        },
+        "border-subtle": {
+          "$value": "{color.canghuang}",
+          "$type": "color",
+          "$description": "苍黄 (Dark) → canghuang"
+        },
+        "border-default": {
+          "$value": "{color.shenhui}",
+          "$type": "color",
+          "$description": "深灰 (Dark) → shenhui"
+        },
+        "border-strong": {
+          "$value": "{color.yinhui}",
+          "$type": "color",
+          "$description": "银灰 (Dark) → yinhui"
+        },
+        "status-success": {
+          "$value": "{color.cuilv}",
+          "$type": "color",
+          "$description": "翠绿 (Dark) → cuilv"
+        },
+        "status-success-hover": {
+          "$value": "{color.zhulv}",
+          "$type": "color",
+          "$description": "竹绿 (Dark) → zhulv"
+        },
+        "status-success-subtle": {
+          "$value": "{color.canglv}",
+          "$type": "color",
+          "$description": "苍绿 (Dark) → canglv"
+        },
+        "status-warning": {
+          "$value": "{color.hupohuang}",
+          "$type": "color",
+          "$description": "琥珀黄 (Dark) → hupohuang"
+        },
+        "status-warning-hover": {
+          "$value": "{color.jianghuang}",
+          "$type": "color",
+          "$description": "姜黄 (Dark) → jianghuang"
+        },
+        "status-warning-subtle": {
+          "$value": "{color.canghuang}",
+          "$type": "color",
+          "$description": "苍黄 (Dark) → canghuang"
+        },
+        "status-error": {
+          "$value": "{color.yanzhihong}",
+          "$type": "color",
+          "$description": "胭脂红 (Dark) → yanzhihong"
+        },
+        "status-error-hover": {
+          "$value": "{color.zhuhong}",
+          "$type": "color",
+          "$description": "朱红 (Dark) → zhuhong"
+        },
+        "status-error-subtle": {
+          "$value": "{color.tanzi}",
+          "$type": "color",
+          "$description": "檀紫 (Dark) → tanzi"
+        },
+        "status-info": {
+          "$value": "{color.cuilan}",
+          "$type": "color",
+          "$description": "翠蓝 (Dark) → cuilan"
+        },
+        "status-info-hover": {
+          "$value": "{color.dianqing}",
+          "$type": "color",
+          "$description": "靛青 (Dark) → dianqing"
+        },
+        "status-info-subtle": {
+          "$value": "{color.canglan}",
+          "$type": "color",
+          "$description": "苍蓝 (Dark) → canglan"
+        }
+      }
+    },
+    "component": {
+      "button": {
+        "bg": {
+          "accent": {
+            "$value": "{color.yanhong-3}",
+            "$type": "color",
+            "$description": "殷红 (Dark) → yanhong-3",
+            "hover": {
+              "$value": "{color.zaohong}",
+              "$type": "color",
+              "$description": "枣红 (Dark) → zaohong"
+            }
+          }
+        }
+      },
+      "link": {
+        "text": {
+          "$value": "{color.biqing}",
+          "$type": "color",
+          "$description": "碧青 (Dark) → biqing",
+          "hover": {
+            "$value": "{color.biqing}",
+            "$type": "color",
+            "$description": "碧青 (Dark) → biqing"
+          }
+        }
+      },
+      "nav": {
+        "text": {
+          "active": {
+            "$value": "{color.biqing}",
+            "$type": "color",
+            "$description": "碧青 (Dark) → biqing"
+          }
+        }
+      }
+    }
+  }
+}

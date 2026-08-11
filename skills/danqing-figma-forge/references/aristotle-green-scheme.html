@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Aristotle 暖底 + 绿 · 黑金暗色 — 配色方案</title>
+<style>
+  :root{
+    /* ===== 新增方案 · 绿色家族（跨双模统一） ===== */
+    --green-700:#0F5C38; --green-600:#157A4A; --green-500:#1F9D5C;
+    --green-glow:#46C98B; --green-300:#8EC777; --green-100:#D1FAE5;
+    /* ===== 提取自 heyaristotle 的暖色家族 ===== */
+    --bg-warm:#FDFDF7; --cream:#F9F4E8; --beige:#E9DDC8; --soft-green:#8EC777; --mint:#D1FAE5;
+    --espresso:#362416; --taupe:#6B5D4F; --wine:#D42B44;
+    /* ===== 黑金（暗色模式） ===== */
+    --dark-bg:#0E0E10; --dark-surface:#17171A; --dark-text:#ECECEC; --dark-border:#2A2A2E; --gold:#C9A86A;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:"PingFang SC",-apple-system,system-ui,sans-serif;color:#222;background:#faf9f6;line-height:1.6;}
+  .wrap{max-width:1080px;margin:0 auto;padding:40px 24px 80px;}
+  header.hero{background:linear-gradient(120deg,#0E0E10,#1c241f);color:#fff;border-radius:18px;padding:34px 34px;position:relative;overflow:hidden;}
+  header.hero::after{content:"";position:absolute;right:-40px;top:-40px;width:220px;height:220px;border-radius:50%;
+    background:radial-gradient(circle,var(--green-glow),transparent 65%);opacity:.35;}
+  header.hero h1{margin:0 0 6px;font-size:28px;letter-spacing:.5px;}
+  header.hero p{margin:0;color:#bcd9c8;max-width:640px;}
+  .tag{display:inline-block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--green-glow);
+    border:1px solid rgba(70,201,139,.4);padding:3px 10px;border-radius:999px;margin-bottom:14px;}
+  section{margin-top:46px;}
+  h2{font-size:20px;margin:0 0 4px;display:flex;align-items:center;gap:10px;}
+  h2 .num{font-size:13px;color:#fff;background:var(--green-600);width:24px;height:24px;border-radius:6px;
+    display:inline-flex;align-items:center;justify-content:center;font-weight:700;}
+  .sub{color:#777;margin:0 0 20px;font-size:14px;}
+  /* swatch grid */
+  .swatches{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:12px;}
+  .sw{height:88px;border-radius:12px;position:relative;border:1px solid rgba(0,0,0,.07);}
+  .sw span{position:absolute;left:8px;bottom:8px;font-size:11px;font-weight:600;background:rgba(255,255,255,.82);
+    padding:2px 6px;border-radius:5px;color:#333;}
+  .sw .nm{position:absolute;left:8px;top:8px;font-size:10px;color:rgba(255,255,255,.85);text-shadow:0 1px 2px rgba(0,0,0,.4);}
+  /* dual preview */
+  .duo{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  @media(max-width:760px){.duo{grid-template-columns:1fr;}}
+  .panel{border-radius:16px;padding:22px;overflow:hidden;}
+  .panel.light{background:var(--bg-warm);color:var(--espresso);border:1px solid var(--beige);}
+  .panel.dark{background:var(--dark-bg);color:var(--dark-text);border:1px solid var(--dark-border);}
+  .panel h3{margin:0 0 2px;font-size:15px;}
+  .panel .ph{font-size:12px;opacity:.65;margin-bottom:16px;}
+  .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:12px 0;}
+  .btn{border:none;border-radius:9px;padding:9px 16px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;}
+  .btn.primary{background:var(--green-600);color:#fff;}
+  .btn.ghost{background:transparent;color:var(--espresso);border:1.5px solid var(--green-600);}
+  .panel.dark .btn.ghost{color:var(--green-glow);border-color:var(--green-glow);}
+  .btn.gold{background:transparent;color:var(--gold);border:1.5px solid var(--gold);}
+  .inp{border-radius:9px;padding:9px 12px;font-size:13px;width:200px;}
+  .light .inp{background:#fff;border:1.5px solid var(--beige);color:var(--espresso);}
+  .dark .inp{background:#0a0a0c;border:1.5px solid var(--dark-border);color:var(--dark-text);}
+  .inp:focus{outline:none;border-color:var(--green-600);}
+  .dark .inp:focus{border-color:var(--green-glow);}
+  .tagpill{font-size:12px;padding:4px 10px;border-radius:999px;font-weight:600;}
+  .tagpill.ok{background:var(--green-100);color:var(--green-700);}
+  .tagpill.warn{background:#fbe9e9;color:var(--wine);}
+  .tagpill.gold{background:rgba(201,168,106,.16);color:var(--gold);}
+  .card{border-radius:12px;padding:14px 16px;margin-top:14px;}
+  .light .card{background:#fff;border:1px solid var(--beige);}
+  .dark .card{background:var(--dark-surface);border:1px solid var(--dark-border);}
+  .card .t{font-weight:700;font-size:14px;margin-bottom:4px;}
+  .card .d{font-size:12px;opacity:.7;}
+  .hairline{height:1px;background:var(--gold);opacity:.5;margin:16px 0;}
+  .dark .hairline{background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+  /* token table */
+  table{width:100%;border-collapse:collapse;font-size:13px;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 1px 0 rgba(0,0,0,.04);}
+  th,td{padding:10px 12px;text-align:left;border-bottom:1px solid #eee;}
+  th{background:#f6f5f1;font-weight:700;color:#444;}
+  td code{background:#f1f0ec;padding:2px 6px;border-radius:5px;font-size:12px;}
+  .chip{display:inline-block;width:14px;height:14px;border-radius:4px;vertical-align:-2px;margin-right:6px;border:1px solid rgba(0,0,0,.1);}
+  .note{background:#fff;border:1px solid #eee;border-left:4px solid var(--green-600);border-radius:10px;padding:14px 18px;font-size:13.5px;color:#444;margin-top:18px;}
+  .note b{color:var(--green-700);}
+  footer{margin-top:50px;font-size:12px;color:#999;text-align:center;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <span class="tag">配色方案 · Scheme 05</span>
+    <h1>Aristotle 暖底 + 绿 · 黑金暗色</h1>
+    <p>暗色模式沿用「黑金极简 Obsidian Luxe」；亮色模式以 heyaristotle 的暖奶油+浓缩咖啡棕为底，提取其色值后<b>加入祖母绿作为主强调色</b>，并以香槟金作装饰发丝线、酒红作警示信号。双模共享同一支绿色家族。</p>
+  </header>
+
+  <!-- 1. 提取色板 -->
+  <section>
+    <h2><span class="num">1</span>提取自 heyaristotle.com 的色值</h2>
+    <p class="sub">从站点 CSS chunk 实测提取，非推测。可见其语言：暖奶油底 + 浓缩咖啡棕文字 + 宝石级点缀（珊瑚/琥珀/酒红/青蓝/绿/紫粉）。</p>
+    <div class="swatches">
+      <div class="sw" style="background:#fdfdf7"><span class="nm">纸白</span><span>#fdfdf7</span></div>
+      <div class="sw" style="background:#f9f4e8"><span class="nm">奶油</span><span>#f9f4e8</span></div>
+      <div class="sw" style="background:#e9ddc8"><span class="nm">米褐</span><span>#e9ddc8</span></div>
+      <div class="sw" style="background:#362416"><span class="nm">浓缩咖啡</span><span>#362416</span></div>
+      <div class="sw" style="background:#6b5d4f"><span class="nm">灰褐</span><span>#6b5d4f</span></div>
+      <div class="sw" style="background:#ff7362"><span class="nm">珊瑚</span><span>#ff7362</span></div>
+      <div class="sw" style="background:#f7b635"><span class="nm">琥珀</span><span>#f7b635</span></div>
+      <div class="sw" style="background:#d42b44"><span class="nm">酒红</span><span>#d42b44</span></div>
+      <div class="sw" style="background:#85c4e9"><span class="nm">青蓝</span><span>#85c4e9</span></div>
+      <div class="sw" style="background:#8ec777"><span class="nm">柔绿</span><span>#8ec777</span></div>
+      <div class="sw" style="background:#d1fae5"><span class="nm">薄荷</span><span>#d1fae5</span></div>
+      <div class="sw" style="background:#ed83c0"><span class="nm">紫粉</span><span>#ed83c0</span></div>
+    </div>
+  </section>
+
+  <!-- 2. 双模预览 -->
+  <section>
+    <h2><span class="num">2</span>双模成品预览</h2>
+    <p class="sub">同一套组件，亮色=Aristotle 暖底+绿，暗色=黑金+绿。绿色家族贯穿两模。</p>
+    <div class="duo">
+      <!-- LIGHT -->
+      <div class="panel light">
+        <h3>亮色 · Aristotle Warm + Green</h3>
+        <div class="ph">奶油底 / 浓缩咖啡文字 / 祖母绿主操作 / 金发丝线</div>
+        <div class="row">
+          <button class="btn primary">主操作</button>
+          <button class="btn ghost">次操作</button>
+          <button class="btn gold">金描边</button>
+        </div>
+        <div class="row">
+          <input class="inp" value="搜索 · 课程 / 概念" />
+        </div>
+        <div class="row">
+          <span class="tagpill ok">已完成</span>
+          <span class="tagpill warn">待复习</span>
+          <span class="tagpill gold">精选</span>
+        </div>
+        <div class="hairline"></div>
+        <div class="card">
+          <div class="t">对话式辅导</div>
+          <div class="d">孩子开口说，导师倾听并回应——互动是学习的顶层形态。</div>
+        </div>
+      </div>
+      <!-- DARK -->
+      <div class="panel dark">
+        <h3>暗色 · Obsidian Luxe + Green</h3>
+        <div class="ph">近黑底 / 香槟金 / 祖母绿辉光 / 墨阶灰</div>
+        <div class="row">
+          <button class="btn primary" style="background:var(--green-glow);color:#0e0e10;">主操作</button>
+          <button class="btn ghost">次操作</button>
+          <button class="btn gold">金描边</button>
+        </div>
+        <div class="row">
+          <input class="inp" value="session // night-mode" />
+        </div>
+        <div class="row">
+          <span class="tagpill ok">已完成</span>
+          <span class="tagpill warn">待复习</span>
+          <span class="tagpill gold">精选</span>
+        </div>
+        <div class="hairline"></div>
+        <div class="card">
+          <div class="t">夜间专注</div>
+          <div class="d">暗而不闷：金线切分区块，绿光只亮在正在交互的元素。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Token 表 -->
+  <section>
+    <h2><span class="num">3</span>Design Token 表（DTCG 语义层）</h2>
+    <p class="sub">已通过 WCAG AA 校验。金色在浅底仅 2.1:1，故浅色模式仅作装饰发丝线/描边，不作正文；酒红在浅底 4.4–4.9，仅用于大字号/图标/填充。</p>
+    <table>
+      <thead><tr><th>语义角色</th><th>亮色值</th><th>暗色值</th><th>用途 / 对比度</th></tr></thead>
+      <tbody>
+        <tr><td>bg-default</td><td><span class="chip" style="background:#fdfdf7"></span><code>#fdfdf7</code></td><td><span class="chip" style="background:#0e0e10"></span><code>#0e0e10</code></td><td>页面底</td></tr>
+        <tr><td>bg-elevated</td><td><span class="chip" style="background:#ffffff"></span><code>#ffffff</code></td><td><span class="chip" style="background:#17171a"></span><code>#17171a</code></td><td>卡片/表面</td></tr>
+        <tr><td>text-primary</td><td><span class="chip" style="background:#362416"></span><code>#362416</code></td><td><span class="chip" style="background:#ececec"></span><code>#ececec</code></td><td>正文 14.5:1 / 16.3:1 ✓</td></tr>
+        <tr><td>text-secondary</td><td><span class="chip" style="background:#6b5d4f"></span><code>#6b5d4f</code></td><td><span class="chip" style="background:#9a9a9a"></span><code>#9a9a9a</code></td><td>次要文字 6.2:1 ✓</td></tr>
+        <tr><td>border-default</td><td><span class="chip" style="background:#e9ddc8"></span><code>#e9ddc8</code></td><td><span class="chip" style="background:#2a2a2e"></span><code>#2a2a2e</code></td><td>描边/分隔</td></tr>
+        <tr><td>accent / primary</td><td><span class="chip" style="background:#157a4a"></span><code>#157a4a</code></td><td><span class="chip" style="background:#46c98b"></span><code>#46c98b</code></td><td><b>新增绿</b> 主操作 5.25:1 / 9.2:1 ✓</td></tr>
+        <tr><td>accent-strong</td><td><span class="chip" style="background:#0f5c38"></span><code>#0f5c38</code></td><td><span class="chip" style="background:#1f9d5c"></span><code>#1f9d5c</code></td><td>深绿/链接 hover</td></tr>
+        <tr><td>accent-soft</td><td><span class="chip" style="background:#8ec777"></span><code>#8ec777</code></td><td><span class="chip" style="background:#0f3d28"></span><code>#0f3d28</code></td><td>绿填充/成功底</td></tr>
+        <tr><td>accent-mint</td><td><span class="chip" style="background:#d1fae5"></span><code>#d1fae5</code></td><td><span class="chip" style="background:#103a2a"></span><code>#103a2a</code></td><td>浅绿背景</td></tr>
+        <tr><td>accent-gold</td><td><span class="chip" style="background:#c9a86a"></span><code>#c9a86a</code></td><td><span class="chip" style="background:#c9a86a"></span><code>#c9a86a</code></td><td>黑金主角/浅色发丝线（浅底禁作正文 2.1:1）</td></tr>
+        <tr><td>status-error</td><td><span class="chip" style="background:#d42b44"></span><code>#d42b44</code></td><td><span class="chip" style="background:#e06a7a"></span><code>#e06a7a</code></td><td>警示（大字号/图标/填充，浅底 4.4:1）</td></tr>
+      </tbody>
+    </table>
+    <div class="note">
+      <b>设计记忆点：</b>暖奶油 + 浓缩咖啡棕的"编辑级温度"来自 heyaristotle；<b>祖母绿</b>是本次加入的主角，让整组配色从"怀旧暖棕"跳成"自然×理性"——既保留 Aristotle 的人文感，又多一层生长/专注的语义。暗色模式则用黑金立住高级感，绿光作唯一呼吸点。两模通过同一支绿色家族无缝切换。
+    </div>
+  </section>
+
+  <footer>提取来源：heyaristotle.com（CSS chunk 实测）· 对比度按 WCAG 2.1 校验 · 系统字体 + 纯 CSS，开箱即用</footer>
+</div>
+</body>
+</html>
