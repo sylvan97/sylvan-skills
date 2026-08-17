@@ -1,19 +1,18 @@
 const menuButton = document.querySelector('.menu-button');
-const nav = document.querySelector('.site-header nav');
+const nav = document.querySelector('#mobile-nav');
 
 if (menuButton && nav) {
+  const setMenuState = (open) => {
+    menuButton.setAttribute('aria-expanded', String(open));
+    nav.hidden = !open;
+    nav.dataset.open = String(open);
+  };
+
+  setMenuState(false);
+
   menuButton.addEventListener('click', () => {
     const expanded = menuButton.getAttribute('aria-expanded') === 'true';
-    menuButton.setAttribute('aria-expanded', String(!expanded));
-    nav.style.display = expanded ? '' : 'flex';
-    nav.style.position = expanded ? '' : 'absolute';
-    nav.style.top = '72px';
-    nav.style.left = '0';
-    nav.style.right = '0';
-    nav.style.padding = '1rem';
-    nav.style.background = 'var(--color-bg)';
-    nav.style.borderBottom = '1px solid var(--color-line)';
-    nav.style.flexDirection = 'column';
+    setMenuState(!expanded);
   });
 }
 
