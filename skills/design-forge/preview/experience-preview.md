@@ -2,129 +2,226 @@
 
 ## Purpose
 
-Experience Preview is a disposable, fully interactive HTML/CSS/JS representation used to validate a design direction before committing to Figma implementation.
+Experience Preview is the low-cost, interactive validation stage between an approved Design Specification and Figma implementation.
 
 It answers:
 
-> "Does this actually feel right when I use it?"
+> "Does this design actually feel right when I use it?"
 
-It is not automatically production code.
+It is disposable, experience-first, and not automatically production code.
 
 ## Position in the workflow
 
 ```text
-Design Direction
+Design Specification
       ↓
-Design System
+Preview Generator
       ↓
-Experience Preview
+Self-contained HTML
       ↓
-User experiences it
+Real interaction
       ↓
-Critique / Revision
+User feedback
       ↓
-Approved
+Design Critic
+      ↓
+Revise / Approve
       ↓
 Figma
 ```
 
-## Requirements
+## Output contract
 
-The preview should be:
+Default output should be a self-contained `index.html` whenever practical.
 
-- self-contained where practical
-- runnable without a backend unless the experience genuinely requires one
-- visually faithful to the approved direction
-- genuinely interactive
-- responsive across requested viewports
-- easy to regenerate
-- cheap to discard
+Allowed technologies:
+
+- HTML
+- CSS
+- inline SVG
+- vanilla JavaScript
+- embedded demonstration data
+
+External runtime dependencies should be avoided unless genuinely necessary.
+
+## Renderer contract
+
+The preview must preserve the canonical Design Specification's:
+
+- information hierarchy
+- composition strategy
+- typography roles
+- color roles
+- spacing relationships
+- component states
+- navigation model
+- disclosure behavior
+- motion character
+- responsive transformations
+- accessibility intent
+
+The preview may simplify implementation details that are irrelevant to experience validation, but it must not invent major design decisions.
+
+## What the preview optimizes for
+
+1. Fast iteration
+2. Real interaction
+3. Visual fidelity to the Design Specification
+4. Responsive behavior
+5. Easy inspection
+6. Low implementation cost
+7. Clear feedback loops
+
+Do not turn this stage into a production engineering project.
 
 ## Interaction coverage
 
-Use real interactions where they materially affect the experience:
+Implement only interactions that matter to the design hypothesis.
+
+Typical candidates:
 
 - navigation
-- hover
-- focus
-- active / selected states
+- menu open / close
 - tabs
 - accordions
-- dialogs
-- drawers
-- filtering
+- filters
+- hover
+- focus
+- scroll-driven transitions
+- modal / drawer behavior
 - progressive disclosure
-- scroll behavior
-- transitions
+- primary CTA flow
 - responsive navigation
 
-Do not fake interaction with static screenshots when the behavior is part of the design question.
+Static screenshots are not sufficient when behavior itself is being evaluated.
+
+## Responsive preview
+
+Expose all target viewports defined by the Design Specification when practical:
+
+```text
+Desktop
+Tablet
+Mobile
+```
+
+Responsive behavior must be represented as meaningful transformations, not merely width reduction.
+
+For every major element, the preview should preserve the specified choice to:
+
+- scale
+- reflow
+- stack
+- collapse
+- reorder
+- transform interaction
+- become progressive disclosure
+- disappear
+- remain persistent
+
+## Motion preview
+
+Motion validates rhythm and behavior. Implement representative motion, not every possible animation.
+
+Validate:
+
+- entrance rhythm
+- transition character
+- hover / press feedback
+- scroll behavior
+- continuity between states
+- reduced-motion behavior
+
+Do not add motion merely to make the preview impressive.
+
+## Content fidelity
+
+Use realistic content whenever content shape affects the design.
+
+Include representative:
+
+- title lengths
+- metadata
+- image ratios
+- long and short states
+- empty / loading / error states when relevant
+
+Do not use lorem ipsum when realistic content is available.
+
+## Optional preview shell
+
+A lightweight shell may expose:
+
+```text
+Preview
+├── viewport switcher
+├── route / state selector
+├── reset
+└── feedback
+```
+
+The shell must remain visually separate from the experience being evaluated.
+
+## Feedback loop
+
+Users should be able to respond in ordinary language:
+
+> "This feels too cold."
+
+> "I like the homepage, but the navigation is awkward."
+
+> "The mobile version feels cramped."
+
+Map feedback back to the Design Specification before changing arbitrary HTML.
+
+Classify feedback as needed:
+
+```text
+intent
+visual
+hierarchy
+layout
+typography
+color
+interaction
+motion
+responsive
+accessibility
+content
+```
+
+If the feedback indicates a system-level problem, update the specification first and regenerate affected regions.
 
 ## Fidelity levels
 
 ### Direction preview
 
-Used early to validate composition and emotional direction.
+Validate composition and emotional direction with minimal interaction.
 
 ### Experience preview
 
-Used after the direction is approved to validate realistic interaction, responsive behavior, and motion.
+Validate realistic interaction, responsive behavior, content shape, and representative motion.
 
 ### Figma-ready preview
 
-Used immediately before Figma implementation. Visual system, component states, and key interactions should be stable enough to translate into editable Figma structures.
+Validate stable visual roles, component states, and key interactions immediately before Figma implementation.
 
-## User feedback
+## Approval gate
 
-The preview should support a simple loop:
+The user should explicitly approve the experience before expensive Figma implementation unless they explicitly choose to skip preview validation.
 
-```text
-Looks right
-    → approve → Figma
+Approval means:
 
-Not quite
-    → describe what feels wrong
-    → Design Critic / Discovery
-    → revise preview
-```
+- overall visual direction feels right
+- major interactions feel right
+- responsive behavior is acceptable
+- remaining issues are understood and consciously accepted
 
-Do not require users to diagnose the problem in design terminology.
-
-Accept feedback such as:
-
-- "too cold"
-- "too much going on"
-- "the menu feels weird"
-- "mobile feels cramped"
-- "I like this part but not that part"
-
-Translate these observations back into the intent and decision models.
-
-## Preview implementation rules
-
-- Use semantic structure and accessible interaction states.
-- Use realistic content whenever content shape affects layout.
-- Prefer CSS and native browser behavior before adding unnecessary libraries.
-- Keep implementation modular enough to revise quickly.
-- Avoid coupling preview code to production architecture unless explicitly requested.
-- Do not claim that preview behavior guarantees production performance.
-
-## Validation checklist
-
-Before requesting approval, verify:
-
-- primary flow works
-- navigation works
-- interactive states are visible
-- motion has a purpose
-- responsive behavior is intentional
-- content hierarchy is clear
-- no obvious overflow or broken states exist
-- the preview still matches the approved visual direction
+Approval does not mean every pixel is final.
 
 ## Handoff to Figma
 
-When approved, produce a compact handoff summary:
+Produce a compact handoff:
 
 ```yaml
 preview_handoff:
@@ -136,4 +233,40 @@ preview_handoff:
   design_decisions: []
 ```
 
-Figma Forge uses this as implementation input. The preview itself remains disposable.
+## Anti-patterns
+
+### Screenshot theater
+
+Static HTML that looks good but has no meaningful interaction.
+
+### Production-code trap
+
+Spending most of the time on architecture, dependencies, routing, or backend concerns.
+
+### Renderer drift
+
+Preview invents values or interactions absent from the Design Specification.
+
+### Decoration inflation
+
+Adding effects solely to make the demo impressive.
+
+### False completeness
+
+Implementing every possible state when only representative states are needed to validate the design.
+
+## Exit states
+
+```text
+PREVIEW_READY
+    ↓
+USER_REVIEW
+    ├── APPROVED → FIGMA_READY
+    └── REVISION_REQUIRED
+             ↓
+        DESIGN_CRITIC
+             ↓
+        UPDATE SPEC
+             ↓
+        REGENERATE
+```
