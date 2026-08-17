@@ -1,0 +1,59 @@
+{
+  "version": "0.1",
+  "decisions": [
+    {
+      "id": "D01",
+      "statement": "Homepage should create a strong cinematic first impression.",
+      "status": "accepted",
+      "scope": ["home"],
+      "source": "user",
+      "rationale": "The user wants the first impression to feel cinematic."
+    },
+    {
+      "id": "D02",
+      "statement": "Knowledge discovery must remain fast and obvious.",
+      "status": "accepted",
+      "scope": ["home", "index", "navigation"],
+      "source": "user",
+      "rationale": "The user prioritizes finding articles quickly."
+    }
+  ],
+  "constraints": [
+    {
+      "id": "C01",
+      "statement": "The experience must support PC, Pad, and H5.",
+      "priority": "high",
+      "status": "active",
+      "source": "user"
+    }
+  ],
+  "tensions": [
+    {
+      "id": "T01",
+      "left": "immersion",
+      "right": "efficiency",
+      "resolution": "Use cinematic composition on the homepage while keeping navigation and retrieval-first structures clear.",
+      "status": "resolved"
+    }
+  ],
+  "routes": [
+    { "id": "R01", "path": "/", "role": "homepage", "priority": "primary" },
+    { "id": "R02", "path": "/notes", "role": "knowledge index", "priority": "primary" },
+    { "id": "R03", "path": "/notes/:slug", "role": "article detail", "priority": "secondary" }
+  ],
+  "tokens": {
+    "color": {},
+    "typography": {},
+    "spacing": {},
+    "radius": {},
+    "motion": {}
+  },
+  "snapshot": {
+    "id": "S02",
+    "status": "accepted",
+    "decision_ids": ["D01", "D02"],
+    "created_at": "2026-08-17T22:00:00+08:00",
+    "accepted_at": "2026-08-17T22:08:00+08:00",
+    "acceptance_notes": "Homepage impact and knowledge retrieval are both preserved through surface-specific priorities."
+  }
+}
