@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Design Forge Preview — Home</title>
+  <link rel="stylesheet" href="./styles/tokens.css" />
+  <link rel="stylesheet" href="./styles/app.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="./index.html">FIELD NOTES</a>
+    <nav aria-label="Primary navigation">
+      <a class="active" href="./index.html">首页</a>
+      <a href="./notes.html">知识库</a>
+      <a href="./notes.html#featured">精选</a>
+    </nav>
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-nav">菜单</button>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <p class="eyebrow">PERSONAL KNOWLEDGE / 2026</p>
+      <h1 id="hero-title">Ideas worth<br /><em>keeping.</em></h1>
+      <p class="hero-copy">一个持续生长的知识与生活记录空间。先感受，再进入内容。</p>
+      <a class="button" href="./notes.html">进入知识库 <span aria-hidden="true">↗</span></a>
+    </section>
+
+    <section class="signal-grid" aria-label="Knowledge overview">
+      <article class="signal-card signal-card-large">
+        <span class="card-index">01</span>
+        <p class="card-label">KNOWLEDGE</p>
+        <h2>技术、工作与长期沉淀</h2>
+        <p>把真正值得留下来的经验，整理成可以再次进入的路径。</p>
+        <a href="./notes.html">浏览全部 →</a>
+      </article>
+      <article class="signal-card">
+        <span class="card-index">02</span>
+        <p class="card-label">FIELD NOTES</p>
+        <h2>旅途与生活碎片</h2>
+        <a href="./notes.html#life">查看记录 →</a>
+      </article>
+      <article class="signal-card accent-card">
+        <span class="card-index">03</span>
+        <p class="card-label">LATEST</p>
+        <h2>Design Forge：从对话到设计</h2>
+        <a href="./detail.html">阅读 →</a>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer"><span>DESIGN FORGE / HTML PREVIEW</span><span>PC · PAD · H5</span></footer>
+  <script src="./scripts/app.js"></script>
+</body>
+</html>
