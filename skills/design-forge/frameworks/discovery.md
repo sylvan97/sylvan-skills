@@ -1,207 +1,387 @@
-# Design Discovery Framework
+# Design Discovery Interview
 
 ## Purpose
 
-Help a person with little or no design vocabulary make meaningful design decisions through conversation.
+Design Discovery is an adaptive conversation engine for users who may have little or no design vocabulary.
 
-The user should react to experiences, examples, and trade-offs—not be tested on design terminology.
+Its primary objective is **understanding intent**, not collecting a checklist of design preferences.
 
-## Core principle
+The engine continuously asks:
 
-**Show → Compare → Ask → Translate → Confirm.**
+> What is the most valuable thing I still need to understand before I can make the next important design decision?
 
-When a design dimension is ambiguous:
+It must never behave like a static questionnaire.
 
-1. Explain the dimension in plain language.
-2. Present a small number of distinct directions.
-3. Give each direction a real-world reference when one materially helps.
-4. Ask what the user likes, dislikes, or wants to combine.
-5. Translate the response into professional design properties.
-6. Confirm the resulting interpretation before committing to it.
+## Core loop
 
-## Do not ask abstract questions
+```text
+Conversation state
+      ↓
+What do we know?
+      ↓
+What remains uncertain?
+      ↓
+Which uncertainty has the highest design impact?
+      ↓
+Can the user answer it directly?
+      ↓
+    yes → ask plainly
+      ↓
+    no → provide contrasts / references / examples
+      ↓
+User response
+      ↓
+Update intent model
+      ↓
+Check contradictions
+      ↓
+Repeat only while useful
+```
+
+## 1. Intent model
+
+Maintain an internal model throughout the conversation.
+
+```yaml
+intent:
+  purpose:
+    product:
+    primary_task:
+    audience:
+
+  content:
+    hierarchy:
+    density:
+    media:
+
+  emotional:
+    desired: []
+    avoid: []
+
+  visual:
+    composition:
+    typography:
+    color:
+    imagery:
+    density:
+    whitespace:
+
+  interaction:
+    navigation:
+    disclosure:
+    feedback:
+
+  motion:
+    intensity:
+    rhythm:
+    continuity:
+
+  responsive:
+    platforms: []
+    priorities: []
+
+  constraints:
+    technical: []
+    brand: []
+    accessibility: []
+
+  references:
+    liked: []
+    disliked: []
+    observations: []
+
+  confidence:
+    purpose: 0
+    content: 0
+    emotional: 0
+    visual: 0
+    interaction: 0
+    motion: 0
+    responsive: 0
+```
+
+The model represents **meaning and confidence**, not merely answers.
+
+## 2. Classify user statements
+
+A response can contain one or more of:
+
+- explicit requirement
+- preference
+- emotional intent
+- example/reference
+- constraint
+- assumption
+- uncertainty
+- contradiction
+
+Do not treat all statements equally.
+
+Example:
+
+> "I want it to feel expensive, but I don't want black or gold."
+
+Interpret as:
+
+```text
+emotional intent: premium / expensive
+constraint: avoid black + gold
+```
+
+Keep the interpretation provisional until supported by more evidence.
+
+## 3. Ask the highest-value question
+
+At every turn, rank unresolved decisions by:
+
+`impact × uncertainty × irreversibility`
+
+Where:
+
+- **impact** = how much the decision affects the overall experience
+- **uncertainty** = how little the agent currently understands the user's intent
+- **irreversibility** = how expensive it would be to change later
+
+Ask about high-scoring decisions first.
+
+This prevents wasting the conversation on low-impact details such as border radius while the overall visual direction is still unknown.
+
+## 4. Progressive specificity
+
+Move from human intent to professional specification in stages:
+
+```text
+Feeling
+  ↓
+Experience
+  ↓
+Design property
+  ↓
+Design rule
+  ↓
+Implementation value
+```
+
+Example:
+
+```text
+User: "I want it to breathe."
+
+Feeling:
+  calm / unhurried
+
+Experience:
+  content should not feel crowded
+
+Design properties:
+  generous whitespace
+  clear grouping
+  low visual density
+
+Design rules:
+  larger section spacing
+  restrained secondary UI
+  strong grouping hierarchy
+
+Implementation:
+  spacing tokens + container rules
+```
+
+Do not jump directly to implementation values.
+
+## 5. Question formats
+
+### Reflection
+
+> "It sounds like you want something quiet and sophisticated, but not sterile. Is that right?"
+
+### Contrast
+
+> "When you say cinematic, do you mean large visual moments, or the feeling created by slow transitions and pacing?"
+
+### Forced choice
+
+> "Which is closer: a carefully edited magazine, or an immersive film opening?"
+
+### Reference choice
+
+Provide 2–4 real examples and explain what to observe.
+
+### Decomposition
+
+> "What pulled you in most: the typography, the imagery, or the way the page moves?"
+
+### Trade-off
+
+> "You want both very large type and a lot of information above the fold. Which should win when they conflict?"
+
+### Confirmation
+
+> "Based on everything so far, I'm proposing a quiet editorial system with large type, restrained color, and occasional immersive image sections. Does that capture what you mean?"
+
+## 6. Never ask what the user cannot reasonably know
 
 Avoid:
 
-> What design style do you prefer?
+- What grid do you want?
+- Which type scale do you prefer?
+- What easing curve should the animation use?
+- How many spacing tokens should we have?
+- Do you want 8px or 12px radius?
+
+Instead ask what the user can judge:
+
+- Should the page feel tightly composed or spacious?
+- Should text feel quiet or commanding?
+- Should movement feel immediate or deliberate?
+- Should controls feel soft or precise?
+
+## 7. Use examples when language is lossy
+
+If the user repeatedly uses vague words such as:
+
+- premium
+- modern
+- cool
+- high-end
+- simple
+- cinematic
+- elegant
+- advanced
+- clean
+
+do not repeatedly ask for definitions.
+
+Translate the word into 3–5 plausible interpretations and use contrast or real references to resolve them.
+
+Example:
+
+```text
+"minimal"
+
+A — editorial minimal
+B — product minimal
+C — architectural minimal
+D — expressive minimal
+```
+
+The labels are secondary. The descriptions and references do the real work.
+
+## 8. Reference Explorer integration
+
+Invoke Reference Explorer when:
+
+- the user cannot articulate a preference
+- two interpretations remain equally plausible
+- visual behavior is easier to judge than describe
+- motion or interaction needs to be experienced
+- the user says "I don't know, show me"
+
+Reference Explorer should return a small set of contrasting, visitable examples and explain what to observe.
+
+Do not browse simply because browsing is possible.
+
+## 9. Conversation memory and contradiction handling
+
+Persist important decisions in the intent model rather than relying on the last message.
+
+When a later answer changes an earlier assumption:
+
+1. detect the conflict
+2. state it plainly
+3. update the model
+4. identify downstream decisions that may change
+5. ask only if the impact is material
+
+Example:
+
+> "Earlier we were optimizing for a quiet editorial feel. Your new preference for constant scroll effects pushes the experience toward something more kinetic. I think the right compromise is to keep the typography restrained and make motion the expressive layer."
+
+## 10. Confidence and stopping
+
+Do not demand certainty on every dimension.
+
+A direction is ready for systemization when:
+
+- purpose is clear
+- content hierarchy is sufficiently understood
+- high-impact emotional intent is clear
+- major visual trade-offs are resolved
+- interaction intent is clear enough for the requested scope
+- unresolved details can be derived consistently
+
+Low-confidence details can remain agent-owned.
+
+## 11. Do not over-interview
+
+The objective is not to maximize the number of questions.
 
 Prefer:
 
-> Which feels closer to what you want?
->
-> A. A quiet editorial page with large typography and generous empty space.
->
-> B. A dense, highly structured interface where information is always visible.
->
-> C. An immersive page where large imagery and transitions create a cinematic feeling.
-
-The user can answer A/B/C without knowing the words `editorial`, `information density`, or `cinematic composition`.
-
-## Reference examples
-
-References are part of the discovery interface, not decoration.
-
-When presenting a direction, provide one or more relevant real-world examples when they help the user understand the direction. The reference should be:
-
-- accessible to the user
-- visually relevant to the specific direction
-- chosen for the characteristic being discussed, not merely because it is famous
-- accompanied by a short explanation of what to inspect
-
-A reference must not be presented as a template to copy. Explicitly distinguish:
-
-`What to observe` from `What to copy`.
-
-### Reference format
-
-```yaml
-reference:
-  name: Example site
-  url: https://example.com
-  dimension: composition
-  observe:
-    - large editorial type
-    - asymmetric image placement
-    - generous whitespace
-  not_to_copy:
-    - brand identity
-    - exact content structure
+```text
+5 high-value questions
 ```
 
-If current or specific references are needed, search the web rather than relying on stale memory. Prefer official/public sites and avoid inventing URLs.
+over:
 
-## Progressive discovery
-
-Do not ask every design question at once.
-
-### Stage 1 — Purpose
-
-Understand:
-- What is this?
-- Who is it for?
-- What should people mainly do or understand?
-- What content matters most?
-
-### Stage 2 — Emotional direction
-
-Explore dimensions such as:
-- quiet ↔ energetic
-- serious ↔ playful
-- warm ↔ cool
-- human ↔ technological
-- understated ↔ expressive
-- familiar ↔ experimental
-
-Use examples when words alone are insufficient.
-
-### Stage 3 — Composition
-
-Explore:
-- spacious ↔ dense
-- symmetrical ↔ asymmetric
-- predictable ↔ exploratory
-- linear ↔ layered
-- content-first ↔ image-first
-
-### Stage 4 — Typography and imagery
-
-Instead of asking for font names, ask about reading and personality:
-- Should headlines feel calm, authoritative, expressive, or dramatic?
-- Should body text disappear into comfortable reading, or have a visible editorial character?
-- Should images feel documentary, polished, cinematic, playful, or minimal?
-
-### Stage 5 — Interaction
-
-Ask about behavior:
-- Should navigation feel obvious or discovered?
-- Should the interface feel immediate or deliberate?
-- Should content reveal itself progressively?
-- Should interactions feel subtle or expressive?
-
-### Stage 6 — Motion
-
-Ask about temporal feeling:
-- almost still
-- subtle and responsive
-- smooth and continuous
-- cinematic and deliberate
-- energetic and expressive
-
-Then translate to timing, easing, choreography, and transition principles.
-
-## Reference selection rules
-
-A good reference answers a question the user is currently deciding.
-
-Bad:
-
-> Here are five cool websites.
-
-Good:
-
-> You said you want the site to feel calm but not empty. Look at this example specifically for how it uses whitespace and typography to create calmness without reducing content density.
-
-Prefer a small number of strong references over a gallery of links.
-
-## Avoid reference anchoring
-
-References can accidentally become templates. Therefore:
-
-- show references after identifying the design dimension
-- explain the principle to observe
-- ask what the user likes/dislikes about the example
-- combine insights from multiple references when appropriate
-- do not reproduce the reference's structure unless explicitly requested
-
-## Translation layer
-
-Convert natural language into design properties.
-
-Examples:
-
-| User says | Possible interpretation |
-|---|---|
-| "高级" | restraint, hierarchy, typography quality, material/imagery discipline |
-| "电影感" | cinematic composition, large imagery, controlled pacing, spatial transitions |
-| "有呼吸感" | lower density, larger whitespace, clear grouping |
-| "不要像 AI 做的" | avoid generic patterns; increase authored composition and specificity |
-| "有设计感但好用" | expressive visual layer constrained by clear usability |
-| "科技但不要俗" | restrained technology cues, avoid gratuitous neon/glow, precise typography and motion |
-| "像杂志" | editorial hierarchy, typography-led composition, intentional image/text relationships |
-
-These are hypotheses, not automatic conclusions. Confirm when the interpretation materially affects the direction.
-
-## Decision record
-
-After each major discovery stage, maintain a compact internal record:
-
-```yaml
-discovery:
-  decision: "immersive but readable"
-  user_language: "像电影，但不能看不懂"
-  interpretation:
-    composition: cinematic
-    hierarchy: strong
-    density: low-to-medium
-    imagery: prominent
-    typography: highly legible
-  confidence: medium
-  reference_examples:
-    - name: Example
-      url: https://example.com
+```text
+25 complete questionnaire answers
 ```
 
-Do not expose the whole internal record unless useful. The user-facing output should remain understandable.
+If enough evidence exists, stop asking and make the next design decision.
 
-## Exit condition
+## 12. Decision record
 
-Discovery is complete when:
+For major projects, maintain a compact decision record:
 
-- the purpose and audience are clear
-- major visual dimensions have a direction
-- interaction expectations are understood
-- motion expectations are understood when relevant
-- the user has seen enough concrete examples to understand the proposed direction
-- unresolved choices are either low-impact or explicitly marked for exploration later
+```yaml
+decisions:
+  - question: "How should the homepage feel?"
+    user_signal: "quiet but not boring"
+    interpretation:
+      - restrained visual language
+      - strong editorial hierarchy
+      - selective moments of contrast
+    confidence: high
+    evidence:
+      - reference A
+      - user rejected reference B
+```
 
-Then produce a `Design Brief` and `Design Direction` before Figma implementation.
+This prevents the final Figma design from becoming disconnected from the conversation that produced it.
+
+## 13. Anti-patterns
+
+### Questionnaire mode
+
+Asking every possible design question in sequence.
+
+### Leading the user
+
+Suggesting one option so strongly that the user merely agrees.
+
+### Vocabulary test
+
+Using design terminology to appear sophisticated.
+
+### Premature convergence
+
+Picking a style after the first vague preference.
+
+### Endless exploration
+
+Continuing to browse references after the direction is already clear.
+
+### Pixel democracy
+
+Asking the user to approve low-level values that should be derived by the agent.
+
+## 14. Definition of success
+
+A successful discovery session produces a result where the user can say:
+
+> "Yes, that's what I was trying to describe."
+
+even if they could never have expressed it using professional design language themselves.
+
+That is the strongest signal that Design Forge understood the user's intent.
