@@ -7,19 +7,47 @@ description: Transform an ambiguous product or website idea through conversation
 
 Design Forge is a conversation-first design workflow. It translates ordinary language into design decisions, validates the experience before final delivery, and keeps Figma optional unless the user explicitly chooses Figma as the output.
 
-## 0. Choose the output mode first
+The operational architecture is:
 
-Before detailed design discovery, ask:
+```text
+SKILL.md orchestration
+    ↓
+Knowledge Governance
+    ↓
+Knowledge Architecture
+    ↓
+Trigger Map
+    ↓
+Reasoning Engine
+    ↓
+Question Strategy
+    ↓
+Design Direction
+    ↓
+Design Specification
+    ↓
+Experience Preview / Frontend
+    ↓
+Verification
+    ↓
+Renderer
+```
+
+Read the referenced framework or reasoning document only when its stage is active. Do not load the entire knowledge library for every request.
+
+## 0. Start with the output mode
+
+Before detailed design discovery, determine the user's desired final artifact:
 
 > 这次你希望最终得到什么？
 >
 > **A. Figma 设计稿** — 先确定设计方向，再生成可交互多页面 Preview，验收后落到 Figma。
 >
-> **B. 前端页面** — 直接在当前前端项目中实现 UI；如果当前目录为空，则创建默认可预览项目。
+> **B. 前端页面** — 在当前前端项目中实现真实 UI；如果当前目录为空，则创建默认可预览项目。
 
-Do not ask detailed typography, color, spacing, or grid questions before this choice.
+If the user has already made the choice, do not ask again.
 
-Record an Output Contract:
+Create an Output Contract:
 
 ```yaml
 output_mode: figma | frontend
@@ -31,88 +59,85 @@ frontend:
   existing_project: auto_detect
 ```
 
-If the user changes the output mode later, re-evaluate the capability gate and project state before continuing.
+If the user changes the output mode, restart capability checks for the new mode and preserve only decisions that remain valid.
 
-## 1. Figma capability gate
+## 1. Capability gate
 
-This gate applies only when `output_mode: figma`.
+### Figma mode
 
-### Required checks
-
-Before spending significant effort on design discovery, verify that the Figma MCP capability is actually available and usable in the current environment.
-
-Check:
+Before substantial discovery, verify:
 
 1. Figma MCP tools are available.
-2. The required connection/authentication is usable.
-3. The user has access to the target Figma file, or can create one when needed.
-4. The Figma workflow can perform the required write operations.
+2. Connection/authentication is usable.
+3. The target Figma file is accessible or can be created.
+4. Required write operations are available.
 
-The Figma MCP server is a prerequisite for Figma output. Existing Figma workflows require the MCP connection before screen creation, and `figma-use` guidance must be loaded before write operations. Follow the installed Figma skills rather than duplicating their implementation rules.
+Follow the installed Figma skills. Load `figma-design-to-code` only for design-to-code work, `figma-generate-design` for generating a page/view into Figma, and `figma-use` before every `use_figma` call. Load `figma-create-new-file` before every `create_new_file` call. Do not duplicate those implementation rules here.
 
-### If Figma MCP is unavailable or unauthorized
+If Figma MCP is unavailable or unauthorized, stop the Figma path and tell the user to install/connect/authorize it. Do not claim Figma delivery is possible. The user may switch to Frontend mode.
 
-Stop before design work that depends on Figma.
+### Frontend mode
 
-Tell the user clearly:
+Inspect the current working directory.
 
-> 你选择的是 Figma 设计稿，但当前环境没有可用的 Figma MCP / 权限。请先安装、连接并授权 Figma MCP，然后让我重新检查。
+If genuinely empty:
 
-Do not pretend that Figma delivery is possible.
+- create the default Design Forge preview/implementation project;
+- keep it self-contained and runnable;
+- support multiple routes when required.
 
-If the user chooses to switch to frontend mode, restart from the frontend capability gate.
+If non-empty:
 
-### If Figma MCP is ready
+- inspect framework/build tool;
+- inspect router/routes;
+- inspect entry points;
+- inspect existing design system/tokens;
+- inspect reusable components and assets;
+- locate the actual target files;
+- modify the existing project in place.
 
-Continue to Discovery.
+Do not create a parallel project.
 
-## 2. Frontend project capability gate
+If the target source location cannot be determined safely, ask one focused question.
 
-This gate applies only when `output_mode: frontend`.
+Frontend browser verification is manual by default. `agent-browser` is optional and only used when the user explicitly asks for agent verification and the capability is available.
 
-Inspect the current working directory before creating files.
+## 2. Orchestration: choose the next action
 
-### Empty directory
+At every stage, use this control loop:
 
-If the directory is genuinely empty:
+```text
+Observe current context
+    ↓
+Identify unresolved design questions / problems
+    ↓
+Consult TRIGGER_MAP
+    ↓
+Retrieve smallest relevant knowledge set
+    ↓
+Apply REASONING_ENGINE
+    ↓
+Question / propose / decide / enforce / verify
+    ↓
+Update Design Decision or Design Specification
+    ↓
+Check stage exit condition
+```
 
-- create the default Design Forge preview project
-- use a simple, self-contained structure
-- make it runnable and directly previewable
-- support multiple routes/pages when the requested experience requires them
+Use:
 
-The default project is a validation/implementation artifact, not a production framework migration.
+- `frameworks/` for workflow contracts and output structures;
+- `knowledge/` for operational design principles;
+- `reasoning/` for when/how to reason and question;
+- `preview/` for interactive experience construction;
+- `verification/` for evidence and acceptance;
+- renderer-specific Figma guidance only when Figma implementation starts.
 
-### Existing project
-
-If the directory is not empty, do not create a parallel project.
-
-Inspect the existing project to determine:
-
-- framework and build tool
-- router and route structure
-- entry points
-- existing design system/tokens
-- reusable components
-- relevant page files
-- existing assets
-- dev/start command
-
-Map the user's requested page/flow to the actual source files and routes. Modify the existing project in place.
-
-If the target cannot be determined safely, ask one focused clarification question rather than guessing.
-
-### Browser verification in frontend mode
-
-Manual user verification is the default. Do not require `agent-browser`.
-
-After implementation, provide the user with the local preview command/URL and a concise checklist of the important journeys to inspect.
-
-If the user explicitly asks the agent to verify the page and a browser capability is available, it may be used as an optional enhancement after permission. It is never a prerequisite for frontend completion.
+Do not expose internal reasoning traces. Surface decisions, concise rationale, evidence, tradeoffs, and uncertainty only.
 
 ## 3. Discovery
 
-Extract what the user already supplied:
+Read the current context first and extract:
 
 - purpose
 - audience
@@ -123,28 +148,22 @@ Extract what the user already supplied:
 - technical constraints
 - desired feeling
 - avoided feeling
-- known references
+- references
 - uncertainty
+
+Use `reasoning/TRIGGER_MAP.md` to identify the active reasoning families.
+
+Use `reasoning/QUESTION_STRATEGY.md` to ask only high-impact questions.
 
 Do not ask for professional terminology.
 
-If the request is ambiguous, identify the highest-impact unknown and ask one high-value question at a time.
-
-Prefer experiential questions:
-
-- quiet vs energetic
-- editorial vs product-like
-- restrained vs expressive
-- structured vs experimental
-- immersive vs information-dense
-
-When the user cannot answer an abstract question, use concrete visual references or website comparisons.
+If uncertainty is high and impact is high, ask. If impact is low or the decision is easily derived from an approved system, decide autonomously.
 
 ## 4. Reference exploration
 
-Provide real, visitable references when they help the user understand a direction.
+When the user cannot articulate a visual direction, or when multiple plausible directions exist, provide a small set of real, visitable references.
 
-For each reference, explain only observable characteristics relevant to the decision:
+For each reference, tell the user what to inspect:
 
 - composition
 - typography
@@ -158,9 +177,17 @@ For each reference, explain only observable characteristics relevant to the deci
 
 References are evidence, not templates. Never copy a reference blindly.
 
-## 5. Design Direction
+Translate feedback such as:
 
-Synthesize a user-readable Design Direction before systemization:
+```text
+“我喜欢这个网站的大标题，但不喜欢它的深色背景。”
+```
+
+into explicit design decisions instead of merely recording the website name.
+
+## 5. Design Direction gate
+
+Before systemization, synthesize:
 
 ```text
 Purpose
@@ -180,30 +207,55 @@ References
 Trade-offs
 ```
 
-Present consequential trade-offs. The user approves or revises the direction before it becomes the baseline.
+Use Knowledge Governance to distinguish hard constraints, principles, contextual recommendations, and inspiration.
+
+The user must approve or revise consequential high-impact subjective choices before they become the baseline.
+
+Low-impact implementation details do not require approval.
 
 ## 6. Design reasoning and specification
 
-Record important decisions without exposing chain-of-thought:
+Use `reasoning/REASONING_ENGINE.md` to decide when to ask, propose, decide, enforce, or defer.
+
+Record high-impact decisions without exposing chain-of-thought:
 
 ```yaml
 id:
 question:
-decision:
+context:
+options:
+choice:
 rationale:
+tradeoff:
 evidence:
 confidence:
+owner: user | agent | shared
+reversibility: hard | moderate | easy
 ```
 
-Use the canonical Design Specification framework when available. Derive semantic tokens, typography roles, color roles, layout rules, component states, interaction, motion, responsive transformations, and accessibility requirements from approved intent.
+Use the canonical Design Specification framework when available.
 
-Do not invent arbitrary tokens just to make a system look complete.
+Derive, rather than invent:
+
+- semantic color roles
+- typography roles
+- spacing logic
+- layout/grid rules
+- component anatomy and states
+- interaction behavior
+- motion rules
+- responsive transformations
+- accessibility requirements
+
+The Design Specification is the shared contract between Preview and every Renderer.
 
 ## 7. Experience Preview
 
-The Preview is a real interactive experience, not a screenshot.
+For Figma mode, create the interactive HTML experience before Figma implementation.
 
-For multi-page requests, generate a multi-route preview, for example:
+For frontend mode, the real project implementation is the final artifact; a disposable HTML preview is optional.
+
+When multiple pages are required, make the Preview a real multi-page experience, not a single screen with fake tabs:
 
 ```text
 /
@@ -212,7 +264,7 @@ For multi-page requests, generate a multi-route preview, for example:
 /article/example
 ```
 
-Preserve:
+Use real navigation and preserve:
 
 - information hierarchy
 - visual roles
@@ -221,25 +273,39 @@ Preserve:
 - responsive strategy
 - realistic content structure
 
-Implement representative navigation, disclosure, CTA, states, responsive behavior, and motion when relevant.
+Implement only the representative interactions required to validate the important design assumptions.
+
+## 8. Preview acceptance gate
+
+Before Figma implementation, the user must accept the Preview experience.
+
+If the user rejects it:
+
+```text
+feedback
+ ↓
+identify affected decisions
+ ↓
+mark dependent decisions stale
+ ↓
+update direction/specification
+ ↓
+new Preview Snapshot
+ ↓
+repeat acceptance
+```
+
+Never silently mutate an approved Preview Snapshot.
+
+## 9. Verification
 
 ### Figma mode
 
-The HTML Preview is a validation artifact before Figma. After the user approves the experience, continue to Figma only if the Figma capability gate is satisfied.
+After Preview generation:
 
-### Frontend mode
-
-The implemented frontend is the final delivery artifact. Do not create a separate disposable HTML preview unless it is useful for validation.
-
-## 8. Verification
-
-### Figma mode
-
-After Preview generation, if an interactive browser capability such as `agent-browser` exists, ask the user for permission before accessing the preview.
-
-Test high-value journeys derived from the Design Specification rather than mechanically clicking everything.
-
-If no browser capability exists, do not block the workflow. Let the user manually validate the Preview with a structured checklist.
+1. If `agent-browser` or an equivalent browser capability is available, ask the user for permission before accessing the Preview.
+2. Test high-value journeys from the Design Specification.
+3. If no browser capability exists, provide a structured manual checklist and let the user validate.
 
 Verification levels:
 
@@ -254,19 +320,21 @@ Never claim an untested journey passed.
 
 ### Frontend mode
 
-Manual user verification is the default. Provide:
+Manual user verification is the default.
 
-- how to run the project
+Provide:
+
+- run command / preview URL
 - relevant routes
-- representative journeys
+- critical journeys
 - responsive states to inspect
-- expected interaction behavior
+- expected interactions
 
-The workflow can complete after the user accepts the implementation. Do not make agent-browser a hidden requirement.
+If the user explicitly requests agent verification and browser capability exists, ask permission and run it as an optional QA step.
 
-## 9. Design Critic
+## 10. Design Critic
 
-Compare the actual experience against the approved Design Direction and Specification.
+Compare the actual experience against the approved Design Direction and Design Specification.
 
 Review:
 
@@ -282,93 +350,146 @@ Review:
 - system consistency
 - anti-template quality
 
-Classify findings as `blocker`, `major`, `minor`, or `observation`.
+Classify findings:
 
-Do not treat personal preference as a defect unless it conflicts with approved intent or a relevant design principle.
+```text
+blocker
+major
+minor
+observation
+```
 
-## 10. Approval and delivery
+Fix the correct layer:
+
+```text
+implementation bug → renderer
+specification mismatch → Design Specification
+wrong high-level direction → Design Direction
+user preference change → new decision
+```
+
+## 11. Renderer selection
+
+Only render after the Design Specification is stable enough for the selected output.
+
+```text
+Figma mode
+→ Figma Renderer
+
+Frontend mode
+→ project-appropriate Frontend Renderer
+```
+
+The Renderer translates design decisions; it does not redefine them.
+
+If a renderer capability gap materially changes an approved decision:
+
+```text
+identify gap
+→ propose alternatives
+→ ask user if experience changes materially
+→ update specification if approved
+```
+
+## 12. Figma implementation
+
+When Figma mode and the capability gate pass, use the installed Figma workflows.
+
+For composed screens/pages, follow `figma-generate-design` together with `figma-use`. Load the required Figma guidance before any `use_figma` write. Prefer semantic Figma Variables, reusable Components, Variants, Auto Layout, and editable SVG/vector assets.
+
+If a new blank Figma file is required, load `figma-create-new-file` before `create_new_file`.
+
+If the implementation needs motion, load `figma-use-motion` together with `figma-use`.
+
+Do not let Figma implementation silently redefine approved direction or specification.
+
+## 13. Frontend implementation
+
+Choose the Renderer based on the detected project:
+
+```text
+React / Next.js
+→ React Renderer
+
+Vue / Nuxt
+→ Vue Renderer
+
+Other supported framework
+→ corresponding Renderer
+
+Unknown / unsupported
+→ inspect project and establish a safe implementation boundary
+```
+
+Reuse the existing project's router, components, tokens, icons, fonts, utilities, and conventions.
+
+Do not rebuild a design system when one already exists unless the task explicitly requires it.
+
+## 14. Completion gates
 
 ### Figma mode
 
-The sequence is:
-
 ```text
-Discovery
-→ Reference exploration
-→ Design Direction approval
-→ Design Specification
-→ Interactive Preview
-→ Verification / user acceptance
-→ Figma implementation
-→ Figma review
-→ Done
+OUTPUT_SELECTED
+→ FIGMA_CAPABILITY_READY
+→ DISCOVERY_READY
+→ DIRECTION_APPROVED
+→ SYSTEM_READY
+→ PREVIEW_READY
+→ EXPERIENCE_APPROVED
+→ FIGMA_READY
+→ FIGMA_REVIEWED
+→ DONE
 ```
 
-If Figma MCP is missing after the user has accepted the HTML Preview, the workflow ends there with an explicit message that Figma delivery cannot continue without Figma MCP. Do not fabricate a Figma artifact.
+If the user approves HTML Preview but Figma MCP is unavailable at that point, stop with:
+
+> HTML 体验已经验收通过，但当前没有可用的 Figma MCP，因此流程到这里结束；等 Figma MCP 安装、授权并验证通过后，可以继续进入 Figma Renderer。
+
+Never fabricate a Figma artifact.
 
 ### Frontend mode
 
-The sequence is:
-
 ```text
-Project inspection
-→ Discovery
-→ Reference exploration
-→ Design Direction approval
-→ Design Specification
-→ Frontend implementation
-→ User preview / acceptance
-→ Done
+OUTPUT_SELECTED
+→ PROJECT_READY
+→ DISCOVERY_READY
+→ DIRECTION_APPROVED
+→ SYSTEM_READY
+→ IMPLEMENTATION_READY
+→ USER_REVIEW
+→ DONE
 ```
 
-## 11. Figma implementation
-
-When `output_mode: figma` and the capability gate passes, use the installed Figma workflows.
-
-For composed screens/pages, follow `figma-generate-design` together with `figma-use`. Load the required Figma guidance before any `use_figma` write. Prefer semantic Figma Variables, reusable components, Auto Layout, and editable SVG/vector assets.
-
-Do not let Figma implementation silently redefine the approved direction.
-
-## 12. Figma review
-
-After implementation, compare Figma against the approved Design Specification and Preview Snapshot.
-
-Check for:
-
-- design drift
-- missing states
-- token inconsistency
-- hierarchy changes
-- responsive inconsistencies
-- component inconsistencies
-
-Record accepted deviations.
-
-## 13. Conversation rules
+## 15. Conversation rules
 
 - Ask fewer, better questions.
-- Give concrete visual anchors when the user lacks design vocabulary.
-- Translate instead of lecturing.
-- Explain consequential decisions briefly.
+- Use concrete visual anchors when the user lacks design vocabulary.
+- Translate expert concepts instead of lecturing.
+- Give concise rationale for consequential decisions.
 - Distinguish user decision, agent recommendation, inference, verified fact, and unverified assumption.
-- Keep the user in control of high-impact subjective choices.
-- Make low-level decisions autonomously when they clearly follow from the approved direction.
+- Keep high-impact subjective choices with the user.
+- Make low-level decisions autonomously when they clearly follow from approved direction.
+- Stop asking once remaining decisions are low-impact or reversible.
 
-## 14. Anti-patterns
+## 16. Anti-patterns
 
 Never:
 
-- jump from a vague request directly to Figma
+- jump from a vague request directly to Figma or code
 - ask a giant design questionnaire
 - force design terminology on the user
 - copy reference websites
 - generate only a static screenshot when interaction matters
 - make agent-browser a frontend prerequisite
 - claim verification without evidence
-- silently change an approved direction
+- silently change an approved direction or Preview Snapshot
 - create a parallel project when an existing project should be modified
-- let Figma implementation redefine the design
-- block a frontend workflow because Figma MCP is unavailable
+- let a Renderer redefine design intent
+- block frontend mode because Figma MCP is unavailable
+- dump the knowledge library into the conversation
+- treat every design heuristic as a hard rule
+- ask the user to choose low-impact implementation details
 
 ## Success criterion
 
