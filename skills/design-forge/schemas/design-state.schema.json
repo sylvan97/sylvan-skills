@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "design-forge/design-state.schema.json",
+  "title": "Design Forge Design State",
+  "type": "object",
+  "required": ["version", "decisions", "constraints", "tensions", "routes", "tokens", "snapshot"],
+  "properties": {
+    "version": { "type": "string" },
+    "decisions": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/decision" }
+    },
+    "constraints": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/constraint" }
+    },
+    "tensions": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/tension" }
+    },
+    "routes": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/route" }
+    },
+    "tokens": { "type": "object" },
+    "snapshot": { "$ref": "#/$defs/snapshot" }
+  },
+  "$defs": {
+    "decision": {
+      "type": "object",
+      "required": ["id", "statement", "status", "scope", "source"],
+      "properties": {
+        "id": { "type": "string" },
+        "statement": { "type": "string" },
+        "status": { "enum": ["proposed", "accepted", "stale", "superseded", "rejected"] },
+        "scope": { "type": "array", "items": { "type": "string" } },
+        "source": { "enum": ["user", "agent", "system"] },
+        "rationale": { "type": "string" },
+        "depends_on": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "constraint": {
+      "type": "object",
+      "required": ["id", "statement", "priority", "status"],
+      "properties": {
+        "id": { "type": "string" },
+        "statement": { "type": "string" },
+        "priority": { "enum": ["critical", "high", "medium", "low"] },
+        "status": { "enum": ["active", "inactive"] },
+        "source": { "enum": ["user", "agent", "system"] }
+      }
+    },
+    "tension": {
+      "type": "object",
+      "required": ["id", "left", "right", "resolution", "status"],
+      "properties": {
+        "id": { "type": "string" },
+        "left": { "type": "string" },
+        "right": { "type": "string" },
+        "resolution": { "type": "string" },
+        "status": { "enum": ["open", "resolved"] }
+      }
+    },
+    "route": {
+      "type": "object",
+      "required": ["id", "path", "role"],
+      "properties": {
+        "id": { "type": "string" },
+        "path": { "type": "string" },
+        "role": { "type": "string" },
+        "priority": { "enum": ["primary", "secondary", "tertiary"] }
+      }
+    },
+    "snapshot": {
+      "type": "object",
+      "required": ["id", "status", "decision_ids", "created_at"],
+      "properties": {
+        "id": { "type": "string" },
+        "status": { "enum": ["draft", "previewed", "accepted", "superseded"] },
+        "decision_ids": { "type": "array", "items": { "type": "string" } },
+        "created_at": { "type": "string" },
+        "accepted_at": { "type": "string" },
+        "acceptance_notes": { "type": "string" }
+      }
+    }
+  }
+}
