@@ -2,13 +2,13 @@
 
 ## Mission
 
-Design Forge turns an ambiguous natural-language idea into an intentional, explainable design and then realizes the approved direction as an editable Figma artifact.
+Design Forge turns an ambiguous natural-language idea into an intentional, explainable design and validates the experience before realizing the approved direction as an editable Figma artifact.
 
 The central transformation is:
 
-`Conversation → Design Reasoning → Design Specification → Figma`
+`Conversation → Intent → Design Reasoning → Experience Preview → Figma`
 
-It is not a one-shot UI generator.
+It is not a one-shot UI generator and not a static design questionnaire.
 
 ## Operating model
 
@@ -25,102 +25,100 @@ Design Direction
     ↓
 Design System
     ↓
-Page / Flow Composition
+Experience Preview
     ↓
-Interaction + Motion
+User feedback
+    ↓
+Design Critic
+    ↓
+Refine
     ↓
 Figma Implementation
     ↓
-Design Critique
-    ↓
-Refinement
+Design Review
 ```
+
+## Core subsystems
+
+### Intent Engine
+
+Understands what the user means, including emotional intent, explicit requirements, constraints, references, uncertainty, and contradictions.
+
+### Reference Explorer
+
+Uses real, visitable examples to help users discover preferences they cannot articulate.
+
+### Design Reasoning
+
+Selects relevant principles and converts them into explicit design decisions. Knowledge is consulted here rather than dumped directly into the conversation.
+
+### Design Tension
+
+Detects competing goals and surfaces trade-offs before they become accidental design problems.
+
+### Design System
+
+Converts approved direction into semantic tokens, variables, components, and layout rules.
+
+### Experience Preview
+
+Creates a self-contained, interactive HTML/CSS/JS preview so the user can experience the design before expensive Figma implementation.
+
+### Design Critic
+
+Reviews the preview and final Figma design against user intent, design principles, usability, accessibility, responsiveness, and distinctiveness.
+
+### Figma Forge
+
+Realizes the validated direction as an editable Figma design using the installed Figma workflow and MCP capabilities.
 
 ## State machine
 
 ### DISCOVER
 
-Goal: understand what is being designed and why.
+Understand what is being designed and why.
 
-Inputs:
-- natural language
-- existing product context
-- content
-- references
-- constraints
-
-Exit condition: enough context exists to identify the major design decisions.
+Exit condition: enough context exists to identify major design decisions.
 
 ### EXPLORE
 
-Goal: help the user choose a direction without requiring design vocabulary.
+Resolve high-impact subjective uncertainty through conversation, contrast, and references.
 
-Methods:
-- forced-choice experiential questions
-- visual references
-- comparative descriptions
-- small conceptual alternatives
-
-Exit condition: major subjective dimensions have an approved direction.
+Exit condition: major subjective dimensions have a plausible direction.
 
 ### DEFINE
 
-Goal: convert the conversation into a structured design direction.
-
-Artifact:
-- `design-direction`
+Create the Design Brief and Design Direction.
 
 Exit condition: another designer could understand the intended experience without the original conversation.
 
 ### SYSTEMIZE
 
-Goal: derive the visual and interaction system.
-
-Artifact:
-- `design-system`
-
-Includes:
-- tokens
-- typography roles
-- color roles
-- spacing
-- grid
-- component principles
-- interaction states
-- motion principles
+Derive typography, color, spacing, grid, component, interaction, motion, responsive, and accessibility rules.
 
 Exit condition: repeated design decisions can be implemented consistently.
 
-### COMPOSE
+### PREVIEW
 
-Goal: create information architecture, layout, and visual hierarchy.
+Create a runnable, self-contained interactive HTML experience.
 
-Exit condition: the page/flow communicates the intended structure before fine decoration.
-
-### PROTOTYPE
-
-Goal: define meaningful interaction and motion.
-
-Exit condition: important user actions and state transitions are understandable.
-
-### FORGE
-
-Goal: implement the approved design in Figma.
-
-Requirements:
-- inspect current Figma context
-- use the repository's Figma skills/workflows
-- use variables/components where semantically appropriate
-- preserve editability
-- keep naming meaningful
-
-Exit condition: requested screens and interactions exist as an editable Figma design.
+Exit condition: the user can meaningfully judge the experience rather than a static screenshot.
 
 ### CRITIQUE
 
-Goal: evaluate the result against the design direction and general design principles.
+Evaluate the preview against intent and principles.
 
-Exit condition: concrete issues have either been fixed or consciously accepted by the user.
+Exit condition: concrete issues are fixed, consciously accepted, or returned to discovery.
+
+### FORGE
+
+Implement the approved direction in Figma.
+
+Exit condition: requested screens/flows exist as editable Figma artifacts.
+
+### REVIEW
+
+Critique the Figma result and verify it remains faithful to the approved direction.
 
 ## Decision ownership
 
@@ -129,19 +127,37 @@ Exit condition: concrete issues have either been fixed or consciously accepted b
 | Product purpose | User |
 | Audience | User |
 | Content | User |
-| High-level mood | Shared, user approval required |
+| High-level emotional direction | Shared, user approval required |
 | Visual direction | Shared, user approval required |
 | Layout strategy | Agent, explain when consequential |
 | Typography selection | Agent, within approved direction |
 | Token values | Agent, derived from system |
 | Component structure | Agent |
-| Micro-interactions | Agent, unless brand-critical |
-| Motion details | Agent, within approved motion language |
+| Micro-interactions | Agent, within approved motion language |
+| Preview implementation | Agent |
 | Final subjective direction | User |
+
+## Artifact chain
+
+```text
+Design Brief
+    ↓
+Design Direction
+    ↓
+Design System
+    ↓
+Experience Preview
+    ↓
+Design Review
+    ↓
+Figma Design
+    ↓
+Figma Review
+```
 
 ## Knowledge architecture
 
-Design Forge should maintain knowledge as small, reusable reasoning modules rather than a single encyclopedia.
+Knowledge is organized as reusable reasoning modules:
 
 ```text
 knowledge/
@@ -153,96 +169,92 @@ knowledge/
 ├── motion/
 ├── responsive/
 ├── accessibility/
-├── design-systems/
-└── critique/
+└── design-systems/
 ```
 
-Each knowledge module should answer four questions where possible:
+Knowledge modules answer:
 
 1. What is the principle?
 2. Why does it matter?
-3. How can an agent recognize it in a design problem?
-4. What action should the agent take?
+3. How can an agent recognize it?
+4. What should the agent do?
+5. How should the result be critiqued?
 
-## Framework architecture
+## Reasoning architecture
 
 ```text
-frameworks/
-├── discovery.md
-├── visual-direction.md
-├── design-brief.md
-├── design-system.md
-├── interaction.md
-├── motion.md
-├── responsive.md
-└── critique.md
+Intent Model
+     ↓
+Uncertainty Map
+     ↓
+Relevant Principles
+     ↓
+Candidate Decisions
+     ↓
+Design Tensions
+     ↓
+Decision Record
+     ↓
+Design Direction
 ```
 
-Frameworks describe how to reason and act. Knowledge describes what is true or useful about design.
+The agent should not invoke every knowledge module for every project. It should select only the principles relevant to the current problem.
 
 ## Figma boundary
-
-Design Forge should not encode every Figma API operation in its knowledge base.
-
-The separation is:
 
 ```text
 Design Forge
   = what to decide + why + when
 
-Figma skill / MCP
+Figma skills / MCP
   = how to manipulate the canvas
 ```
 
-When implementing Figma work, use the installed Figma skills as the operational layer. Design Forge supplies the design intent and constraints.
+Design Forge supplies design intent, system rules, and validated experience. Installed Figma skills supply operational canvas manipulation.
 
-## Artifact chain
-
-Major projects should preserve this chain:
+## Experience Preview boundary
 
 ```text
-Design Brief
-    ↓
-Design Direction
-    ↓
-Design System
-    ↓
-Figma Design
-    ↓
-Design Review
+Design Forge
+  = what the experience should communicate and how it should behave
+
+Preview renderer
+  = executable HTML/CSS/JS representation
 ```
 
-This allows later iterations to change the design without losing the reasoning that produced it.
+The preview must be disposable and cheap to change. It is a validation artifact, not necessarily production code.
 
 ## Planned evolution
 
 ### v0.1
 - skill identity
-- constitution
-- architecture
-- conversation-first workflow
+- adaptive discovery
+- reference exploration
+- visual direction
+- foundational design knowledge
 
 ### v0.2
-- design discovery framework
-- non-designer interview system
-- visual-direction framework
-- design brief schema
+- design reasoning engine
+- design decision records
+- design tension model
+- design critic
+- experience preview specification
 
 ### v0.3
-- typography, color, layout, grid, Gestalt knowledge
-- design-system/token framework
+- typography, color, layout, responsive knowledge
+- semantic token framework
 
 ### v0.4
-- interaction and motion knowledge
-- responsive and accessibility frameworks
+- interaction, motion, accessibility knowledge
+- preview interaction patterns
 
 ### v0.5
 - Figma MCP implementation workflow
-- component/variable generation strategy
+- variables/components generation strategy
 - Figma design review loop
 
 ### v1.0
-- end-to-end Conversation → Figma workflow
-- reusable reference library
-- automated design critique
+- end-to-end Conversation → Intent → Preview → Figma
+- reference library and verification
+- adaptive design critique
 - stable artifact schemas
