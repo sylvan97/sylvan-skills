@@ -97,6 +97,10 @@ Inspect the current project.
 
 Do not create a parallel project or overwrite unrelated code.
 
+### Runtime adapter
+
+Use `capabilities/runtime-adapter.md` as the host integration boundary. A capability being named, installed, or discoverable is not proof that an operation succeeded. Preserve actual status and evidence.
+
 ## 2. Discovery
 
 Extract:
@@ -131,9 +135,15 @@ For example:
 → restrained interface chrome
 ```
 
-When useful, give real, visitable reference websites. Tell the user what to inspect: composition, typography, density, color, imagery, interaction, motion, navigation, and responsive behavior.
+### Reference Explorer
 
-References are evidence, not templates. Never copy a reference wholesale.
+When the user needs visual examples or when a vague direction would materially benefit from comparison, use `capabilities/reference-explorer.md`.
+
+If web search/open is available, search before presenting references. Prefer 2–4 current, inspectable, distinct references. Tell the user exactly what to inspect on each site and why it is relevant. Link the actual site. References are evidence/inspiration, never templates to copy.
+
+Do not invent URLs or claim that a site currently has an interaction you did not inspect. If browsing is unavailable, state that limitation and do not fabricate verification.
+
+When references materially influence a high-impact subjective direction, ask the user to choose or approve the direction before systemization.
 
 Before systemization, synthesize:
 
