@@ -7,6 +7,10 @@ description: Transform an ambiguous product or website idea through conversation
 
 Design Forge is a conversation-first design workflow. It translates ordinary language into design decisions, validates the experience before final delivery, and keeps rendering behind an explicit acceptance boundary.
 
+## Host runtime
+
+Load `capabilities/host-runtime.md` as the host integration contract. The host must preserve Design State across turns and expose actual capability status. Do not assume that repository documentation, a tool name, or an installed package means an operation can be executed.
+
 ## Core pipeline
 
 ```text
@@ -99,7 +103,7 @@ Do not create a parallel project or overwrite unrelated code.
 
 ### Runtime adapter
 
-Use `capabilities/runtime-adapter.md` as the host integration boundary. A capability being named, installed, or discoverable is not proof that an operation succeeded. Preserve actual status and evidence.
+Use `capabilities/runtime-adapter.md` and `capabilities/host-runtime.md` as the host integration boundary. A capability being named, installed, or discoverable is not proof that an operation succeeded. Preserve actual status and evidence.
 
 ## 2. Discovery
 
