@@ -15,6 +15,8 @@ Aesthetic adjectives such as "minimal", "cinematic", "premium", "modern", and "e
 
 Load `creative/creative-core.md`, `creative/concept-generation.md`, and `creative/anti-generic-gate.md` for the creative phase.
 
+When the user expresses ACG/anime/manga/game/mecha/otaku/creator-workstation/cyberdeck interests, also load `creative/acg-workbench.md`. Treat it as a family of experience territories, not a preset theme.
+
 ## Host runtime
 
 Load `capabilities/host-runtime.md` as the host integration contract. The host must preserve Design State across turns and expose actual capability status. Do not assume that repository documentation, a tool name, or an installed package means an operation can be executed.
@@ -78,6 +80,7 @@ The renderer consumes the accepted snapshot, not raw conversation history.
 11. Capabilities are execution gates, not design decisions.
 12. Never claim a tool, browser, MCP, or renderer was executed unless it actually was.
 13. Never let a renderer silently redefine an accepted design decision.
+14. ACG references must produce a world/interaction model, not merely anime decoration.
 
 ## 0. Choose the output mode
 
@@ -172,6 +175,8 @@ At least one candidate should challenge a default web assumption when appropriat
 - What if the content itself becomes navigation?
 - What if motion explains structure rather than decorates it?
 
+When ACG/workbench intent is present, consider the territories in `creative/acg-workbench.md`, including Anime Control Room, Creator Workbench, Mecha/System Console, Visual Novel/Character Archive, Tactical Map/Mission Board, Otaku Desktop, and Diegetic Interface. Do not output all of them automatically; select or invent the territories that fit the actual user intent.
+
 Do not present concepts named only after styles such as `Minimal`, `Cinematic`, or `Brutalist`. Name the experience and explain the behavior.
 
 Every concept should include:
@@ -220,6 +225,10 @@ Do not search only for websites. Depending on the problem, explore:
 - games/spatial interfaces
 - experimental web
 - product interfaces
+- anime / manga / visual novel interfaces
+- AAA game HUD and menu systems
+- mecha / sci-fi system design
+- creator workstations / fictional operating systems
 
 Extract principles rather than copying appearance.
 
@@ -287,6 +296,9 @@ minimalism ↔ discoverability
 expressiveness ↔ long-term readability
 motion ↔ calm
 novelty ↔ learnability
+world-building ↔ task efficiency
+ACG density ↔ content legibility
+fictional interface ↔ web familiarity
 ```
 
 Resolve tensions per surface where appropriate. Do not force the homepage and detail page to share identical priorities.
@@ -544,6 +556,7 @@ Never:
 - dump the whole knowledge library into context
 - treat every heuristic as a hard rule
 - ask the user to choose low-impact implementation details
+- turn ACG into a superficial neon/anime skin
 
 ## Success criterion
 
