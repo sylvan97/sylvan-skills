@@ -1,185 +1,104 @@
 ---
 name: design-forge
-description: Transform ambiguous intent into a distinctive digital experience through conversational discovery, radical concept exploration, real-world and cross-disciplinary references, explicit Design State, interactive preview, QA, user acceptance, and optional Figma or frontend rendering. Use when a user wants design help but may not know professional design terminology.
+description: Transform ambiguous intent into a distinctive digital experience through conversational creative direction, interactive HTML validation, and optional Figma or frontend rendering. Use when a user wants design help but may not know professional design terminology.
 ---
 
 # Design Forge
 
-Design Forge is a conversation-first **creative direction and design workflow**. It does not begin by styling a UI. It first turns ordinary language into a set of distinct experience concepts, helps the user choose or combine them, validates the resulting experience through an interactive preview, and only then converges on implementation.
+Design Forge is a **creative direction workflow**, not a UI prompt. It turns vague intent into a distinctive experience concept, validates that concept in an interactive preview, and only then renders it to Figma or an existing frontend project.
 
-## Creative-first principle
+## Load map
 
-> **Do not polish the first obvious answer. Explore the space first.**
+Load only what the current stage needs:
 
-Aesthetic adjectives such as "minimal", "cinematic", "premium", "modern", and "editorial" are not design concepts. Translate them into mental models, information behavior, interaction, composition, content behavior, time, and motion.
+- `creative/creative-core.md` — creative philosophy and concept ladder
+- `creative/concept-generation.md` — 3–5 structurally different concepts
+- `creative/anti-generic-gate.md` — reject generic/AI-slop concepts
+- `creative/acg-workbench.md` — ACG, anime, manga, game, mecha, cyberdeck, otaku desktop, creator workstation
+- `capabilities/host-runtime.md` — host/tool execution contract
+- `capabilities/runtime-adapter.md` — renderer/tool boundary
+- `capabilities/reference-explorer.md` — real-world and cross-disciplinary references
+- `capabilities/agent-browser.md` — optional browser QA
+- `schemas/design-state.schema.json` — canonical Design State contract
+- `templates/design-state.example.json` — example state
+- `tests/PREVIEW_QA_CONTRACT.md` — preview QA contract
+- `references/design-review-rubric.md` — **single review entry point; MUST load for formal design review**
 
-Load `creative/creative-core.md`, `creative/concept-generation.md`, and `creative/anti-generic-gate.md` for the creative phase.
+### Reference seeds
 
-When the user expresses ACG/anime/manga/game/mecha/otaku/creator-workstation/cyberdeck interests, also load `creative/acg-workbench.md`. Treat it as a family of experience territories, not a preset theme.
+Load only relevant seeds from `references/`:
 
-## Host runtime
+- `references/editorial-layouts.md`
+- `references/cinematic-density.md`
+- `references/acg-workbench.md`
+- `references/diegetic-ui.md`
+- `references/spatial-navigation.md`
 
-Load `capabilities/host-runtime.md` as the host integration contract. The host must preserve Design State across turns and expose actual capability status. Do not assume that repository documentation, a tool name, or an installed package means an operation can be executed.
+These are principle seeds, not templates. Current web inspection remains preferred when browsing is available.
 
-## Core pipeline
-
-```text
-Intent
-  ↓
-Output Mode
-  ↓
-Capability Gate
-  ↓
-Design Discovery
-  ↓
-Creative Exploration
-  ↓
-3–5 Distinct Concepts
-  ↓
-Concept Selection / Collision
-  ↓
-Creative Thesis
-  ↓
-Experience Model
-  ↓
-Interaction + Visual World
-  ↓
-Design Decisions
-  ↓
-Design State
-  ↓
-Accepted Snapshot
-  ↓
-Interactive HTML Preview
-  ↓
-Preview QA
-  ↓
-User Review
-  ├── revise → affected decisions → new snapshot → preview again
-  └── accept
-       ↓
-Accepted Snapshot
-       ↓
-Figma / React / Vue / other Renderer
-```
-
-The renderer consumes the accepted snapshot, not raw conversation history.
-
-## Non-negotiable rules
+## Non-negotiable behavior
 
 1. Understand intent before styling.
-2. Explore multiple genuinely different concepts before converging on an open-ended design problem.
-3. Do not require professional design vocabulary.
-4. Use perceptual language and concrete references to help the user choose.
-5. Search beyond UI galleries when non-UI references can expand the creative space.
-6. Reject concepts that are merely palette/type/layout variations.
-7. Record high-impact decisions explicitly.
-8. Surface important design tensions instead of silently resolving them.
-9. Preview before Figma when Figma mode is selected.
-10. Preview QA is separate from user acceptance.
-11. Capabilities are execution gates, not design decisions.
-12. Never claim a tool, browser, MCP, or renderer was executed unless it actually was.
-13. Never let a renderer silently redefine an accepted design decision.
-14. ACG references must produce a world/interaction model, not merely anime decoration.
+2. Determine output mode before renderer-specific work.
+3. In open-ended work, explore **3–5 genuinely different concepts** before converging.
+4. A concept must change structure/behavior, not merely palette, typography, radius, or effects.
+5. At least one concept should challenge a default web assumption when appropriate.
+6. Translate design vocabulary into examples and perceptual choices; do not require the user to know design terminology.
+7. Use real references and tell the user exactly what to inspect.
+8. Never invent URLs, tool execution, browser results, MCP status, or verification.
+9. High-impact subjective decisions belong to the user.
+10. The renderer consumes an **accepted Design Snapshot**, never raw conversation history.
+11. QA and user acceptance are separate gates.
+12. Do not silently mutate an accepted snapshot.
+13. ACG influence must change the world/interaction model, not just add anime decoration.
 
-## 0. Choose the output mode
+## 0. Output mode
 
-Before renderer-specific work, determine the desired final artifact:
+Ask only if the user has not already specified it:
 
-> 这次你希望最终得到什么？
-> **A. Figma 设计稿** — 先确定设计方向，再生成可交互多页面 Preview，验收后落到 Figma。
-> **B. 前端页面** — 在当前前端项目中实现真实 UI；如果当前目录为空，则创建默认可预览项目。
+> 这次你希望最终得到 **Figma 设计稿**，还是直接在当前前端项目里落地？
 
-If the user already chose, do not ask again.
+### Figma
 
-Create an Output Contract:
+Required before promising Figma output:
 
-```yaml
-output_mode: figma | frontend
-figma:
-  mcp_required: true
-  browser_verification: optional
-frontend:
-  browser_verification: manual_by_default
-  existing_project: auto_detect
+```text
+available → healthy → authorized → executable
 ```
 
-If the user changes mode, re-run the capability gate while preserving only decisions that remain valid.
+Use the installed Figma skills. Load `figma-design-to-code` for design-to-code work, `figma-generate-design` for generating pages/views, and `figma-use` before every `use_figma` call. Load motion guidance when implementing motion.
 
-## 1. Capability gate
+If Figma MCP is unavailable/unauthorized, explain the setup requirement. Do not silently switch modes. The user may continue to accepted HTML Preview; once accepted, the workflow ends until Figma MCP is ready.
 
-### Figma mode
+### Frontend
 
-Before promising Figma output, verify that the Figma MCP is available, healthy, authorized, and exposes the required write operations.
+Inspect the current directory:
 
-Follow the installed Figma skills. Load `figma-design-to-code` for design-to-code work, `figma-generate-design` for generating pages/views into Figma, and `figma-use` before every `use_figma` call. Load motion guidance when implementing motion.
-
-If Figma MCP is unavailable or unauthorized, explain the setup/verification requirement. Do not silently switch to frontend mode. If the user accepts HTML Preview but Figma MCP is still unavailable, the design workflow ends at the accepted HTML stage.
-
-### Frontend mode
-
-Inspect the current project.
-
-- empty directory → create the default self-contained HTML preview/implementation project
-- existing project → inspect framework, build tool, router, routes, entry points, tokens, reusable components, icons, fonts, and assets; modify the correct existing surface
+- empty → create the default self-contained HTML project
+- existing → detect framework, router, routes, tokens, components, icons, fonts, assets, and entry points; modify the correct existing surface
 
 Do not create a parallel project or overwrite unrelated code.
 
-### Runtime adapter
+## 1. Discovery
 
-Use `capabilities/runtime-adapter.md` and `capabilities/host-runtime.md` as the host integration boundary. A capability being named, installed, or discoverable is not proof that an operation succeeded. Preserve actual status and evidence.
+Extract only high-impact information:
 
-## 2. Discovery
-
-Extract:
-
-- purpose
-- audience
-- content hierarchy
-- primary tasks
-- platforms/viewports
-- technical constraints
-- desired feeling
-- avoided feeling
+- purpose / audience
+- content and primary tasks
+- platforms
+- constraints
+- desired and avoided feelings
 - references
-- uncertainty
-- assumptions that should be challenged
+- uncertainties
+- assumptions worth challenging
 
-Use the smallest relevant knowledge set. Do not load the whole knowledge library.
+Ask a small number of high-value questions. Prefer choices/examples over jargon.
 
-Ask only high-impact questions. Prefer choices and examples over design jargon.
+## 2. Creative exploration
 
-## 3. Creative exploration — before design direction
+Before visual systemization, load the creative files and generate 3–5 concepts.
 
-For an open-ended design problem, do **not** jump directly from the user's adjectives to a style direction.
-
-Generate **3–5 genuinely different concepts** before systemization. Use fewer only when the problem is tightly constrained and explain why.
-
-Each candidate should differ in at least three structural dimensions such as:
-
-- mental model
-- information architecture
-- navigation model
-- primary interaction
-- composition/spatial logic
-- temporal/motion behavior
-- content presentation
-- visual language
-
-At least one candidate should challenge a default web assumption when appropriate:
-
-- What if the homepage is not a homepage?
-- What if navigation is not persistent?
-- What if search is not a search box?
-- What if an article is not a conventional page?
-- What if the content itself becomes navigation?
-- What if motion explains structure rather than decorates it?
-
-When ACG/workbench intent is present, consider the territories in `creative/acg-workbench.md`, including Anime Control Room, Creator Workbench, Mecha/System Console, Visual Novel/Character Archive, Tactical Map/Mission Board, Otaku Desktop, and Diegetic Interface. Do not output all of them automatically; select or invent the territories that fit the actual user intent.
-
-Do not present concepts named only after styles such as `Minimal`, `Cinematic`, or `Brutalist`. Name the experience and explain the behavior.
-
-Every concept should include:
+Each concept must contain:
 
 ```text
 Name
@@ -187,176 +106,106 @@ Creative thesis
 Mental model
 What the user experiences
 Signature interaction
-Spatial/compositional logic
-How the user's content changes the experience
+Information/composition model
+How content changes the experience
 Motion idea
 Trade-off
 Reference lineage
-What the HTML prototype must prove
+HTML proof requirement
 ```
 
-Use `creative/anti-generic-gate.md` before presenting concepts. If concepts remain generic, regenerate instead of polishing them.
+Explore beyond UI galleries when useful: film, architecture, exhibition, editorial, photography, games, digital art, interactive fiction, ACG, etc.
 
-### Concept selection and collision
+For ACG/workbench intent, load `creative/acg-workbench.md` and consider its territories, but do not mechanically output every territory.
 
-Let the user react in ordinary language:
+Run `creative/anti-generic-gate.md` before presenting concepts. If candidates are cosmetic variations or obvious generic answers, regenerate.
 
-- “哪个更像你？”
-- “哪个让你更想点进去？”
-- “哪个太激进/太安静/太复杂？”
-- “要不要把 A 的交互和 B 的视觉世界结合？”
+### Concept collision
 
-When combining concepts, perform **concept collision** deliberately. Preserve a coherent thesis; do not create feature soup.
+After user reaction, deliberately combine compatible strengths from different concepts. Keep one coherent thesis; avoid feature soup.
 
-## 4. Reference exploration
+Let users choose by feeling:
 
-Once creative territories are identified, use `capabilities/reference-explorer.md`.
+- 哪个更像你？
+- 哪个让你更想探索？
+- 哪个太激进/太安静/太复杂？
+- 要不要把 A 的交互和 B 的视觉世界结合？
 
-Do not search only for websites. Depending on the problem, explore:
+## 3. References
 
-- film/title sequences
-- architecture and exhibitions
-- editorial/book design
-- photography
-- information visualization
-- interactive installations
-- digital art
-- fashion/editorial systems
-- games/spatial interfaces
-- experimental web
-- product interfaces
-- anime / manga / visual novel interfaces
-- AAA game HUD and menu systems
-- mecha / sci-fi system design
-- creator workstations / fictional operating systems
+Load `capabilities/reference-explorer.md` when references can materially help.
 
-Extract principles rather than copying appearance.
+Use 2–4 distinct, inspectable references. Explain **what to look at and why**. Search current websites when browsing is available, but also use cross-disciplinary references when they expand the creative space.
 
-If web search/open is available, search before presenting references. Prefer 2–4 current, inspectable, distinct references. Tell the user exactly what to inspect on each site and why it is relevant. Link the actual site.
+Never copy references. Extract principles.
 
-Do not invent URLs or claim that a site currently has an interaction you did not inspect. If browsing is unavailable, state that limitation and do not fabricate verification.
+## 4. Experience model
 
-When references materially influence a high-impact subjective direction, ask the user to choose or approve the direction before systemization.
-
-## 5. Creative thesis and experience model
-
-Before tokens or components, define:
-
-### Creative Thesis
+After concept approval, define in this order:
 
 ```text
-This experience is not primarily a [generic category].
-It is a [distinct mental model] where [core behavior]
-helps the user [desired outcome].
+Creative Thesis
+→ Experience Model
+→ Interaction Model
+→ Visual World
+→ Design System
 ```
 
-### Experience Model
+The experience model must explain what the user thinks they entered, what they do first, how content is revealed, what is memorable, and where efficiency outranks atmosphere.
 
-Define:
+Motion must communicate hierarchy, state, relationship, or continuity. Decorative motion alone is not a quality signal.
 
-- what the user believes they entered
-- what they do first
-- what the interface reveals progressively
-- what makes the experience memorable
-- where efficiency matters more than atmosphere
-
-### Interaction Model
-
-Define the signature behaviors and their purpose. Motion must communicate hierarchy, state, relationship, or spatial continuity rather than exist as decoration.
-
-### Visual World
-
-Only now define composition, typography, color, imagery, density, surfaces, and other visual language.
-
-Consequential subjective choices require user approval.
-
-## 6. Design reasoning
-
-Use the repository reasoning resources to decide whether to ask, propose, decide, enforce, or defer.
-
-Record high-impact decisions without exposing chain-of-thought:
-
-```yaml
-id:
-statement:
-status: proposed | accepted | stale | superseded | rejected
-scope:
-source: user | agent | shared
-affected_surfaces:
-rationale:
-tradeoff:
-evidence:
-```
-
-Surface important tensions, for example:
-
-```text
-cinematic immersion ↔ information retrieval
-minimalism ↔ discoverability
-expressiveness ↔ long-term readability
-motion ↔ calm
-novelty ↔ learnability
-world-building ↔ task efficiency
-ACG density ↔ content legibility
-fictional interface ↔ web familiarity
-```
-
-Resolve tensions per surface where appropriate. Do not force the homepage and detail page to share identical priorities.
-
-## 7. Design State and Snapshot gate
+## 5. Design State
 
 Maintain a canonical Design State containing:
 
-- creative concepts / selected concept
+- selected concept / rejected alternatives
 - creative thesis
 - experience model
 - interaction model
 - decisions
-- constraints
-- tensions
+- constraints / tensions
 - routes
 - tokens
 - viewport targets
 - snapshot
 
-Use `schemas/design-state.schema.json` as the contract and `templates/design-state.example.json` as an example.
+Use `schemas/design-state.schema.json`.
 
-A downstream renderer may consume only a coherent accepted snapshot:
+A renderer may run only when:
 
 ```text
 snapshot.status == accepted
 AND referenced decisions are active/accepted
-AND required constraints/routes exist
-AND high-impact tensions are resolved
+AND required routes/constraints exist
+AND blocking tensions are resolved
 ```
 
-If this gate fails, do not render. Return to design reasoning or ask for clarification.
+Material changes create a new snapshot.
 
-When a material design change occurs, create a new snapshot. Do not mutate an accepted snapshot in place.
+## 6. Tokens and specification
 
-## 8. Design specification and tokens
-
-Translate the accepted experience into an implementation-ready specification:
+Only after the experience model is accepted, define:
 
 - semantic color roles
-- typography roles and hierarchy
+- typography hierarchy
 - spacing rhythm
-- grid/layout behavior
-- radius/surface treatment
+- layout/grid behavior
+- surfaces
 - interaction states
-- motion duration/easing principles
+- motion principles
 - responsive transformations
 - accessibility requirements
 
-Define tokens where they express reusable decisions. Do not create token complexity for its own sake.
+Do not manufacture token complexity for one-off decisions.
 
-## 9. Interactive HTML Preview
+## 7. Interactive HTML Preview
 
-In Figma mode, generate the interactive HTML experience before Figma implementation.
+### Figma mode
 
-The preview must be a real, navigable multi-route experience when multiple routes are required, not a screenshot or fake tabbed single page.
+Preview is mandatory before Figma implementation.
 
-Example:
+The preview must be genuinely navigable when multiple routes exist, e.g.:
 
 ```text
 /
@@ -364,40 +213,19 @@ Example:
 /notes/:slug
 ```
 
-Implement the representative interactions needed to validate important design assumptions:
+Implement representative interactions, realistic content, responsive transformations, motion, and reduced-motion behavior. Do not call a screenshot or fake tabbed page an interactive preview. Do not use emoji as UI icons.
 
-- primary navigation
-- list → detail
-- back/home
-- menus/drawers
-- filters/tabs/disclosure
-- hover/focus/active/disabled states
-- consequential feedback
-- responsive transformations
-- motion and reduced-motion behavior
+### Frontend mode
 
-Use realistic content. Do not use emoji as interface icons. Prefer project SVG assets or suitable inline SVG.
+The existing project itself is the implementation surface. User validation is manual by default; do not require agent-browser.
 
-The preview is a design acceptance layer, not automatically a production implementation.
+## 8. Preview QA
 
-## 10. Preview QA
+Load `tests/PREVIEW_QA_CONTRACT.md`.
 
-Run QA before the user acceptance checkpoint.
+Check route, interaction, responsive, accessibility, content, and motion behavior.
 
-Use `tests/PREVIEW_QA_CONTRACT.md` as the contract.
-
-Check:
-
-1. Route QA
-2. Interaction QA
-3. Responsive QA
-4. Accessibility QA
-5. Content QA
-6. Motion QA
-
-### Agent-browser
-
-Use `capabilities/agent-browser.md` for capability handling.
+If agent-browser is actually available, load `capabilities/agent-browser.md`, ask permission before using it, then verify representative journeys against the real preview.
 
 Distinguish:
 
@@ -407,76 +235,40 @@ available ≠ authorized
 authorized ≠ QA passed
 ```
 
-Detect actual usability, not merely a binary name. If the capability is available, explicitly ask permission before using it against the local preview.
-
-If authorized, derive representative journeys from the actual routes/interactions and record evidence.
-
-If denied or unavailable:
-
-- do not fabricate browser results;
-- provide the preview entry point;
-- provide a concise manual checklist;
-- let the user remain the acceptance authority.
+If unavailable/denied, provide a manual checklist and do not fabricate results.
 
 Classify findings:
 
 ```text
-implementation defect → repair preview/renderer
-missing design decision → return to Design Forge
+implementation defect → repair
+missing design decision → return to design phase
 preference disagreement → ask user
-browser/environment failure → infrastructure failure
+browser/environment failure → infrastructure
 ```
 
-## 11. User review and revision
+## 9. User acceptance
 
-Present the preview as an explicit design checkpoint.
+QA PASS is not acceptance.
 
-Use perceptual questions when useful:
+Show the preview and ask perceptual questions. Map feedback to affected decisions and create a new snapshot for material changes.
 
-- “整体更接近哪个方向？”
-- “首页冲击力和内容可找性哪个需要调整？”
-- “哪些页面太满/太空？”
-- “动效太弱、刚好，还是太强？”
-
-When the user changes direction, preserve unaffected decisions. Do not reset the entire state unless the underlying goal changed.
-
-Repeat:
-
-```text
-feedback → affected decisions → new snapshot → Preview → QA → Review
-```
-
-until accepted.
-
-## 12. User acceptance
-
-Only explicit user approval freezes the current snapshot:
+Only explicit user approval freezes the snapshot:
 
 ```text
 previewed → accepted
 ```
 
-Record acceptance notes and decision references.
-
-QA PASS is not user acceptance.
-
-## 13. Renderer selection
+## 10. Renderer
 
 ### Figma
 
-Input:
+Consume the accepted snapshot using the installed Figma workflows. Do not infer design intent again from chat history.
 
-```text
-Accepted Design Snapshot
-```
-
-Use the installed Figma workflows. The renderer must not infer design intent from chat history.
-
-If HTML is accepted but Figma MCP is unavailable, stop and tell the user that the workflow ends at accepted HTML until Figma MCP is installed, authorized, and verified.
+If HTML is accepted but Figma MCP is still unavailable, stop at accepted HTML and tell the user why.
 
 ### Frontend
 
-Select the renderer from the existing project:
+Select the existing project's appropriate renderer:
 
 ```text
 React / Next.js → React Renderer
@@ -485,11 +277,9 @@ Svelte           → Svelte Renderer
 other            → project-appropriate adapter
 ```
 
-Reuse existing router, components, tokens, icons, fonts, utilities, and conventions. Do not rebuild an existing design system without a reason.
+Reuse existing router, components, tokens, icons, fonts, utilities, and conventions. Renderers translate approved decisions; they do not redefine them.
 
-Renderers translate accepted decisions; they do not redefine them.
-
-## 14. Completion gates
+## 11. Completion gates
 
 ### Figma
 
@@ -522,50 +312,55 @@ OUTPUT_SELECTED
 → DONE
 ```
 
-Never report a renderer as completed if it was only specified or simulated.
+## 12. Formal review
 
-## 15. Conversation rules
+When a reviewer asks whether Design Forge is complete, coherent, or production-ready, **MUST load `references/design-review-rubric.md`** before judging it.
 
-- Ask fewer, better questions.
-- Translate expert concepts instead of lecturing.
-- Show concepts before asking the user to make fine-grained design choices.
-- Give concise rationale for consequential decisions.
-- Distinguish user decisions, agent recommendations, verified facts, and assumptions.
-- Keep high-impact subjective choices with the user.
-- Decide low-impact reversible details autonomously when they follow from approved direction.
-- Stop asking once remaining decisions are low-impact or reversible.
-- Do not expose hidden chain-of-thought.
+The rubric is the single entry point for:
+
+- capability boundaries
+- intent fidelity
+- creative distinctiveness
+- reference quality
+- experience / interaction / motion
+- visual language
+- token/system quality
+- workflow integrity
+- preview quality
+- acceptance/revision integrity
+- renderer integrity
+- context/token efficiency
+- anti-patterns
+
+Return one of:
+
+```text
+PASS
+PASS WITH NOTES
+REVISE
+BLOCKED
+```
 
 ## Anti-patterns
 
 Never:
 
-- jump from a vague request directly to Figma/code
+- jump directly from vague intent to UI/Figma
 - ask a giant design questionnaire
-- force professional design terminology
-- present three cosmetic variations as three concepts
-- copy reference websites
-- search only UI galleries when the creative problem calls for broader inspiration
-- call a static screenshot an interactive preview
-- make agent-browser a prerequisite
-- claim verification without evidence
-- silently mutate an accepted snapshot
+- present cosmetic variants as separate concepts
+- copy references
+- use generic AI aesthetics as a substitute for a concept
+- add glow/3D/gradients/HUD effects without purpose
+- call static output an interactive preview
+- fabricate tool/browser/MCP verification
 - overwrite an existing project without inspection
-- let stale decisions leak into a renderer
+- mutate accepted snapshots silently
+- let a renderer redefine the concept
 - block frontend mode because Figma MCP is unavailable
-- dump the whole knowledge library into context
-- treat every heuristic as a hard rule
-- ask the user to choose low-impact implementation details
-- turn ACG into a superficial neon/anime skin
+- load the entire knowledge/reference library by default
 
 ## Success criterion
 
-The user should finish knowing:
+The user should be able to say:
 
-```text
-我不是从几个模板里选了一个，
-而是看到了几个真正不同的体验可能性；
-我知道自己为什么选择它，
-我真正体验并验证过它，
-最终交付物准确体现了这个方向。
-```
+> 我不是从几个模板里选了一个，而是看到了几个真正不同的体验可能性；我知道为什么选它，真正体验并验证过它，最终交付物准确体现了这个方向。
