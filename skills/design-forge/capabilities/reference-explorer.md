@@ -7,11 +7,23 @@ Reference exploration turns vague aesthetic language into inspectable, real-worl
 Use when the user:
 
 - cannot describe a visual direction precisely;
-- uses subjective terms such as cinematic, editorial, premium, playful, technical, calm, brutalist, or minimal;
+- uses subjective terms such as cinematic, editorial, premium, playful, technical, calm, brutalist, ACG, anime, game-like, or minimal;
 - asks for examples/inspiration;
 - needs help choosing between design directions.
 
 Do not browse just to decorate a response when the user's direction is already concrete and no reference would change a decision.
+
+## Local seed library
+
+Before or alongside web exploration, load only the relevant local seed files. These are principle-oriented starting points, not a substitute for current web inspection:
+
+- `references/editorial-layouts.md`
+- `references/cinematic-density.md`
+- `references/acg-workbench.md`
+- `references/diegetic-ui.md`
+- `references/spatial-navigation.md`
+
+Add or load a seed only when it is relevant to the current design question. Do not load the entire reference directory by default.
 
 ## Search procedure
 
@@ -27,10 +39,11 @@ Do not browse just to decorate a response when the user's direction is already c
    - responsive behavior
 2. Search for 3–6 candidate sites using current, relevant web results.
 3. Prefer first-party/product sites and credible design publications when they are materially useful.
-4. Reject candidates that are inaccessible, irrelevant, primarily template galleries without inspectable product behavior, or obvious copies of another candidate.
-5. Select 2–4 references with distinct strengths. Avoid presenting near-duplicates.
-6. For each reference, tell the user exactly what to inspect.
-7. State that references are evidence/inspiration, not templates to copy.
+4. When the problem is creative rather than purely UI-specific, search beyond websites: film, architecture, editorial, games, digital art, exhibitions, photography, and other relevant disciplines.
+5. Reject candidates that are inaccessible, irrelevant, primarily template galleries without inspectable product behavior, or obvious copies of another candidate.
+6. Select 2–4 references with distinct strengths. Avoid presenting near-duplicates.
+7. For each reference, tell the user exactly what to inspect.
+8. State that references are evidence/inspiration, not templates to copy.
 
 ## Reference record
 
@@ -45,7 +58,7 @@ inspect:
   - interaction
 strength:
 limitations:
-source_type: first_party | editorial | gallery | community
+source_type: first_party | editorial | gallery | community | cross_disciplinary
 checked_at:
 ```
 
